@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact information and reservation form for The forest restaurant">
+    <meta name="author" content="Baktiyarova Aruzhan">
+    <title>The forest | Contact</title>
+</head>
+<body>
+    <!--author:Baktiyarova Aruzhan SE-2533-->
+    <header>
+        <h1>Contact The Forest</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="colophon.html">Colophon</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Contact Information</h2>
+            <p>
+                Address: 157 Gornaya Ulbinka village, Glubokovsky district, East Kazakhstan region.
+            </p>
+            <p>
+                Phone: <a href="tel:+77713354393">+7 771 335 43 93</a>
+            </p>
+            <p>
+                instagram: <a href="https://www.instagram.com/theforest.kz/" target="_blank">@theforest.kz</a>
+            </p>
+        </section>
+        <section>
+            <h2>Reservation Form</h2>
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Reservation details</legend>
+                    <p>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    </p>
+                     <p>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </p>
+                     <p>
+                        <label for="phone">Phone number:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                    </p>
+                     <p>
+                        <label for="guests">Number of guests:</label>
+                        <input type="number" id="guests" name="guests" min="1" max="20" required>
+                    </p>
+                     <p>
+                        <label for="date">Reservation date:</label>
+                        <input type="date" id="date" name="date" required>
+                    </p>
+                     <p>Prefered seating area:</p>
+                    <p>
+                        <input type="radio" id="indoor" name="seating" value="indoor" required>
+                        <label for="indoor">Indoor</label>
+                    </p>
+                    <p>
+                        <input type="radio" id="outdoor" name="seating" value="outdoor" required>
+                        <label for="outdoor">Outdoor</label>
+                    </p>
+                    <p>
+                        <label for="occasion">Occasion:</label>
+                        <select id="occasion" name="occasion">
+                            <option value="regular">Regular visit</option>
+                            <option value="birthday">Birthday</option>
+                            <option value="family">Family dinner</option>
+                            <option value="business">Business meeting</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="requests">Special requests:</label>
+                    
+                    </p>
+                    <p> <textarea id="requests" name="Special requests" rows="5" cols="40"placeholder="Write your special requests here"></textarea></p>
+                    <p>
+                        <input type="checkbox" id="confirmation" name="confirmation" required>
+                        <label for="confirmation">I agree to the terms and conditions</label>
+                    </p>
+                    <p>
+                       <button type="submit">Submit </button>
+                       <button type="reset">Reset</button>
+                    </p>
+                </fieldset>
+            </form>
+    </main>
+    <footer>
+        <p>&copy; 2026 The forest</p>
+    </footer>
+</body>
+</html>
