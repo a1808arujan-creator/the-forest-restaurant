@@ -26,6 +26,7 @@
             <p>
                 The restaurant features a diverse menu with a variety of dishes, including traditional Kazakh cuisine, international favorites, and seasonal specialties. Our chefs use fresh, locally sourced ingredients to create flavorful and memorable meals for our guests. authentic, thin-crust Turkish-style pide loaded with varying savory cheeses and premium meats.
             </p>
+            <!-- I used a table because menu items, categories and prices are structured tabular data. -->
             <table>
                 <caption>The forest menu</caption>
                 <thead>
@@ -76,23 +77,45 @@
         </section>
         <section>
             <h2>Menu categories</h2>
-            <ul>
-                <li>Cold appetizers</li>
-                <li>Chef's dishes</li>
-                <li>Side dishes</li>
-                <li>Salads</li>
-                <li>Meat and poultry</li>
-                <li>Fish</li>
-                <li>Soups</li>
-                <li>Desserts</li>
-                <li>Coffee and tea</li>
-                <li>Soft drinks</li>
-            </ul>
+            <p>
+    One of the menu categories is <b>Chef's dishes</b>.
+</p>
+<!-- I used a nested list because the menu has main categories with smaller categories inside them. -->
+<ul>
+    <li>
+        Food
+        <ul>
+            <li>Cold appetizers</li>
+            <li>Salads</li>
+            <li>Chef's dishes</li>
+            <li>Meat &amp; poultry</li>
+            <li>Fish</li>
+            <li>Soups</li>
+            <li>Desserts</li>
+        </ul>
+    </li>
+
+    <li>
+        Drinks
+        <ul>
+            <li>Coffee and tea</li>
+            <li>Soft drinks</li>
+        </ul>
+    </li>
+</ul>
             <p>
                 The Forest features a highly curated Chef's Author menu that fuses sophisticated European cuisine with traditional Kazakh elements and ethnic nuances. Every dish is treated as a work of art, emphasizing organic soursing,suistainability'and flawless visual presentation.
             </p>
+            <h3>How to Explore the Menu</h3>
+
+<ol type="A">
+    <li>Choose a food category.</li>
+    <li>Check the available dishes and prices.</li>
+    <li>Choose a drink or dessert.</li>
+</ol>
         </section>
         <section>
+            <h2>Menu Information</h2>
             <dl>
                 <dt>Chef's dishes:</dt>
                 <dd>A category of dishes prepared by the head chef, featuring innovative combinations of traditional and modern culinary techniques.</dd>
@@ -101,12 +124,19 @@
             </dl>
 
         </section>
-    </main>
+    
     <figure>
         <img src="images/image2.svg" alt="The Forest menu" width="400">
-        <figcaption>Interier</figcaption>    
+        <figcaption>Interier</figcaption>   
+    </figure> 
+    </main>
     <footer>
-        <p>&copy; 2026 The forest</p>
+    <p>
+        Phone:
+        <a href="tel:+77713354393">+7 771 335 43 93</a>
+    </p>
+
+    <p>&copy; 2026 The Forest</p>
     </footer>
 </body>
 </html>

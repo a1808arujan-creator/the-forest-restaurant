@@ -1,0 +1,12 @@
+AI USAGE LOG
+Student: Baktiyarova Aruzhan
+Group: SE-2533
+Project: The Forest
+
+Date: September 8,2026
+Question/topic: How do Git commits work?
+Purpose: since i did not use gt commits before,i used AI to understand how to add changes and create commits during the project.
+
+Date: September 9,2026
+Question/topic: Why would a developer use article instead of section?
+Purpose: I used AI to understand the semantic difference between article and section.

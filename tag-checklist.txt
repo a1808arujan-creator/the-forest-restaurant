@@ -1,0 +1,336 @@
+TAG CHECKLIST
+
+Student: Baktiyarova Aruzhan
+Group: SE-2533
+
+
+REQUIRED ON EVERY PAGE
+
+DOCTYPE
+index.html — line 1
+menu.html — line 1
+contact.html — line 1
+colophon.html — line 1
+
+<html lang="en">
+index.html — line 2
+menu.html — line 2
+contact.html — line 2
+colophon.html — line 2
+
+<meta charset>
+index.html — line 4
+menu.html — line 4
+contact.html — line 4
+colophon.html — line 4
+
+<meta name="viewport">
+index.html — line 5
+menu.html — line 5
+contact.html — line 5
+colophon.html — line 5
+
+<meta name="description">
+index.html — line 6
+menu.html — line 6
+contact.html — line 6
+colophon.html — line 6
+
+<meta name="author">
+index.html — line 7
+menu.html — line 7
+contact.html — line 7
+colophon.html — line 7
+
+<title>
+index.html — line 8
+menu.html — line 8
+contact.html — line 8
+colophon.html — line 8
+
+<h1>
+index.html — line 13
+menu.html — line 13
+contact.html — line 13
+colophon.html — line 13
+
+<header>
+index.html — line 12
+menu.html — line 12
+contact.html — line 12
+colophon.html — line 12
+
+<nav>
+index.html — line 15
+menu.html — line 14
+contact.html — line 14
+colophon.html — line 14
+
+<main>
+index.html — line 24
+menu.html — line 23
+contact.html — line 23
+colophon.html — line 23
+
+<footer>
+index.html — line 80
+menu.html — line 133
+contact.html — line 132
+colophon.html — line 111
+
+
+STRUCTURE
+
+<section>
+index.html — line 25
+
+<article>
+index.html — line 32
+
+<aside>
+index.html — line 75
+
+<figure>
+index.html — line 52
+
+<figcaption>
+index.html — line 54
+
+
+TABLE
+
+<table>
+menu.html — line 30
+
+<caption>
+menu.html — line 31
+
+<thead>
+menu.html — line 32
+
+<tbody>
+menu.html — line 39
+
+<th scope="col">
+menu.html — line 34
+
+
+LISTS
+
+Nested list
+menu.html — outer <ul> line 84
+menu.html — nested <ul> line 87
+
+Ordered list with attribute
+<ol type="A"> — menu.html — line 111
+
+Definition list
+<dl> — menu.html — line 119
+<dt> — menu.html — line 120
+<dd> — menu.html — line 121
+
+
+LINKS
+
+External link with target and rel
+contact.html — lines 39–41
+
+mailto link
+contact.html — line 47
+
+tel link
+contact.html — line 34
+
+First link to an id on the same page
+contact.html — line 57
+href="#reservation"
+
+Second link to an id on the same page
+contact.html — line 123
+href="#contact-info"
+
+
+IMAGES WITH MEANINGFUL ALT
+
+Image 1
+index.html — line 53
+
+Image 2
+index.html — line 57
+
+Image 3
+menu.html — line 129
+
+
+TEXT ELEMENTS
+
+<strong>
+contact.html — line 114
+
+<em>
+index.html — line 35
+
+<b>
+menu.html — line 81
+
+<i>
+colophon.html — line 69
+
+<mark>
+index.html — line 44
+
+<small>
+colophon.html — line 118
+
+<sup>
+colophon.html — line 106
+
+First <abbr title>
+index.html — line 28
+
+Second <abbr title>
+colophon.html — line 30
+
+<blockquote>
+index.html — line 62
+
+<q>
+index.html — line 72
+
+<cite>
+index.html — line 67
+
+<code>
+colophon.html — line 41
+
+<pre>
+colophon.html — line 56
+
+<kbd>
+colophon.html — line 70
+
+<samp>
+colophon.html — line 84
+
+<hr>
+colophon.html — line 88
+
+<br>
+colophon.html — line 100
+
+
+DIV AND SPAN
+
+<div>
+colophon.html — line 75
+
+Comment explaining why div is used
+colophon.html — line 74
+
+<span>
+colophon.html — line 37
+
+Comment explaining why span is used
+colophon.html — line 35
+
+
+HTML ENTITIES
+
+&copy;
+index.html — line 86
+
+&amp;
+menu.html — line 91
+
+&lt;
+colophon.html — line 41
+
+&gt;
+colophon.html — line 41
+
+
+FORM
+
+<form> with action and method
+contact.html — line 63
+
+Comment explaining no server-side processing
+contact.html — line 63
+
+<fieldset>
+contact.html — line 64
+
+<legend>
+contact.html — line 65
+
+<label>
+contact.html — line 67
+
+input type="text"
+contact.html — line 68
+
+input type="email"
+contact.html — line 72
+
+input type="tel"
+contact.html — line 76
+
+input type="number"
+contact.html — line 80
+
+input type="date"
+contact.html — line 84
+
+Radio group
+contact.html — lines 88 and 92
+
+Checkbox
+contact.html — line 110
+
+<select>
+contact.html — line 97
+
+<option>
+contact.html — line 98
+
+<textarea>
+contact.html — line 108
+
+required attribute
+contact.html — line 68
+
+placeholder attribute
+contact.html — line 68
+
+Submit button
+contact.html — line 117
+
+Reset button
+contact.html — line 118
+
+
+AUTHOR COMMENTS
+
+index.html — line 11
+menu.html — line 11
+contact.html — line 11
+colophon.html — line 11
+
+
+EXPLANATORY COMMENTS
+
+index.html
+line 14 — explains why nav is used
+line 31 — explains why article is used
+
+menu.html
+line 29 — explains why table is used
+line 83 — explains why nested list is used
+
+contact.html
+line 60 — explains why section is used
+line 63 — explains that the form has no server-side processing
+
+colophon.html
+line 35 — explains why span is used
+line 74 — explains why div is used

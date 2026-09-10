@@ -21,33 +21,46 @@
         </nav>
     </header>
     <main>
-        <section>
-            <h2>Contact Information</h2>
-            <p>
-                Phone: <a href="tel:+77713354393">+7 771 335 43 93</a>
-            </p>
-            <p>
-                instagram: <a href="https://www.instagram.com/theforest.kz/" target="_blank">@theforest.kz</a>
-            </p>
-        <section>
-            <h2>Contact Information</h2>
-            <p>
-                Address: 157 Gornaya Ulbinka village, Glubokovsky district, East Kazakhstan region.
-            </p>
-            <p>
-                Phone: <a href="tel:+77713354393">+7 771 335 43 93</a>
-            </p>
-            <p>
-                instagram: <a href="https://www.instagram.com/theforest.kz/" target="_blank">@theforest.kz</a>
-            </p>
+    <section id="contact-info">
+        <h2>Contact Information</h2>
+
+        <p>
+            Address: 157 Gornaya Ulbinka village,
+            Glubokovsky district, East Kazakhstan region.
+        </p>
+
+        <p>
+            Phone:
+            <a href="tel:+77713354393">+7 771 335 43 93</a>
+        </p>
+
+        <p>
+            Instagram:
+            <a href="https://www.instagram.com/theforest.kz/"
+               target="_blank"
+               rel="noopener noreferrer">
+                @theforest.kz
+            </a>
+        </p>
+        <p>
+            Email:
+            <a href="mailto:theforest.kz@gmail.com">theforest.kz@gmail.com</a>
+        </p>
+    </section>
+    <section>
             <h2>Reservations</h2>
+            
             <p>
                 If you would like to visit The Forest,you can use the form below to send a reservattion request. Please enter your name,contact information,preffered date and time,and the number of guests. You can also leave a message if you have any additional requests or special requirements. We will do our best to accommodate your needs and will contact you to confirm your reservation.
             </p>
+             <p>
+            <a href="#reservation">Go to reservation form</a>
+        </p>
         </section>
-        <section>
+        <!-- I used a section because the reservation form is a separate topic within the Contact page. -->
+        <section id="reservation">
             <h2>Reservation Form</h2>
-            <form action="#" method="post">
+            <form action="#" method="post"> <!-- This form does not send data yet because there is no server-side processing. -->
                 <fieldset>
                     <legend>Reservation details</legend>
                     <p>
@@ -92,25 +105,38 @@
                         <label for="requests">Special requests:</label>
                     
                     </p>
-                    <p> <textarea id="requests" name="Special requests" rows="5" cols="40"placeholder="Write your special requests here"></textarea></p>
+                    <p> <textarea id="requests" name="Special requests" rows="5" cols="40" placeholder="Write your special requests here"></textarea></p>
                     <p>
                         <input type="checkbox" id="confirmation" name="confirmation" required>
                         <label for="confirmation">I agree to the terms and conditions</label>
                     </p>
+                    <p>
+    <strong>Please check your contact information before submitting the form.</strong>
+</p>
                     <p>
                        <button type="submit">Submit </button>
                        <button type="reset">Reset</button>
                     </p>
                 </fieldset>
             </form>
-    </main>
+             <p>
+            <a href="#contact-info">Back to contact information</a>
+        </p>
+        </section>
+    
     <figure>
         <img src="images/image1.svg" alt="The Forest restaurant" width="400">
         <figcaption>The Forest restaurant inside</figcaption>
     </figure>
+    </main>
     <footer>
-        <p>&copy; 2026 The forest</p>
-    </footer>
-    
+    <p>
+        Phone:
+        <a href="tel:+77713354393">+7 771 335 43 93</a>
+    </p>
+
+    <p>&copy; 2026 The Forest</p>
+</footer>
+   
 </body>
 </html>

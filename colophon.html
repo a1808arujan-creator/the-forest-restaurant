@@ -20,59 +20,102 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <section>
-            <h2>How i built this website</h2>
-            <p>
-                I created this website using <abbr title="Hypertext Markup Language">HTML</abbr> . The project contains four pages:Home,Menu,Contact,Colophon. I used semantic elements to make the structure of each pafe clear and easy to understand
-            </p>
-            <p>
-                For example, I used <code>&lt;header&gt;</code> for the header section, <code>&lt;nav&gt;</code> for the navigation menu, <code>&lt;main&gt;</code> for the main content area, and <code>&lt;footer&gt;</code> for the footer section. I also used <code>&lt;section&gt;</code> and <code>&lt;article&gt;</code> to group related content together.
-            </p>
-        </section>
-        <section>
-            <h2>HTML elements used</h2>
-            <p>
-                The menu page contains an HTML table with real menu items and prices from The Forest. The contact page includes a reservation form with a different input types,labels,radio buttons,a checkbox,a select menu and a textarea.
-            </p>
-            <pre><code>&lt;nav&gt;
-                &lt; a href="index.html"&gt;Home&lt;/a&gt;
-                &lt;/nav&gt;</code></pre>
-                <p>
-                    This is small example of the HTML structure used in my project.
-                </p>
-        </section>
-        <section>
-            <h2>Development process</h2>
-            <p>
-                I worked on a project in Visual studio code. To save my chages,i used <kbd>Ctrl + S</kbd> keyboard shortcut. I used the live server extension to preview my changes in real time. I also used Git to keep a history of the project while i added new pages and features.
-            </p>
-            <p>
-                One example of a Git command i used is:
-            </p>
+ <main>
+
+    <section>
+        <h2>How I Built This Website</h2>
+
+        <p>
+            I created this website using
+            <abbr title="HyperText Markup Language">HTML</abbr>.
+            The project has four pages: Home, Menu, Contact and Colophon.
+            I used semantic elements to make each page clear and easy to understand.
+        </p>
+
+        <!-- Span is used because only a small inline part of this sentence needs to be grouped; no semantic block element fits here. -->
+        <p>
+            The project contains <span>four HTML pages</span>.
+        </p>
+
+        <p>
+            I used <code>&lt;header&gt;</code> for the top of each page,
+            <code>&lt;nav&gt;</code> for navigation,
+            <code>&lt;main&gt;</code> for the main content and
+            <code>&lt;footer&gt;</code> for information at the bottom.
+        </p>
+    </section>
+
+    <section>
+        <h2>HTML Elements Used</h2>
+
+        <p>
+            The Menu page contains a table with real menu items and prices.
+            The Contact page contains a reservation form with different input types.
+        </p>
+
+        <pre><code>&lt;nav&gt;
+    &lt;a href="index.html"&gt;Home&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+
+        <p>
+            This is a small example of the HTML structure used in my project.
+        </p>
+    </section>
+
+    <section>
+        <h2>Development Process</h2>
+
+        <p>
+            I worked on the project in <i>Visual Studio Code</i>.
+            I used <kbd>Ctrl + S</kbd> to save changes and Live Server
+            to preview the website. I also used Git to keep a history of my work.
+        </p>
+
+        <!-- A div is used here only to group technical Git examples; this group does not represent a separate semantic section. -->
+        <div>
+            <p>Git commands used in the project:</p>
+
             <pre><code>git add .
-git commit -m "Added Home page structure"</code></pre>
-            <p>
-                After a successful commit, Git shows onformation about the saved changes. An example of the output is:
-                <samp>[main 1a2b3c4] Added Home page structure
- 1 file changed, 20 insertions(+)</samp>
-            </p>
-        </section>
-        <hr>
-        <section>
-            <h2>Project Notes</h2>
-            <p>This version of the website uses only HTML. CSS and JavaScript are not included in this assignment.
-                The reservation form is also not connected to a backend, so submitted data is not stored or sent to the restaurant
-            </p>
-            <p>
-                The websute was created as a part of my Web Technologies assignment.<br>
-                It will be improved during later stages of the course.
-            </p>
-        </section>
-    </main>
+            git commit -m "Add home page structure"</code></pre>
+        </div>
+
+        <p>
+            After a commit, Git shows information about the saved changes.
+            For example: <samp>1 file changed</samp>.
+        </p>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Project Notes</h2>
+
+        <p>
+            This website currently uses only HTML. CSS and JavaScript are not
+            included in this assignment. The reservation form is not connected
+            to a backend, so submitted data is not stored or sent to the restaurant.
+        </p>
+
+        <p>
+            The website was created for my Web Technologies assignment.<br>
+            It will be improved later in the course.
+        </p>
+
+        <p>
+            The <code>&lt;sup&gt;</code> element can display text such as
+            x<sup>2</sup>.
+        </p>
+    </section>
+
+</main>
     <footer>
         <p>
-            <small>&copy; 2026 The Forest</small>
+             Phone:
+            <a href="tel:+77713354393">+7 771 335 43 93</a>
+        </p>
+
+        <p>
+             <small>&copy; 2026 The Forest</small>
         </p>
     </footer>
 </body>
