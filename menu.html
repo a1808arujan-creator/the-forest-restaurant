@@ -1,142 +1,955 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Menu and the prices at The forest restaurant">
+
+    <meta name="description"
+          content="Explore the menu of The Forest restaurant, including starters, salads, fish, soups, bakery and traditional dishes.">
+
     <meta name="author" content="Baktiyarova Aruzhan">
-    <title>The forest | Menu</title>
+
+    <title>The Forest | Menu</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon"
+          href="images/your-logo.png"
+          type="image/png">
 </head>
-<body>
-    <!--author:Baktiyarova Aruzhan SE-2533-->
-    <header>
-        <h1>Menu</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="colophon.html">Colophon</a></li>
+
+
+<body class="menu-page">
+
+
+<!-- =========================
+     NAVBAR
+     ========================= -->
+
+<nav class="navbar navbar-expand-md">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+            The Forest
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div class="collapse navbar-collapse"
+             id="mainNavbar">
+
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active"
+                       href="menu.html">
+                        Menu
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="gallery.html">
+                        Gallery
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
             </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h2>Selected dishes</h2>
-            <p>
-                The restaurant features a diverse menu with a variety of dishes, including traditional Kazakh cuisine, international favorites, and seasonal specialties. Our chefs use fresh, locally sourced ingredients to create flavorful and memorable meals for our guests. authentic, thin-crust Turkish-style pide loaded with varying savory cheeses and premium meats.
-            </p>
-            <!-- I used a table because menu items, categories and prices are structured tabular data. -->
-            <table>
-                <caption>The forest menu</caption>
+
+
+            <a href="contact.html#reservation"
+               class="btn btn-forest">
+                Book a Table
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<main>
+
+
+<!-- =========================
+     MENU HERO
+     ========================= -->
+
+<section class="menu-hero" id="menu-top">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-12 col-md-8">
+
+                <p class="small text-uppercase">
+                    The Forest
+                </p>
+
+                <h1 class="display-2">
+                    Our Menu
+                </h1>
+
+                <p class="lead">
+                    Discover the menu of The Forest.
+                    Explore cold starters, fresh salads,
+                    fish dishes, soups, traditional bakery
+                    and other dishes prepared for different
+                    tastes and occasions.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     MENU CATEGORIES
+     ========================= -->
+
+<section class="menu-categories py-5">
+
+    <div class="container text-center">
+
+        <p class="section-name">
+            MENU CATEGORIES
+        </p>
+
+        <h2 class="mb-4">
+            Explore Our Menu
+        </h2>
+
+        <p class="text-muted mb-4">
+            Choose a category to quickly find
+            the part of the menu you are interested in.
+        </p>
+
+
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+
+            <a href="#starters"
+               class="btn btn-outline-dark">
+                Cold Starters
+            </a>
+
+            <a href="#salads"
+               class="btn btn-outline-dark">
+                Salads
+            </a>
+
+            <a href="#fish"
+               class="btn btn-outline-dark">
+                Fish
+            </a>
+
+            <a href="#soups"
+               class="btn btn-outline-dark">
+                Soups
+            </a>
+
+            <a href="#sides"
+               class="btn btn-outline-dark">
+                Side Dishes
+            </a>
+
+            <a href="#baursaki"
+               class="btn btn-outline-dark">
+                Baursaki
+            </a>
+
+            <a href="#bakery"
+               class="btn btn-outline-dark">
+                Traditional Bakery
+            </a>
+
+            <a href="#dough"
+               class="btn btn-outline-dark">
+                Dough Dishes
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     COLD STARTERS
+     Bootstrap table
+     ========================= -->
+
+<section id="starters"
+         class="menu-section py-5">
+
+    <div class="container">
+
+        <h2>
+            Cold Starters
+        </h2>
+
+        <div class="table-responsive">
+
+            <table class="table menu-table">
+
                 <thead>
                     <tr>
-                        <th scope="col">Category</th>
-                        <th scope="col">Item</th>
-                        <th scope="col">Price</th>
+                        <th>Dish</th>
+                        <th>Price</th>
                     </tr>
                 </thead>
+
                 <tbody>
+
                     <tr>
-                        <td>salad</td>
-                        <td>BBQ salad with a veal and grilled vegetables</td>
-                        <td>5900T</td>
+                        <td>Assorted bruschetta on rye bread</td>
+                        <td>7,500 ₸</td>
                     </tr>
+
                     <tr>
-                        <td>Meat and poultry</td>
-                        <td>Gourmet Burger</td>
-                        <td>6900T</td>
+                        <td>Cheese platter</td>
+                        <td>9,900 ₸</td>
                     </tr>
+
                     <tr>
-                        <td>Fish</td>
-                        <td>Pike-perch with vegetables in truffle sauce</td>
-                        <td>6900T</td>
+                        <td>Assorted pickles</td>
+                        <td>4,900 ₸</td>
                     </tr>
+
                     <tr>
-                        <td>Soup</td>
-                        <td>Mushroom soup</td>
-                        <td>4000T</td>
+                        <td>Valui mushrooms with aromatic butter</td>
+                        <td>4,900 ₸</td>
                     </tr>
+
                     <tr>
-                        <td>Dessert</td>
-                        <td>The forest dessert</td>
-                        <td>4600T</td>
+                        <td>Milk mushrooms with sour cream</td>
+                        <td>4,900 ₸</td>
                     </tr>
+
                     <tr>
-                        <td>Coffee</td>
-                        <td>Latte</td>
-                        <td>1900T</td>
+                        <td>Antipasti</td>
+                        <td>7,500 ₸</td>
                     </tr>
+
                     <tr>
-                        <td>Lemonade</td>
-                        <td>Kiwi-apple</td>
-                        <td>2300T</td>
+                        <td>Herring Under a Fur Coat rolls</td>
+                        <td>4,900 ₸</td>
                     </tr>
+
+                    <tr>
+                        <td>Stracciatella with fresh tomatoes</td>
+                        <td>5,500 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Poultry pâté with port wine jelly</td>
+                        <td>4,400 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Fruit basket</td>
+                        <td>9,500 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Marinated cabbage with truffle and Parmesan</td>
+                        <td>3,000 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Baked potato with lightly salted herring and pickled onions</td>
+                        <td>3,900 ₸</td>
+                    </tr>
+
                 </tbody>
+
             </table>
-        </section>
-        <section>
-            <h2>Menu categories</h2>
-            <p>
-    One of the menu categories is <b>Chef's dishes</b>.
-</p>
-<!-- I used a nested list because the menu has main categories with smaller categories inside them. -->
-<ul>
-    <li>
-        Food
-        <ul>
-            <li>Cold appetizers</li>
-            <li>Salads</li>
-            <li>Chef's dishes</li>
-            <li>Meat &amp; poultry</li>
-            <li>Fish</li>
-            <li>Soups</li>
-            <li>Desserts</li>
-        </ul>
-    </li>
 
-    <li>
-        Drinks
-        <ul>
-            <li>Coffee and tea</li>
-            <li>Soft drinks</li>
-        </ul>
-    </li>
-</ul>
-            <p>
-                The Forest features a highly curated Chef's Author menu that fuses sophisticated European cuisine with traditional Kazakh elements and ethnic nuances. Every dish is treated as a work of art, emphasizing organic soursing,suistainability'and flawless visual presentation.
-            </p>
-            <h3>How to Explore the Menu</h3>
+        </div>
 
-<ol type="A">
-    <li>Choose a food category.</li>
-    <li>Check the available dishes and prices.</li>
-    <li>Choose a drink or dessert.</li>
-</ol>
-        </section>
-        <section>
-            <h2>Menu Information</h2>
-            <dl>
-                <dt>Chef's dishes:</dt>
-                <dd>A category of dishes prepared by the head chef, featuring innovative combinations of traditional and modern culinary techniques.</dd>
-                <dt>Desserts</dt>
-                <dd>Delicious desserts crafted with the finest ingredients, offering a perfect ending to your meal. Sweet dishes available on The Forest menu</dd>
-            </dl>
+        <a href="#menu-top"
+           class="back-link">
+            ↑ Back to categories
+        </a>
 
-        </section>
-    
-    <figure>
-        <img src="images/image2.svg" alt="The Forest menu" width="400">
-        <figcaption>Interier</figcaption>   
-    </figure> 
-    </main>
-    <footer>
-    <p>
-        Phone:
-        <a href="tel:+77713354393">+7 771 335 43 93</a>
-    </p>
+    </div>
 
-    <p>&copy; 2026 The Forest</p>
-    </footer>
+</section>
+
+
+
+<!-- =========================
+     SALADS
+     ========================= -->
+
+<section id="salads"
+         class="menu-section menu-light py-5">
+
+    <div class="container">
+
+        <h2>
+            Salads
+        </h2>
+
+        <div class="table-responsive">
+
+            <table class="table menu-table">
+
+                <thead>
+                    <tr>
+                        <th>Dish</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Salad with veal tongue, chanterelles and pickled cucumber</td>
+                        <td>6,400 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>BBQ salad with veal and grilled vegetables</td>
+                        <td>5,900 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Vegetable salad with feta mousse and olives</td>
+                        <td>5,700 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Salad with roast beef and baked vegetables</td>
+                        <td>6,200 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Warm salad with trout, fern and avocado</td>
+                        <td>6,500 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Salad with slow-cooked duck, pear and goat cheese</td>
+                        <td>6,400 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Capital salad with smoked trout and vendace caviar</td>
+                        <td>5,900 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Salad with marinated artichokes and sun-dried tomatoes</td>
+                        <td>5,500 ₸</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <a href="#menu-top"
+           class="back-link">
+            ↑ Back to categories
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FISH
+     ========================= -->
+
+<section id="fish"
+         class="menu-section py-5">
+
+    <div class="container">
+
+        <h2>
+            Fish
+        </h2>
+
+        <div class="table-responsive">
+
+            <table class="table menu-table">
+
+                <thead>
+                    <tr>
+                        <th>Dish</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Pozharsky pike-perch cutlet with sour cream sauce and milk mushrooms</td>
+                        <td>6,700 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Halibut in creamy sauce with porcini mushrooms and sun-dried tomatoes</td>
+                        <td>11,000 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Pike-perch with vegetables in truffle sauce</td>
+                        <td>6,900 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Charcoal-grilled fish with Mansini sauce and potato gratin</td>
+                        <td>11,000 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Trout with spinach, red caviar and cauliflower purée</td>
+                        <td>8,600 ₸</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <a href="#menu-top"
+           class="back-link">
+            ↑ Back to categories
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SOUPS
+     ========================= -->
+
+<section id="soups"
+         class="menu-section menu-light py-5">
+
+    <div class="container">
+
+        <h2>
+            Soups
+        </h2>
+
+        <div class="table-responsive">
+
+            <table class="table menu-table">
+
+                <thead>
+                    <tr>
+                        <th>Dish</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Khan-style fish soup with Borodinsky bread and caviar</td>
+                        <td>6,200 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Mushroom soup</td>
+                        <td>4,000 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Borscht with slow-cooked beef cheek</td>
+                        <td>4,900 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Ramen soup with horse meat</td>
+                        <td>6,200 ₸</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <a href="#menu-top"
+           class="back-link">
+            ↑ Back to categories
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SIDE DISHES
+     ========================= -->
+
+<section id="sides"
+         class="menu-section py-5">
+
+    <div class="container">
+
+        <h2>
+            Side Dishes
+        </h2>
+
+        <div class="table-responsive">
+
+            <table class="table menu-table">
+
+                <thead>
+                    <tr>
+                        <th>Dish</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Buckwheat with porcini mushrooms</td>
+                        <td>3,500 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Fried potatoes with wild mushrooms</td>
+                        <td>3,900 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Polba with chanterelles</td>
+                        <td>3,900 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Mashed potatoes with truffle butter</td>
+                        <td>3,400 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Baked potatoes</td>
+                        <td>2,900 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Ajapsandali</td>
+                        <td>3,500 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Cauliflower in walnut sauce</td>
+                        <td>3,300 ₸</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <a href="#menu-top"
+           class="back-link">
+            ↑ Back to categories
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     BAURSAKI
+     ========================= -->
+
+<section id="baursaki"
+         class="menu-section menu-light py-5">
+
+    <div class="container">
+
+        <h2>
+            Baursaki
+        </h2>
+
+        <p class="text-muted">
+            Each serving contains 5 pieces.
+        </p>
+
+        <div class="table-responsive">
+
+            <table class="table menu-table">
+
+                <thead>
+                    <tr>
+                        <th>Dish</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Baursaki with wild mushrooms</td>
+                        <td>4,400 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Baursaki with chicken pâté, foie gras and berry sauce</td>
+                        <td>5,200 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Baursaki with halloumi cheese</td>
+                        <td>4,400 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Baursaki with horse cheek rillettes</td>
+                        <td>5,200 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Baursaki with smoked trout and caviar</td>
+                        <td>5,200 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Assorted baursaki</td>
+                        <td>5,500 ₸</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <a href="#menu-top"
+           class="back-link">
+            ↑ Back to categories
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     TRADITIONAL BAKERY
+     ========================= -->
+
+<section id="bakery"
+         class="menu-section py-5">
+
+    <div class="container">
+
+        <h2>
+            Traditional Bakery
+        </h2>
+
+        <div class="table-responsive">
+
+            <table class="table menu-table">
+
+                <thead>
+                    <tr>
+                        <th>Dish</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Pide with minced meat, cabbage and nuts</td>
+                        <td>5,500 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Pide with tomatoes and stracciatella</td>
+                        <td>4,900 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Pide with eel and avocado</td>
+                        <td>6,500 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Pide with truffle and stracciatella</td>
+                        <td>5,100 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Pide with trout and caviar sauce</td>
+                        <td>6,200 ₸</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <a href="#menu-top"
+           class="back-link">
+            ↑ Back to categories
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     DOUGH DISHES
+     ========================= -->
+
+<section id="dough"
+         class="menu-section menu-light py-5">
+
+    <div class="container">
+
+        <h2>
+            Dough Dishes
+        </h2>
+
+        <div class="table-responsive">
+
+            <table class="table menu-table">
+
+                <thead>
+                    <tr>
+                        <th>Dish</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Manti with shrimp and Tom Yum sauce</td>
+                        <td>7,700 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Black manti with trout and halibut in bisque sauce</td>
+                        <td>7,700 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Altai pelmeni</td>
+                        <td>4,900 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Shrimp pelmeni in Tom Yum broth</td>
+                        <td>6,400 ₸</td>
+                    </tr>
+
+                    <tr>
+                        <td>Vareniki with potatoes and wild mushroom julienne</td>
+                        <td>4,200 ₸</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <a href="#menu-top"
+           class="back-link">
+            ↑ Back to categories
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FINAL SECTION
+     ========================= -->
+
+<section class="final-section py-5">
+
+    <div class="container text-center">
+
+        <h2>
+            Ready to Visit The Forest?
+        </h2>
+
+        <p class="lead">
+            Explore our dishes and choose the perfect
+            setting for your next lunch, dinner
+            or special occasion.
+        </p>
+
+        <a href="gallery.html"
+           class="btn btn-light btn-lg">
+            Explore the Restaurant
+        </a>
+
+        <a href="contact.html#reservation"
+           class="btn btn-outline-light btn-lg">
+            Book a Table
+        </a>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+     ========================= -->
+
+<footer class="py-5">
+
+    <div class="container">
+
+        <div class="row">
+
+
+            <div class="col-12 col-md-4">
+
+                <h2>
+                    The Forest
+                </h2>
+
+                <p>
+                    Good food. Great company.
+                    A place to belong.
+                </p>
+
+            </div>
+
+
+            <div class="col-12 col-md-4">
+
+                <h3>
+                    Navigation
+                </h3>
+
+                <ul class="list-unstyled">
+
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="menu.html">Menu</a>
+                    </li>
+
+                    <li>
+                        <a href="gallery.html">Gallery</a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-12 col-md-4">
+
+                <h3>
+                    Contact
+                </h3>
+
+                <p>
+                    <a href="tel:+77713354393">
+                        +7 771 335 43 93
+                    </a>
+                </p>
+
+                <p>
+                    Ust-Kamenogorsk, Kazakhstan
+                </p>
+
+            </div>
+
+
+        </div>
+
+        <hr>
+
+        <p class="text-center small">
+            &copy; 2026 The Forest Restaurant
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- Bootstrap JavaScript -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
 </body>
 </html>
