@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,692 +8,451 @@
 
     <meta name="description"
           content="The Forest restaurant in Ust-Kamenogorsk. Discover our menu, atmosphere, gallery and reservation information.">
-
     <meta name="author" content="Baktiyarova Aruzhan">
 
     <title>The Forest | Home</title>
 
-    <!-- Bootstrap 5 -->
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
           rel="stylesheet">
 
-    <!-- My CSS -->
+   
     <link rel="stylesheet" href="style.css">
 
     <link rel="icon" href="images/your-logo.png" type="image/png">
 </head>
 
-
 <body>
 
+    <header>
+        <nav class="navbar navbar-expand-lg forest-navbar">
+  <div class="container">
 
-<!-- =========================
-     NAVBAR
-     ========================= -->
+    <a class="navbar-brand" href="index.html">
+      The Forest
+    </a>
 
-<nav class="navbar navbar-expand-md">
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <div class="container">
-
-        <a class="navbar-brand" href="index.html">
-            The Forest
-        </a>
-
-
-        <button class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#mainNavbar">
-
-            <span class="navbar-toggler-icon"></span>
-
-        </button>
-
-
-        <div class="collapse navbar-collapse" id="mainNavbar">
-
-            <ul class="navbar-nav mx-auto">
-
-                <li class="nav-item">
-                    <a class="nav-link active" href="index.html">
-                        Home
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="menu.html">
-                        Menu
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="gallery.html">
-                        Gallery
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">
-                        Contact
-                    </a>
-                </li>
-
-            </ul>
-
-
-            <a href="contact.html#reservation"
-               class="btn btn-forest">
-
-                Book a Table
-
-            </a>
-
-        </div>
-
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="menu.html">Menu</a>
+        <a class="nav-link" href="gallery.html">Gallery</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </div>
     </div>
 
+  </div>
 </nav>
+    </header>
 
+    <main>
 
+        <section class="hero d-flex align-items-center py-5 text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-8">
 
-<main>
+                        <p class="small text-uppercase text-white-50 mb-3">
+                            Good food. Great company. A place to belong.
+                        </p>
 
+                        <h1 class="display-2 fw-normal text-white mb-4">
+                            The Forest Restaurant
+                        </h1>
 
-<!-- =========================
-     HERO
-     ========================= -->
+                        <p class="lead text-white mb-4">
+                            Discover a warm atmosphere,
+                            nature-inspired surroundings and a diverse
+                            menu at The Forest restaurant in
+                            Ust-Kamenogorsk.
+                        </p>
 
-<section class="hero">
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="menu.html"
+                               class="btn btn-forest btn-lg">
+                                View Menu
+                            </a>
 
-    <div class="container">
+                            <a href="contact.html#reservation"
+                               class="btn btn-outline-light btn-lg">
+                                Book a Table
+                            </a>
+                        </div>
 
-        <div class="row">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <div class="col-12 col-md-8">
+      
+        <section class="about py-5">
+            <div class="container">
+                <div class="row align-items-center g-4">
 
-                <p class="small text-uppercase">
-                    Good food. Great company. A place to belong.
+                    <div class="col-12 col-md-6">
+                        <img src="images/interior.jpg"
+                             class="img-fluid w-100 rounded-3 about-image"
+                             alt="Dining area inside The Forest restaurant">
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <div class="p-3 p-lg-4">
+
+                            <p class="section-name small text-uppercase fw-bold mb-3">
+                                ABOUT US
+                            </p>
+
+                            <h2 class="display-6 mb-4">
+                                About The Forest
+                            </h2>
+
+                            <p>
+                                The Forest is a restaurant in
+                                Ust-Kamenogorsk created for relaxed
+                                dinners, family gatherings and special
+                                occasions.
+                            </p>
+
+                            <p>
+                                Its atmosphere is inspired by nature
+                                and combines warm lighting, natural
+                                details and comfortable dining spaces.
+                            </p>
+
+                            <p>
+                                Guests can explore a varied menu that
+                                includes cold starters, salads,
+                                chef's dishes, meat, fish,
+                                traditional bakery, desserts and drinks.
+                            </p>
+
+                            <a href="gallery.html"
+                               class="btn btn-outline-dark mt-2">
+                                Discover The Forest
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    
+        <section class="why py-5">
+            <div class="container">
+
+                <h2 class="display-6 text-center mb-5">
+                    Why Visit The Forest?
+                </h2>
+
+                <div class="row g-4">
+
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <article class="reason-card h-100 p-4 border rounded-3 text-center shadow-sm">
+                            <h3 class="fs-4 mb-3">
+                                Distinctive Menu
+                            </h3>
+                            <p class="mb-0">
+                                Explore a diverse selection of starters,
+                                main dishes, traditional bakery,
+                                desserts and drinks.
+                            </p>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <article class="reason-card h-100 p-4 border rounded-3 text-center shadow-sm">
+                            <h3 class="fs-4 mb-3">
+                                Unique Atmosphere
+                            </h3>
+                            <p class="mb-0">
+                                Warm lighting, natural materials and
+                                forest-inspired details create a
+                                distinctive dining environment.
+                            </p>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <article class="reason-card h-100 p-4 border rounded-3 text-center shadow-sm">
+                            <h3 class="fs-4 mb-3">
+                                Special Occasions
+                            </h3>
+                            <p class="mb-0">
+                                The restaurant offers spaces suitable
+                                for dinners, family gatherings and
+                                special celebrations.
+                            </p>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <article class="reason-card h-100 p-4 border rounded-3 text-center shadow-sm">
+                            <h3 class="fs-4 mb-3">
+                                Different Spaces
+                            </h3>
+                            <p class="mb-0">
+                                Visitors can discover the restaurant
+                                interior, exterior and VIP spaces
+                                in our gallery.
+                            </p>
+                        </article>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+  
+        <section class="gallery-preview py-5">
+            <div class="container-fluid">
+
+                <h2 class="display-6 text-center mb-3">
+                    Discover The Forest
+                </h2>
+
+                <p class="text-center text-muted mb-5">
+                    Take a closer look at the food,
+                    interior and atmosphere of The Forest.
                 </p>
 
-                <h1 class="display-2">
-                    The Forest Restaurant
-                </h1>
+                <div class="row g-3">
 
-                <p class="lead">
-                    Discover a warm atmosphere,
-                    nature-inspired surroundings and a diverse
-                    menu at The Forest restaurant in
-                    Ust-Kamenogorsk.
-                </p>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <img src="images/gallery1.jpg"
+                             class="img-fluid w-100 rounded-3 gallery-image"
+                             alt="Dish served at The Forest restaurant">
+                    </div>
 
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <img src="images/gallery2.png"
+                             class="img-fluid w-100 rounded-3 gallery-image"
+                             alt="Interior of The Forest restaurant">
+                    </div>
 
-                <a href="menu.html"
-                   class="btn btn-forest btn-lg">
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <img src="images/gallery3.jpg"
+                             class="img-fluid w-100 rounded-3 gallery-image"
+                             alt="Table setting at The Forest restaurant">
+                    </div>
 
-                    View Menu
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <img src="images/gallery4.jpg"
+                             class="img-fluid w-100 rounded-3 gallery-image"
+                             alt="Dining space at The Forest restaurant">
+                    </div>
 
-                </a>
+                </div>
 
-
-                <a href="contact.html#reservation"
-                   class="btn btn-outline-light btn-lg">
-
-                    Book a Table
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     ABOUT
-     ========================= -->
-
-<section class="about py-5">
-
-    <div class="container">
-
-        <div class="row align-items-center">
-
-
-            <!-- Image -->
-
-            <div class="col-12 col-md-6">
-
-                <img src="images/interior.jpg"
-                     class="img-fluid about-image"
-                     alt="Dining area inside The Forest restaurant">
+                <div class="text-center mt-4">
+                    <a href="gallery.html" class="btn btn-forest">
+                        View Full Gallery
+                    </a>
+                </div>
 
             </div>
+        </section>
+
+   
+        <section class="visit py-5">
+            <div class="container">
+
+                <h2 class="display-6 text-center mb-5">
+                    Plan Your Visit
+                </h2>
+
+                <div class="row g-4">
+
+                    <!-- LOCATION -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 rounded-3 shadow-sm">
+                            <div class="card-body p-4">
+
+                                <h3 class="card-title fs-4 mb-3">
+                                    Location
+                                </h3>
+
+                                <p class="card-text">
+                                    The Forest Restaurant<br>
+                                    Ust-Kamenogorsk, Kazakhstan<br>
+                                    Улица Горная Ульбинка, 157
+                                </p>
+
+                                <a href="contact.html"
+                                   class="btn btn-outline-dark btn-sm">
+                                    Contact Information
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RESERVATIONS -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100 rounded-3 shadow-sm">
+                            <div class="card-body p-4">
+
+                                <h3 class="card-title fs-4 mb-3">
+                                    Reservations
+                                </h3>
+
+                                <p class="card-text">
+                                    Planning a dinner, celebration
+                                    or a visit with friends and family?
+                                    Send a reservation request through
+                                    our booking form.
+                                </p>
+
+                                <a href="contact.html#reservation"
+                                   class="btn btn-forest btn-sm">
+                                    Reserve a Table
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CONTACT -->
+                    <div class="col-12 col-md-12 col-lg-4">
+                        <div class="card h-100 rounded-3 shadow-sm">
+                            <div class="card-body p-4">
+
+                                <h3 class="card-title fs-4 mb-3">
+                                    Contact Us
+                                </h3>
+
+                                <div class="row">
+
+                                    <div class="col-12">
+                                        <p>
+                                            <strong>Phone:</strong><br>
+                                            <a href="tel:+77713354393">
+                                                +7 771 335 43 93
+                                            </a>
+                                        </p>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <p>
+                                            <strong>Instagram:</strong><br>
+                                            <a href="https://www.instagram.com/theforest.kz/"
+                                               target="_blank"
+                                               rel="noopener noreferrer">
+                                                @theforest.kz
+                                            </a>
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    
 
 
-            <!-- Text -->
+    </main>
 
-            <div class="col-12 col-md-6">
 
-                <div class="about-text">
+       <footer class="py-5">
 
-                    <p class="section-name">
-                        ABOUT US
-                    </p>
+        <div class="container">
 
-                    <h2>
-                        About The Forest
+            <div class="row g-4 text-center text-md-start">
+
+                <!-- BRAND -->
+                <div class="col-12 col-md-4">
+
+                    <h2 class="fs-3 text-white">
+                        The Forest
                     </h2>
 
                     <p>
-                        The Forest is a restaurant in
-                        Ust-Kamenogorsk created for relaxed
-                        dinners, family gatherings and special
-                        occasions.
+                        Good food. Great company.<br>
+                        A place to belong.
                     </p>
-
-                    <p>
-                        Its atmosphere is inspired by nature
-                        and combines warm lighting, natural
-                        details and comfortable dining spaces.
-                    </p>
-
-                    <p>
-                        Guests can explore a varied menu that
-                        includes cold starters, salads,
-                        chef's dishes, meat, fish,
-                        traditional bakery, desserts and drinks.
-                    </p>
-
-
-                    <a href="gallery.html"
-                       class="btn btn-outline-dark">
-
-                        Discover The Forest
-
-                    </a>
 
                 </div>
 
-            </div>
+                <!-- NAVIGATION -->
+                <div class="col-12 col-md-4">
 
-        </div>
+                    <h3 class="fs-6 text-uppercase text-white">
+                        Navigation
+                    </h3>
 
-    </div>
+                    <ul class="list-unstyled">
 
-</section>
+                        <li class="mb-2">
+                            <a href="index.html">
+                                Home
+                            </a>
+                        </li>
 
+                        <li class="mb-2">
+                            <a href="menu.html">
+                                Menu
+                            </a>
+                        </li>
 
+                        <li class="mb-2">
+                            <a href="gallery.html">
+                                Gallery
+                            </a>
+                        </li>
 
-<!-- =========================
-     WHY VISIT
-     ========================= -->
+                        <li class="mb-2">
+                            <a href="contact.html">
+                                Contact
+                            </a>
+                        </li>
 
-<section class="why py-5">
+                    </ul>
 
-    <div class="container">
+                </div>
 
-        <h2 class="text-center mb-5">
-            Why Visit The Forest?
-        </h2>
+                <!-- CONTACT -->
+                <div class="col-12 col-md-4">
 
-
-        <div class="row g-4">
-
-
-            <div class="col-12 col-md-6 col-lg-3">
-
-                <div class="reason-card">
-
-                    <h3>
-                        Distinctive Menu
+                    <h3 class="fs-6 text-uppercase text-white">
+                        Contact
                     </h3>
 
                     <p>
-                        Explore a diverse selection of starters,
-                        main dishes, traditional bakery,
-                        desserts and drinks.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-12 col-md-6 col-lg-3">
-
-                <div class="reason-card">
-
-                    <h3>
-                        Unique Atmosphere
-                    </h3>
-
-                    <p>
-                        Warm lighting, natural materials and
-                        forest-inspired details create a
-                        distinctive dining environment.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-12 col-md-6 col-lg-3">
-
-                <div class="reason-card">
-
-                    <h3>
-                        Special Occasions
-                    </h3>
-
-                    <p>
-                        The restaurant offers spaces suitable
-                        for dinners, family gatherings and
-                        special celebrations.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="col-12 col-md-6 col-lg-3">
-
-                <div class="reason-card">
-
-                    <h3>
-                        Different Spaces
-                    </h3>
-
-                    <p>
-                        Visitors can discover the restaurant
-                        interior, exterior and VIP spaces
-                        in our gallery.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     GALLERY
-     container-fluid is used
-     because the gallery needs
-     more screen width.
-     ========================= -->
-
-<section class="gallery-preview py-5">
-
-    <div class="container-fluid">
-
-        <h2 class="text-center">
-            Discover The Forest
-        </h2>
-
-        <p class="text-center text-muted mb-5">
-            Take a closer look at the food,
-            interior and atmosphere of The Forest.
-        </p>
-
-
-        <div class="row g-3">
-
-
-            <div class="col-12 col-md-6 col-lg-3">
-
-                <img src="images/gallery1.jpg"
-                     class="img-fluid gallery-image"
-                     alt="Dish served at The Forest restaurant">
-
-            </div>
-
-
-            <div class="col-12 col-md-6 col-lg-3">
-
-                <img src="images/gallery2.png"
-                     class="img-fluid gallery-image"
-                     alt="Interior of The Forest restaurant">
-
-            </div>
-
-
-            <div class="col-12 col-md-6 col-lg-3">
-
-                <img src="images/gallery3.jpg"
-                     class="img-fluid gallery-image"
-                     alt="Table setting at The Forest restaurant">
-
-            </div>
-
-
-            <div class="col-12 col-md-6 col-lg-3">
-
-                <img src="images/gallery4.jpg"
-                     class="img-fluid gallery-image"
-                     alt="Dining space at The Forest restaurant">
-
-            </div>
-
-
-        </div>
-
-
-        <div class="text-center mt-4">
-
-            <a href="gallery.html"
-               class="btn btn-forest">
-
-                View Full Gallery
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     PLAN YOUR VISIT
-
-     Bootstrap component: Cards
-     ========================= -->
-
-<section class="visit py-5">
-
-    <div class="container">
-
-        <h2 class="text-center mb-5">
-            Plan Your Visit
-        </h2>
-
-
-        <div class="row g-4">
-
-
-            <!-- LOCATION -->
-
-            <div class="col-12 col-md-6 col-lg-4">
-
-                <div class="card h-100">
-
-                    <div class="card-body">
-
-                        <h3 class="card-title">
-                            Location
-                        </h3>
-
-                        <p class="card-text">
-                            The Forest Restaurant
-                            <br>
-                            Ust-Kamenogorsk, Kazakhstan
-                            <br>
-                            Улица Горная Ульбинка, 157
-                        </p>
-
-                        <a href="contact.html"
-                           class="btn btn-outline-dark btn-sm">
-
-                            Contact Information
-
+                        <a href="tel:+77713354393">
+                            +7 771 335 43 93
                         </a>
+                    </p>
 
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- RESERVATION -->
-
-            <div class="col-12 col-md-6 col-lg-4">
-
-                <div class="card h-100">
-
-                    <div class="card-body">
-
-                        <h3 class="card-title">
-                            Reservations
-                        </h3>
-
-                        <p class="card-text">
-                            Planning a dinner, celebration
-                            or a visit with friends and family?
-                            Send a reservation request through
-                            our booking form.
-                        </p>
-
-                        <a href="contact.html#reservation"
-                           class="btn btn-forest btn-sm">
-
-                            Reserve a Table
-
-                        </a>
-
-                    </div>
+                    <p>
+                        Ust-Kamenogorsk, Kazakhstan
+                    </p>
 
                 </div>
 
             </div>
 
+            <hr class="my-4">
 
-
-            <!-- CONTACT -->
-
-            <div class="col-12 col-md-12 col-lg-4">
-
-                <div class="card h-100">
-
-                    <div class="card-body">
-
-                        <h3 class="card-title">
-                            Contact Us
-                        </h3>
-
-
-                        <!-- Nested row -->
-                        <div class="row">
-
-                            <div class="col-12">
-
-                                <p>
-                                    <strong>Phone:</strong>
-                                    <br>
-
-                                    <a href="tel:+77713354393">
-                                        +7 771 335 43 93
-                                    </a>
-                                </p>
-
-                            </div>
-
-
-                            <div class="col-12">
-
-                                <p>
-                                    <strong>Instagram:</strong>
-                                    <br>
-
-                                    <a href="https://www.instagram.com/theforest.kz/"
-                                       target="_blank">
-
-                                        @theforest.kz
-
-                                    </a>
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-            </div>
-
+            <p class="text-center small mb-0">
+                &copy; 2026 The Forest Restaurant
+            </p>
 
         </div>
 
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     FINAL SECTION
-     ========================= -->
-
-<section class="final-section py-5">
-
-    <div class="container text-center">
-
-        <h2>
-            A Taste of Nature
-        </h2>
-
-        <p class="lead">
-            Discover The Forest and find a space
-            for your next dinner or special occasion.
-        </p>
-
-
-        <a href="menu.html"
-           class="btn btn-light btn-lg">
-
-            Explore Our Menu
-
-        </a>
-
-
-        <a href="contact.html#reservation"
-           class="btn btn-outline-light btn-lg">
-
-            Book a Table
-
-        </a>
-
-    </div>
-
-</section>
-
-
-</main>
-
-
-
-<!-- =========================
-     FOOTER
-     ========================= -->
-
-<footer class="py-5">
-
-    <div class="container">
-
-        <div class="row">
-
-
-            <div class="col-12 col-md-4">
-
-                <h2>
-                    The Forest
-                </h2>
-
-                <p>
-                    Good food. Great company.
-                    A place to belong.
-                </p>
-
-            </div>
-
-
-            <div class="col-12 col-md-4">
-
-                <h3>
-                    Navigation
-                </h3>
-
-                <ul class="list-unstyled">
-
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-
-                    <li>
-                        <a href="menu.html">Menu</a>
-                    </li>
-
-                    <li>
-                        <a href="gallery.html">Gallery</a>
-                    </li>
-
-                    <li>
-                        <a href="contact.html">Contact</a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-            <div class="col-12 col-md-4">
-
-                <h3>
-                    Contact
-                </h3>
-
-                <p>
-                    <a href="tel:+77713354393">
-                        +7 771 335 43 93
-                    </a>
-                </p>
-
-                <p>
-                    Ust-Kamenogorsk, Kazakhstan
-                </p>
-
-            </div>
-
-
-        </div>
-
-
-        <hr>
-
-
-        <p class="text-center small">
-            &copy; 2026 The Forest Restaurant
-        </p>
-
-    </div>
-
-</footer>
-
-
-
-<!-- Bootstrap JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-</script>
-
+    </footer>
 
 </body>
 </html>

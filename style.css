@@ -1,1266 +1,240 @@
-/* =========================================
-   THE FOREST RESTAURANT
-   ========================================= */
 
 
-/* ---------- GENERAL ---------- */
 
 body {
-    margin: 0;
-    background-color: #f4efe7;
+    background: #f4efe7;
     color: #382a22;
-
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.7;
 }
 
-
-h1,
-h2,
-h3 {
+h1, h2, h3, .navbar-brand {
     font-family: Georgia, "Times New Roman", serif;
     color: #493226;
 }
 
 
-h2 {
-    font-size: 2.7rem;
-}
-
-
-a {
-    transition: 0.2s;
-}
-
-
-
-/* =========================================
-   NAVBAR
-   ========================================= */
 
 .navbar {
-    min-height: 80px;
-
-    background-color: #f8f4ed;
-
-    border-bottom: 1px solid #ded3c7;
+    background: #f8f4ed;
 }
 
-
-.navbar-brand {
-    font-family: Georgia, "Times New Roman", serif;
-
-    font-size: 1.7rem;
-
-    letter-spacing: 2px;
-
+.navbar-brand, .nav-link {
     color: #493226;
 }
 
-
-.navbar-brand:hover {
+.nav-link:hover, .navbar-brand:hover {
     color: #795844;
 }
 
 
-.nav-link {
-    color: #493b32;
-
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-
-.nav-link:hover {
-    color: #93694e;
-}
-
-
-.nav-link.active {
-    color: #563925;
-    font-weight: bold;
-}
-
-
-
-/* =========================================
-   FOREST BUTTON
-   ========================================= */
 
 .btn-forest {
-    background-color: #563925;
-
+    background: #563925;
     border-color: #563925;
-
-    color: white;
+    color: #fff;
 }
-
 
 .btn-forest:hover {
-    background-color: #3f2a20;
-
+    background: #3f2a20;
     border-color: #3f2a20;
-
-    color: white;
+    color: #fff;
 }
 
 
 
-/* =========================================
-   HERO
-   ========================================= */
+.hero,
+.menu-hero,
+.gallery-hero,
+.contact-hero {
+    background-size: cover;
+    background-position: center;
+}
 
 .hero {
     min-height: 650px;
-
-    display: flex;
-    align-items: center;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(26, 17, 12, 0.82),
-            rgba(26, 17, 12, 0.45),
-            rgba(26, 17, 12, 0.10)
-        ),
+    background-image:
+        linear-gradient(90deg,
+            rgba(26,17,12,.82),
+            rgba(26,17,12,.45),
+            rgba(26,17,12,.1)),
         url("images/hero.png");
-
-    background-size: cover;
-    background-position: center;
-
-    color: white;
 }
 
-
-.hero h1 {
-    color: white;
-
-    font-family: Georgia, "Times New Roman", serif;
-
-    font-weight: normal;
-
-    margin-bottom: 25px;
+.menu-hero {
+    min-height: 570px;
+    background-image:
+        linear-gradient(90deg,
+            rgba(26,17,12,.84),
+            rgba(26,17,12,.45),
+            rgba(26,17,12,.1)),
+        url("images/menu-hero.png");
 }
 
-
-.hero .lead {
-    max-width: 650px;
-
-    color: #eee6df;
-
-    margin-bottom: 30px;
+.gallery-hero {
+    min-height: 570px;
+    background-image:
+        linear-gradient(90deg,
+            rgba(26,17,12,.82),
+            rgba(26,17,12,.42),
+            rgba(26,17,12,.1)),
+        url("images/gallery2.png");
 }
 
-
-.hero .small {
-    letter-spacing: 3px;
-
-    color: #ddd1c7;
+.contact-hero {
+    min-height: 500px;
+    background-image:
+        linear-gradient(90deg,
+            rgba(26,17,12,.84),
+            rgba(26,17,12,.45),
+            rgba(26,17,12,.12)),
+        url("images/hero.png");
 }
 
-
-.hero .btn {
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
-
-
-
-/* =========================================
-   ABOUT
-   ========================================= */
-
-.about {
-    background-color: #f7f2eb;
-}
-
-
-.about-image {
-    width: 100%;
-    height: 500px;
-
-    object-fit: cover;
-
-    border-radius: 12px;
-}
-
-
-.about-text {
-    padding: 40px;
-}
-
-
-.about h2 {
-    font-size: 3rem;
-
-    margin-bottom: 25px;
-}
-
-
-.about p {
-    color: #66584e;
-}
-
+/* цвета колор секшн */
 
 .section-name {
-    color: #93694e !important;
-
-    font-size: 0.8rem;
-
+    color: #93694e;
     letter-spacing: 3px;
-
-    font-weight: bold;
 }
 
-
-
-/* =========================================
-   WHY VISIT
-   ========================================= */
-
-.why {
-    background-color: #e9e0d4;
+.about,
+.gallery-preview,
+.gallery-section,
+.exterior-section,
+.contact-info,
+.menu-section {
+    background: #f7f2eb;
 }
 
-
-.reason-card {
-    height: 100%;
-
-    padding: 30px 22px;
-
-    background-color: #f5eee5;
-
-    border: 1px solid #d8cbbc;
-
-    border-radius: 12px;
-
-    text-align: center;
-
-    transition: 0.2s;
+.why,
+.vip-section,
+.menu-categories,
+.reservation-section {
+    background: #e9e0d4;
 }
 
-
-.reason-card:hover {
-    transform: translateY(-5px);
-
-    box-shadow: 0 10px 25px rgba(62, 42, 29, 0.10);
+.visit,
+.menu-section.menu-light {
+    background: #eee6dc;
 }
 
+/* сурет */
 
-.reason-card h3 {
-    font-size: 1.4rem;
-
-    margin-bottom: 15px;
+.about-image {
+    height: 500px;
+    object-fit: cover;
 }
-
-
-.reason-card p {
-    color: #706157;
-
-    margin-bottom: 0;
-}
-
-
-
-/* =========================================
-   GALLERY
-   ========================================= */
-
-.gallery-preview {
-    background-color: #f7f2eb;
-}
-
-
-.gallery-preview h2 {
-    margin-bottom: 15px;
-}
-
 
 .gallery-image {
-    width: 100%;
     height: 380px;
-
     object-fit: cover;
-
-    border-radius: 10px;
-
-    transition: 0.2s;
+    transition: transform .2s;
 }
-
 
 .gallery-image:hover {
     transform: scale(1.02);
 }
 
-
-
-/* =========================================
-   PLAN YOUR VISIT
-   ========================================= */
-
-.visit {
-    background-color: #eee6dc;
+.gallery-card img {
+    height: 430px;
+    object-fit: cover;
 }
 
+.exterior-image {
+    height: 480px;
+    object-fit: cover;
+}
 
+.contact-image {
+    height: 550px;
+    object-fit: cover;
+}
+
+/* карточка */
+
+.reason-card {
+    background: #f5eee5;
+    transition: transform .2s;
+}
+
+.gallery-card,
 .visit .card {
-    background-color: #faf7f2;
-
-    border: 1px solid #ded2c5;
-
-    border-radius: 12px;
-
-    box-shadow: 0 7px 20px rgba(50, 34, 25, 0.06);
-
-    transition: 0.2s;
+    background: #faf7f2;
+    transition: transform .2s;
 }
 
-
+.reason-card:hover,
+.gallery-card:hover,
 .visit .card:hover {
     transform: translateY(-4px);
 }
 
-
-.visit .card-body {
-    padding: 30px;
-}
-
-
-.visit .card-title {
-    color: #493226;
-
-    font-size: 1.5rem;
-
-    margin-bottom: 20px;
-}
-
-
-.visit .card-text {
-    color: #6d5e54;
-}
-
-
-.visit a:not(.btn) {
-    color: #674632;
-
-    text-decoration: none;
-}
-
-
-.visit a:not(.btn):hover {
-    text-decoration: underline;
-}
-
-
-
-/* =========================================
-   FINAL SECTION
-   ========================================= */
-
-.final-section {
-    min-height: 360px;
-
-    display: flex;
-    align-items: center;
-
-    background:
-        linear-gradient(
-            rgba(44, 29, 21, 0.92),
-            rgba(44, 29, 21, 0.92)
-        );
-
-    color: white;
-}
-
-
-.final-section h2 {
-    color: white;
-
-    font-size: 3.2rem;
-
-    margin-bottom: 20px;
-}
-
-
-.final-section p {
-    max-width: 650px;
-
-    margin-left: auto;
-    margin-right: auto;
-
-    color: #ded4cc;
-
-    margin-bottom: 30px;
-}
-
-
-.final-section .btn {
-    margin: 5px;
-}
-
-
-
-/* =========================================
-   FOOTER
-   ========================================= */
-
-footer {
-    background-color: #2c1e17;
-
-    color: #d9cec5;
-}
-
-
-footer h2,
-footer h3 {
-    color: white;
-}
-
-
-footer h2 {
-    font-size: 1.7rem;
-
-    letter-spacing: 2px;
-}
-
-
-footer h3 {
-    font-size: 1rem;
-
-    text-transform: uppercase;
-
-    letter-spacing: 2px;
-}
-
-
-footer ul {
-    padding: 0;
-}
-
-
-footer li {
-    margin-bottom: 7px;
-}
-
-
-footer a {
-    color: #d9cec5;
-
-    text-decoration: none;
-}
-
-
-footer a:hover {
-    color: white;
-}
-
-
-footer hr {
-    border-color: #7b685c;
-
-    margin-top: 35px;
-    margin-bottom: 25px;
-}
-
-
-
-/* =========================================
-   TABLET
-   ========================================= */
-
-@media (max-width: 768px) {
-
-    .hero {
-        min-height: 580px;
-
-        background-position: center;
-    }
-
-
-    .hero h1 {
-        font-size: 3.7rem;
-    }
-
-
-    .about-text {
-        padding: 35px 5px 10px;
-    }
-
-
-    .about-image {
-        height: 420px;
-    }
-
-
-    footer {
-        text-align: center;
-    }
-
-
-    footer .col-12 {
-        margin-bottom: 30px;
-    }
-
-}
-
-
-
-/* =========================================
-   PHONE
-   ========================================= */
-
-@media (max-width: 576px) {
-
-    h2 {
-        font-size: 2.2rem;
-    }
-
-
-    .navbar {
-        padding: 12px 0;
-    }
-
-
-    .navbar-collapse {
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
-
-
-    .nav-link {
-        margin: 0;
-
-        padding: 8px 0;
-    }
-
-
-    .hero {
-        min-height: 560px;
-
-        background-position: 60% center;
-    }
-
-
-    .hero h1 {
-        font-size: 3rem;
-    }
-
-
-    .hero .lead {
-        font-size: 1rem;
-    }
-
-
-    .about-image {
-        height: 350px;
-    }
-
-
-    .about h2 {
-        font-size: 2.4rem;
-    }
-
-
-    .gallery-image {
-        height: 400px;
-    }
-
-
-    .final-section h2 {
-        font-size: 2.5rem;
-    }
-
-}
-
-/* =========================================
-   GALLERY PAGE
-   ========================================= */
-
-
-/* ---------- GALLERY HERO ---------- */
-
-.gallery-hero {
-    min-height: 570px;
-
-    display: flex;
-    align-items: center;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(26, 17, 12, 0.82),
-            rgba(26, 17, 12, 0.42),
-            rgba(26, 17, 12, 0.10)
-        ),
-        url("images/gallery2.png");
-
-    background-size: cover;
-    background-position: center;
-
-    color: white;
-}
-
-
-.gallery-hero h1 {
-    color: white;
-
-    font-family: Georgia, "Times New Roman", serif;
-
-    font-weight: normal;
-
-    margin-bottom: 25px;
-}
-
-
-.gallery-hero .lead {
-    max-width: 650px;
-
-    color: #eee6df;
-}
-
-
-.gallery-hero .small {
-    color: #ddd1c7;
-
-    letter-spacing: 3px;
-}
-
-
-
-/* ---------- INTERIOR ---------- */
-
-.gallery-section {
-    background-color: #f7f2eb;
-}
-
-
-.gallery-section h2 {
-    font-size: 3rem;
-}
-
-
-
-/* ---------- GALLERY CARDS ---------- */
-
-.gallery-card {
-    margin: 0;
-
-    background-color: #faf7f2;
-
-    border-radius: 12px;
-
-    overflow: hidden;
-
-    box-shadow: 0 8px 25px rgba(50, 34, 25, 0.08);
-
-    transition: 0.2s;
-}
-
-
-.gallery-card:hover {
-    transform: translateY(-5px);
-}
-
-
-.gallery-card img {
-    width: 100%;
-
-    height: 430px;
-
-    object-fit: cover;
-}
-
-
-.gallery-card figcaption {
-    padding: 18px 20px;
-
-    color: #5e4d42;
-
-    font-family: Georgia, "Times New Roman", serif;
-
-    font-size: 1.1rem;
-}
-
-
-
-/* ---------- VIP SECTION ---------- */
-
-.vip-section {
-    background-color: #e9e0d4;
-}
-
-
-.vip-section h2 {
-    font-size: 3rem;
-
-    margin-bottom: 20px;
-}
-
-
-.vip-section p {
-    color: #66584e;
-
-    margin-bottom: 25px;
-}
-
-
-
-/* ---------- EXTERIOR ---------- */
-
-.exterior-section {
-    background-color: #f7f2eb;
-}
-
-
-.exterior-section h2 {
-    font-size: 3rem;
-
-    margin-bottom: 20px;
-}
-
-
-.exterior-section p {
-    color: #66584e;
-}
-
-
-.exterior-image {
-    width: 100%;
-
-    height: 480px;
-
-    object-fit: cover;
-
-    border-radius: 12px;
-}
-
-
-
-/* =========================================
-   GALLERY TABLET
-   ========================================= */
-
-@media (max-width: 768px) {
-
-    .gallery-hero {
-        min-height: 500px;
-    }
-
-
-    .gallery-hero h1 {
-        font-size: 3.7rem;
-    }
-
-
-    .gallery-card img {
-        height: 380px;
-    }
-
-
-    .exterior-image {
-        height: 400px;
-    }
-
-}
-
-
-
-/* =========================================
-   GALLERY PHONE
-   ========================================= */
-
-@media (max-width: 576px) {
-
-    .gallery-hero {
-        min-height: 480px;
-    }
-
-
-    .gallery-hero h1 {
-        font-size: 3rem;
-    }
-
-
-    .gallery-section h2,
-    .vip-section h2,
-    .exterior-section h2 {
-        font-size: 2.4rem;
-    }
-
-
-    .gallery-card img {
-        height: 350px;
-    }
-
-
-    .exterior-image {
-        height: 350px;
-    }
-
-}
-
-/* =========================================
-   CONTACT PAGE
-   ========================================= */
-
-
-/* ---------- CONTACT HERO ---------- */
-
-.contact-hero {
-    min-height: 500px;
-
-    display: flex;
-    align-items: center;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(26, 17, 12, 0.84),
-            rgba(26, 17, 12, 0.45),
-            rgba(26, 17, 12, 0.12)
-        ),
-        url("images/exterior.jpg");
-
-    background-size: cover;
-    background-position: center;
-
-    color: white;
-}
-
-
-.contact-hero h1 {
-    color: white;
-
-    font-family: Georgia, "Times New Roman", serif;
-
-    font-weight: normal;
-
-    margin-bottom: 25px;
-}
-
-
-.contact-hero .lead {
-    max-width: 600px;
-
-    color: #eee6df;
-}
-
-
-.contact-hero .small {
-    color: #ddd1c7;
-
-    letter-spacing: 3px;
-}
-
-
-
-/* ---------- CONTACT INFORMATION ---------- */
-
-.contact-info {
-    background-color: #f7f2eb;
-}
-
-
-.contact-info h2 {
-    font-size: 3rem;
-
-    margin-bottom: 35px;
-}
-
-
-.contact-item {
-    margin-bottom: 25px;
-}
-
-
-.contact-item h3 {
-    margin-bottom: 5px;
-
-    font-size: 1.15rem;
-
-    color: #493226;
-}
-
-
-.contact-item p {
-    margin: 0;
-
-    color: #6a5b51;
-}
-
-
-.contact-item a {
-    color: #674632;
-
-    text-decoration: none;
-}
-
-
-.contact-item a:hover {
-    text-decoration: underline;
-}
-
-
-
-/* ---------- CONTACT IMAGE ---------- */
-
-.contact-image {
-    width: 100%;
-
-    height: 550px;
-
-    object-fit: cover;
-
-    border-radius: 12px;
-
-    box-shadow: 0 10px 30px rgba(50, 34, 25, 0.10);
-}
-
-
-
-/* =========================================
-   RESERVATION
-   ========================================= */
-
-.reservation-section {
-    background-color: #e9e0d4;
-}
-
-
-.reservation-section h2 {
-    font-size: 3rem;
-}
-
-
-.reservation-form {
-    padding: 40px;
-
-    background-color: #faf7f2;
-
-    border: 1px solid #d9cdbf;
-
-    border-radius: 15px;
-
-    box-shadow: 0 10px 30px rgba(50, 34, 25, 0.08);
-}
-
-
-
-/* ---------- FORM LABELS ---------- */
-
-.reservation-form .form-label {
-    color: #493226;
-
-    font-weight: bold;
-}
-
-
-
-/* ---------- INPUTS ---------- */
-
-.reservation-form .form-control,
-.reservation-form .form-select {
-    min-height: 48px;
-
-    background-color: white;
-
-    border: 1px solid #d6c9bb;
-
-    border-radius: 7px;
-}
-
-
-.reservation-form textarea.form-control {
-    min-height: 140px;
-}
-
-
-
-/* When user clicks input */
-
-.reservation-form .form-control:focus,
-.reservation-form .form-select:focus {
-    border-color: #795844;
-
-    box-shadow: 0 0 0 0.15rem rgba(121, 88, 68, 0.15);
-}
-
-
-
-/* =========================================
-   CONTACT TABLET
-   ========================================= */
-
-@media (max-width: 768px) {
-
-    .contact-hero {
-        min-height: 450px;
-    }
-
-
-    .contact-hero h1 {
-        font-size: 3.7rem;
-    }
-
-
-    .contact-image {
-        height: 430px;
-    }
-
-
-    .reservation-form {
-        padding: 30px;
-    }
-
-}
-
-
-
-/* =========================================
-   CONTACT PHONE
-   ========================================= */
-
-@media (max-width: 576px) {
-
-    .contact-hero {
-        min-height: 420px;
-    }
-
-
-    .contact-hero h1 {
-        font-size: 3rem;
-    }
-
-
-    .contact-info h2,
-    .reservation-section h2 {
-        font-size: 2.4rem;
-    }
-
-
-    .contact-image {
-        height: 350px;
-    }
-
-
-    .reservation-form {
-        padding: 22px;
-    }
-
-}
-
-/* =========================================
-   MENU PAGE
-   ========================================= */
-
-
-/* ---------- MENU HERO ---------- */
-
-.menu-hero {
-    min-height: 570px;
-
-    display: flex;
-    align-items: center;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(26, 17, 12, 0.84),
-            rgba(26, 17, 12, 0.45),
-            rgba(26, 17, 12, 0.10)
-        ),
-        url("images/menu-hero.png");
-
-    background-size: cover;
-    background-position: center;
-
-    color: white;
-}
-
-
-.menu-hero h1 {
-    color: white;
-
-    font-family: Georgia, "Times New Roman", serif;
-
-    font-weight: normal;
-
-    margin-bottom: 25px;
-}
-
-
-.menu-hero .lead {
-    max-width: 700px;
-
-    color: #eee6df;
-}
-
-
-.menu-hero .small {
-    color: #ddd1c7;
-
-    letter-spacing: 3px;
-}
-
-
-
-/* ---------- CATEGORIES ---------- */
-
-.menu-categories {
-    background-color: #e9e0d4;
-}
-
-
-.menu-categories h2 {
-    font-size: 3rem;
-}
-
-
-
-/* ---------- MENU SECTIONS ---------- */
-
-.menu-section {
-    background-color: #f7f2eb;
-}
-
-
-.menu-section.menu-light {
-    background-color: #eee6dc;
-}
-
-
-.menu-section h2 {
-    font-size: 2.7rem;
-
-    margin-bottom: 30px;
-}
-
-
-
-/* ---------- TABLE ---------- */
+/*тамак*/
 
 .menu-table {
-    margin-bottom: 25px;
-
-    background-color: #faf7f2;
-
-    border: 1px solid #d9cdbf;
+    --bs-table-bg: #faf7f2;
+    --bs-table-color: #56473e;
+    --bs-table-border-color: #ddd2c6;
 }
 
-
-.menu-table th {
-    padding: 18px;
-
-    background-color: #493226;
-
-    color: white;
-
-    font-family: Georgia, "Times New Roman", serif;
-
-    font-size: 1.1rem;
+.menu-table thead {
+    --bs-table-bg: #493226;
+    --bs-table-color: #fff;
 }
-
-
-.menu-table td {
-    padding: 16px 18px;
-
-    color: #56473e;
-
-    background-color: #faf7f2;
-
-    border-color: #ddd2c6;
-}
-
 
 .menu-table th:last-child,
 .menu-table td:last-child {
     width: 150px;
-
     text-align: right;
 }
 
+/* линк */
 
-.menu-table tbody tr:hover td {
-    background-color: #f1e8dc;
-}
-
-
-
-/* ---------- BACK LINK ---------- */
-
-.back-link {
+.back-link,
+.contact-item a,
+.visit a:not(.btn) {
     color: #674632;
-
-    text-decoration: none;
-
-    font-weight: bold;
 }
 
 
-.back-link:hover {
-    color: #3f2a20;
 
+.reservation-form {
+    background: #faf7f2;
+}
+
+.reservation-form .form-control:focus,
+.reservation-form .form-select:focus {
+    border-color: #795844;
+    box-shadow: 0 0 0 .15rem rgba(121,88,68,.15);
+}
+
+
+
+.final-section {
+    min-height: 360px;
+    background: #2c1d15;
+}
+
+.final-section .lead {
+    max-width: 650px;
+}
+
+
+
+footer {
+    background: #2c1e17;
+    color: #d9cec5;
+}
+
+footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #fff;
     text-decoration: underline;
 }
 
 
-
-/* =========================================
-   MENU TABLET
-   ========================================= */
-
-@media (max-width: 768px) {
-
-    .menu-hero {
-        min-height: 500px;
-    }
-
-
-    .menu-hero h1 {
-        font-size: 3.7rem;
-    }
-
-
-    .menu-categories h2,
-    .menu-section h2 {
-        font-size: 2.5rem;
-    }
-
-}
-
-
-
-/* =========================================
-   MENU PHONE
-   ========================================= */
-
-@media (max-width: 576px) {
-
-    .menu-hero {
-        min-height: 460px;
-    }
-
-
-    .menu-hero h1 {
-        font-size: 3rem;
-    }
-
-
-    .menu-categories h2,
-    .menu-section h2 {
-        font-size: 2.2rem;
-    }
-
-
-    .menu-table th,
-    .menu-table td {
-        padding: 12px;
-    }
-
-
-    .menu-table th:last-child,
-    .menu-table td:last-child {
-        width: 100px;
-    }
-
-}
