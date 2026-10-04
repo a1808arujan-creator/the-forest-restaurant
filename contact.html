@@ -26,29 +26,21 @@
 
     <!-- NAVBAR WITHOUT JAVASCRIPT -->
     <header>
-        <nav class="navbar navbar-expand-lg forest-navbar">
-  <div class="container">
+<nav class="navbar forest-navbar">
+    <div class="container d-flex flex-wrap align-items-center justify-content-between gap-3">
 
-    <a class="navbar-brand" href="index.html">
-      The Forest
-    </a>
+        <a class="navbar-brand" href="index.html">
+            The Forest
+        </a>
 
-    <button class="navbar-toggler" type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <div class="navbar-nav d-flex flex-row flex-wrap gap-3">
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="menu.html">Menu</a>
+            <a class="nav-link" href="gallery.html">Gallery</a>
+            <a class="nav-link" href="contact.html">Contact</a>
+        </div>
 
-    <div class="collapse navbar-collapse" id="navbarMenu">
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link" href="menu.html">Menu</a>
-        <a class="nav-link" href="gallery.html">Gallery</a>
-        <a class="nav-link" href="contact.html">Contact</a>
-      </div>
     </div>
-
-  </div>
 </nav>
     </header>
 
@@ -216,7 +208,8 @@
 
                         <!-- BOOTSTRAP FORM -->
                         <!-- Demonstration only: no backend is connected -->
-                        <form class="reservation-form border rounded-3 shadow-sm p-4 p-md-5">
+                        <form id="reservation-form"
+      class="reservation-form border rounded-3 shadow-sm p-4 p-md-5">
 
                             <!-- NAME -->
                             <div class="mb-3">
@@ -377,17 +370,21 @@
                             </div>
 
                             <!-- FORM BUTTON -->
-                            <button type="button"
-                                    class="btn btn-forest btn-lg">
-                                Send Request
-                            </button>
+                           <button type="button"
+        id="reservation-submit"
+        class="btn btn-forest btn-lg">
+    Send Request
+</button>
 
                             <p class="small text-muted mt-3 mb-0">
                                 This form is a website demonstration.
                                 For actual reservations, please
                                 contact the restaurant by phone.
                             </p>
-
+<div id="reservation-result"
+     class="reservation-result mt-3"
+     aria-live="polite">
+</div>
                         </form>
 
                     </div>

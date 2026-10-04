@@ -238,3 +238,51 @@ footer a:hover {
 }
 
 
+.hidden {
+    display: none;
+}
+
+.active {
+    font-weight: bold;
+}
+
+.selected {
+    border: 2px solid #795844;
+}
+
+.error {
+    color: #b42318;
+}
+
+.success {
+    color: #2f6b3b;
+}
+
+
+
+/*.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: #563925;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-top:hover {
+    background: #3f2a20;
+    color: #fff;
+    width: 55px;
+    height: 55px;
+    transition: all 0.2s ease-in-out;
+}
+
+
