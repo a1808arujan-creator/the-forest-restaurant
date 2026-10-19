@@ -1,614 +1,1981 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore the menu of The Forest restaurant, including starters, salads, fish, soups, bakery and traditional dishes.">
-    <meta name="author" content="Baktiyarova Aruzhan">
-
-    <title>The Forest | Menu</title>
-
-    <!-- Bootstrap CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Shared CSS -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/your-logo.png" type="image/png">
-</head>
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Explore the menu of The Forest restaurant, including starters, salads, fish, soups, bakery and traditional dishes." name="description"/>
+<meta content="Baktiyarova Aruzhan" name="author"/>
+<title>
+   The Forest | Menu
+  </title>
+<!-- Bootstrap CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<!-- Shared CSS -->
+<link href="style.css" rel="stylesheet"/>
+<link href="images/your-logo.png" rel="icon" type="image/png"/>
+<link href="preorder.css" rel="stylesheet"/>
+<link href="menu-cards-compact.css" rel="stylesheet"/>
+<link href="floating-cart.css" rel="stylesheet"/></head>
 <body class="menu-page">
-
-    <!-- NAVBAR: no JavaScript -->
-    <header>
+<!-- NAVBAR: no JavaScript -->
+<header>
 <nav class="navbar forest-navbar">
-    <div class="container d-flex flex-wrap align-items-center justify-content-between gap-3">
-
-        <a class="navbar-brand" href="index.html">
-            The Forest
-        </a>
-
-        <div class="navbar-nav d-flex flex-row flex-wrap gap-3">
-            <a class="nav-link" href="index.html">Home</a>
-            <a class="nav-link" href="menu.html">Menu</a>
-            <a class="nav-link" href="gallery.html">Gallery</a>
-            <a class="nav-link" href="contact.html">Contact</a>
-        </div>
-
-    </div>
+<div class="container d-flex flex-wrap align-items-center justify-content-between gap-3">
+<a class="navbar-brand" href="index.html">
+      The Forest
+     </a>
+<div class="navbar-nav d-flex flex-row flex-wrap gap-3">
+<a class="nav-link" href="index.html">
+       Home
+      </a>
+<a class="nav-link" href="menu.html">
+       Menu
+      </a>
+<a class="nav-link" href="gallery.html">
+       Gallery
+      </a>
+<a class="nav-link" href="contact.html">
+       Contact
+      </a>
+</div>
+</div>
 </nav>
-    </header>
-    <main>
+</header>
+<main>
+<!-- MENU HERO -->
+<section class="menu-hero d-flex align-items-center py-5 text-white" id="menu-top">
+<div class="container">
+<div class="row">
+<div class="col-12 col-md-8">
+<p class="small text-uppercase text-white-50 mb-3">
+        The Forest
+       </p>
+<h1 class="display-2 fw-normal text-white mb-4">
+        Our Menu
+       </h1>
+<p class="lead text-white">
+        Discover the menu of The Forest.
 
-        <!-- MENU HERO -->
-        <section class="menu-hero d-flex align-items-center py-5 text-white" id="menu-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-md-8">
-
-                        <p class="small text-uppercase text-white-50 mb-3">
-                            The Forest
-                        </p>
-
-                        <h1 class="display-2 fw-normal text-white mb-4">
-                            Our Menu
-                        </h1>
-
-                        <p class="lead text-white">
-                            Discover the menu of The Forest.
                             Explore cold starters, fresh salads,
+
                             fish dishes, soups, traditional bakery
+
                             and other dishes prepared for different
+
                             tastes and occasions.
-                        </p>
+       </p>
+</div>
+</div>
+</div>
+</section>
+<!-- MENU CATEGORIES -->
+<section class="menu-categories py-5">
+<div class="container text-center">
+<p class="section-name small text-uppercase fw-bold mb-3">
+      MENU CATEGORIES
+     </p>
+<h2 class="display-6 mb-4">
+      Explore Our Menu
+     </h2>
+     <div class="row justify-content-center mb-4">
+    <div class="col-12 col-md-6">
+        <input
+            type="text"
+            id="menu-search"
+            class="form-control"
+            placeholder="Search dishes..."
+        >  <p id="search-result" class="text-center mt-3 text-muted"></p>
+    </div>
+</div>
+<p class="text-muted mb-4">
+      Choose a category to quickly find
 
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- MENU CATEGORIES -->
-        <section class="menu-categories py-5">
-            <div class="container text-center">
-
-                <p class="section-name small text-uppercase fw-bold mb-3">
-                    MENU CATEGORIES
-                </p>
-
-                <h2 class="display-6 mb-4">
-                    Explore Our Menu
-                </h2>
-
-                <p class="text-muted mb-4">
-                    Choose a category to quickly find
                     the part of the menu you are interested in.
-                </p>
-
-                <div class="d-flex flex-wrap justify-content-center gap-2">
-                    <a href="#starters" class="btn btn-outline-dark">Cold Starters</a>
-                    <a href="#salads" class="btn btn-outline-dark">Salads</a>
-                    <a href="#fish" class="btn btn-outline-dark">Fish</a>
-                    <a href="#soups" class="btn btn-outline-dark">Soups</a>
-                    <a href="#sides" class="btn btn-outline-dark">Side Dishes</a>
-                    <a href="#baursaki" class="btn btn-outline-dark">Baursaki</a>
-                    <a href="#bakery" class="btn btn-outline-dark">Traditional Bakery</a>
-                    <a href="#dough" class="btn btn-outline-dark">Dough Dishes</a>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- COLD STARTERS -->
-        <section id="starters" class="menu-section py-5">
-            <div class="container">
-
-                <h2 class="display-6 mb-4">Cold Starters</h2>
-
-                <div class="table-responsive">
-                    <table class="table menu-table table-hover align-middle">
-                        <thead>
-                            <tr>
-                                <th scope="col">Dish</th>
-                                <th scope="col">Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Assorted bruschetta on rye bread</td>
-                                <td>7,500 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Cheese platter</td>
-                                <td>9,900 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Assorted pickles</td>
-                                <td>4,900 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Valui mushrooms with aromatic butter</td>
-                                <td>4,900 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Milk mushrooms with sour cream</td>
-                                <td>4,900 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Antipasti</td>
-                                <td>7,500 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Herring Under a Fur Coat rolls</td>
-                                <td>4,900 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Stracciatella with fresh tomatoes</td>
-                                <td>5,500 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Poultry pâté with port wine jelly</td>
-                                <td>4,400 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Fruit basket</td>
-                                <td>9,500 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Marinated cabbage with truffle and Parmesan</td>
-                                <td>3,000 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Baked potato with lightly salted herring and pickled onions</td>
-                                <td>3,900 ₸</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <a href="#menu-top" class="back-link d-inline-block mt-3">
-                    ↑ Back to categories
-                </a>
-
-            </div>
-        </section>
-
-        <!-- SALADS -->
-        <section id="salads" class="menu-section menu-light py-5">
-            <div class="container">
-
-                <h2 class="display-6 mb-4">Salads</h2>
-
-                <div class="table-responsive">
-                    <table class="table menu-table table-hover align-middle">
-                        <thead>
-                            <tr>
-                                <th scope="col">Dish</th>
-                                <th scope="col">Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Salad with veal tongue, chanterelles and pickled cucumber</td>
-                                <td>6,400 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>BBQ salad with veal and grilled vegetables</td>
-                                <td>5,900 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Vegetable salad with feta mousse and olives</td>
-                                <td>5,700 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Salad with roast beef and baked vegetables</td>
-                                <td>6,200 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Warm salad with trout, fern and avocado</td>
-                                <td>6,500 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Salad with slow-cooked duck, pear and goat cheese</td>
-                                <td>6,400 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Capital salad with smoked trout and vendace caviar</td>
-                                <td>5,900 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Salad with marinated artichokes and sun-dried tomatoes</td>
-                                <td>5,500 ₸</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <a href="#menu-top" class="back-link d-inline-block mt-3">
-                    ↑ Back to categories
-                </a>
-
-            </div>
-        </section>
-
-        <!-- FISH -->
-        <section id="fish" class="menu-section py-5">
-            <div class="container">
-
-                <h2 class="display-6 mb-4">Fish</h2>
-
-                <div class="table-responsive">
-                    <table class="table menu-table table-hover align-middle">
-                        <thead>
-                            <tr>
-                                <th scope="col">Dish</th>
-                                <th scope="col">Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Pozharsky pike-perch cutlet with sour cream sauce and milk mushrooms</td>
-                                <td>6,700 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Halibut in creamy sauce with porcini mushrooms and sun-dried tomatoes</td>
-                                <td>11,000 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Pike-perch with vegetables in truffle sauce</td>
-                                <td>6,900 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Charcoal-grilled fish with Mansini sauce and potato gratin</td>
-                                <td>11,000 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Trout with spinach, red caviar and cauliflower purée</td>
-                                <td>8,600 ₸</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <a href="#menu-top" class="back-link d-inline-block mt-3">
-                    ↑ Back to categories
-                </a>
-
-            </div>
-        </section>
-
-        <!-- SOUPS -->
-        <section id="soups" class="menu-section menu-light py-5">
-            <div class="container">
-
-                <h2 class="display-6 mb-4">Soups</h2>
-
-                <div class="table-responsive">
-                    <table class="table menu-table table-hover align-middle">
-                        <thead>
-                            <tr>
-                                <th scope="col">Dish</th>
-                                <th scope="col">Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Khan-style fish soup with Borodinsky bread and caviar</td>
-                                <td>6,200 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Mushroom soup</td>
-                                <td>4,000 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Borscht with slow-cooked beef cheek</td>
-                                <td>4,900 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Ramen soup with horse meat</td>
-                                <td>6,200 ₸</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <a href="#menu-top" class="back-link d-inline-block mt-3">
-                    ↑ Back to categories
-                </a>
-
-            </div>
-        </section>
-
-        <!-- SIDE DISHES -->
-        <section id="sides" class="menu-section py-5">
-            <div class="container">
-
-                <h2 class="display-6 mb-4">Side Dishes</h2>
-
-                <div class="table-responsive">
-                    <table class="table menu-table table-hover align-middle">
-                        <thead>
-                            <tr>
-                                <th scope="col">Dish</th>
-                                <th scope="col">Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Buckwheat with porcini mushrooms</td>
-                                <td>3,500 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Fried potatoes with wild mushrooms</td>
-                                <td>3,900 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Polba with chanterelles</td>
-                                <td>3,900 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Mashed potatoes with truffle butter</td>
-                                <td>3,400 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Baked potatoes</td>
-                                <td>2,900 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Ajapsandali</td>
-                                <td>3,500 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Cauliflower in walnut sauce</td>
-                                <td>3,300 ₸</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <a href="#menu-top" class="back-link d-inline-block mt-3">
-                    ↑ Back to categories
-                </a>
-
-            </div>
-        </section>
-
-        <!-- BAURSAKI -->
-        <section id="baursaki" class="menu-section menu-light py-5">
-            <div class="container">
-
-                <h2 class="display-6 mb-3">Baursaki</h2>
-                <p class="text-muted mb-4">
-                    Each serving contains 5 pieces.
-                </p>
-
-                <div class="table-responsive">
-                    <table class="table menu-table table-hover align-middle">
-                        <thead>
-                            <tr>
-                                <th scope="col">Dish</th>
-                                <th scope="col">Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Baursaki with wild mushrooms</td>
-                                <td>4,400 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Baursaki with chicken pâté, foie gras and berry sauce</td>
-                                <td>5,200 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Baursaki with halloumi cheese</td>
-                                <td>4,400 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Baursaki with horse cheek rillettes</td>
-                                <td>5,200 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Baursaki with smoked trout and caviar</td>
-                                <td>5,200 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Assorted baursaki</td>
-                                <td>5,500 ₸</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <a href="#menu-top" class="back-link d-inline-block mt-3">
-                    ↑ Back to categories
-                </a>
-
-            </div>
-        </section>
-
-        <!-- TRADITIONAL BAKERY -->
-        <section id="bakery" class="menu-section py-5">
-            <div class="container">
-
-                <h2 class="display-6 mb-4">Traditional Bakery</h2>
-
-                <div class="table-responsive">
-                    <table class="table menu-table table-hover align-middle">
-                        <thead>
-                            <tr>
-                                <th scope="col">Dish</th>
-                                <th scope="col">Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Pide with minced meat, cabbage and nuts</td>
-                                <td>5,500 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Pide with tomatoes and stracciatella</td>
-                                <td>4,900 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Pide with eel and avocado</td>
-                                <td>6,500 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Pide with truffle and stracciatella</td>
-                                <td>5,100 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Pide with trout and caviar sauce</td>
-                                <td>6,200 ₸</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <a href="#menu-top" class="back-link d-inline-block mt-3">
-                    ↑ Back to categories
-                </a>
-
-            </div>
-        </section>
-
-        <!-- DOUGH DISHES -->
-        <section id="dough" class="menu-section menu-light py-5">
-            <div class="container">
-
-                <h2 class="display-6 mb-4">Dough Dishes</h2>
-
-                <div class="table-responsive">
-                    <table class="table menu-table table-hover align-middle">
-                        <thead>
-                            <tr>
-                                <th scope="col">Dish</th>
-                                <th scope="col">Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Manti with shrimp and Tom Yum sauce</td>
-                                <td>7,700 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Black manti with trout and halibut in bisque sauce</td>
-                                <td>7,700 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Altai pelmeni</td>
-                                <td>4,900 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Shrimp pelmeni in Tom Yum broth</td>
-                                <td>6,400 ₸</td>
-                            </tr>
-                            <tr>
-                                <td>Vareniki with potatoes and wild mushroom julienne</td>
-                                <td>4,200 ₸</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <a href="#menu-top" class="back-link d-inline-block mt-3">
-                    ↑ Back to categories
-                </a>
-
-            </div>
-        </section>
-
-   
-
-
-    </main>
-
-    <!-- FOOTER -->
-        <footer class="py-5">
-
-        <div class="container">
-
-            <div class="row g-4 text-center text-md-start">
-
-                <!-- BRAND -->
-                <div class="col-12 col-md-4">
-
-                    <h2 class="fs-3 text-white">
-                        The Forest
-                    </h2>
-
-                    <p>
-                        Good food. Great company.<br>
-                        A place to belong.
-                    </p>
-
-                </div>
-
-                <!-- NAVIGATION -->
-                <div class="col-12 col-md-4">
-
-                    <h3 class="fs-6 text-uppercase text-white">
-                        Navigation
-                    </h3>
-
-                    <ul class="list-unstyled">
-
-                        <li class="mb-2">
-                            <a href="index.html">
-                                Home
-                            </a>
-                        </li>
-
-                        <li class="mb-2">
-                            <a href="menu.html">
-                                Menu
-                            </a>
-                        </li>
-
-                        <li class="mb-2">
-                            <a href="gallery.html">
-                                Gallery
-                            </a>
-                        </li>
-
-                        <li class="mb-2">
-                            <a href="contact.html">
-                                Contact
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-                <!-- CONTACT -->
-                <div class="col-12 col-md-4">
-
-                    <h3 class="fs-6 text-uppercase text-white">
-                        Contact
-                    </h3>
-
-                    <p>
-                        <a href="tel:+77713354393">
-                            +7 771 335 43 93
-                        </a>
-                    </p>
-
-                    <p>
-                        Ust-Kamenogorsk, Kazakhstan
-                    </p>
-
-                </div>
-
-            </div>
-
-            <hr class="my-4">
-
-            <p class="text-center small mb-0">
-                &copy; 2026 The Forest Restaurant
-            </p>
-
-        </div>
-
-    </footer>
-</body>
+     </p>
+<div class="d-flex flex-wrap justify-content-center gap-2">
+<a class="btn btn-outline-dark" href="#starters">
+       Cold Starters
+      </a>
+<a class="btn btn-outline-dark" href="#salads">
+       Salads
+      </a>
+<a class="btn btn-outline-dark" href="#fish">
+       Fish
+      </a>
+<a class="btn btn-outline-dark" href="#soups">
+       Soups
+      </a>
+<a class="btn btn-outline-dark" href="#sides">
+       Side Dishes
+      </a>
+<a class="btn btn-outline-dark" href="#baursaki">
+       Baursaki
+      </a>
+<a class="btn btn-outline-dark" href="#bakery">
+       Traditional Bakery
+      </a>
+<a class="btn btn-outline-dark" href="#dough">
+       Dough Dishes
+      </a>
+</div>
+</div>
+</section>
+<!-- COLD STARTERS -->
+<section class="menu-section py-5" id="starters">
+<div class="container">
+<h2 class="display-6 mb-4">
+      Cold Starters
+     </h2>
+<div class="forest-dish-list">
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Assorted bruschetta on rye bread" loading="lazy" onerror="this.hidden=true" src="images/food/assorted-bruschetta-on-rye-bread.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Assorted bruschetta on rye bread
+        </h3>
+<p class="forest-dish-price">
+         7,500 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Assorted bruschetta on rye bread quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Assorted bruschetta on rye bread quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Assorted bruschetta on rye bread" data-price="7500" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Cheese platter" loading="lazy" onerror="this.hidden=true" src="images/food/cheese-platter.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Cheese platter
+        </h3>
+<p class="forest-dish-price">
+         9,900 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Cheese platter quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Cheese platter quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Cheese platter" data-price="9900" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Assorted pickles" loading="lazy" onerror="this.hidden=true" src="images/food/assorted-pickles.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Assorted pickles
+        </h3>
+<p class="forest-dish-price">
+         4,900 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Assorted pickles quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Assorted pickles quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Assorted pickles" data-price="4900" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Valui mushrooms with aromatic butter" loading="lazy" onerror="this.hidden=true" src="images/food/valui-mushrooms-with-aromatic-butter.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Valui mushrooms with aromatic butter
+        </h3>
+<p class="forest-dish-price">
+         4,900 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Valui mushrooms with aromatic butter quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Valui mushrooms with aromatic butter quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Valui mushrooms with aromatic butter" data-price="4900" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Milk mushrooms with sour cream" loading="lazy" onerror="this.hidden=true" src="images/food/milk-mushrooms-with-sour-cream.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Milk mushrooms with sour cream
+        </h3>
+<p class="forest-dish-price">
+         4,900 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Milk mushrooms with sour cream quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Milk mushrooms with sour cream quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Milk mushrooms with sour cream" data-price="4900" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Antipasti" loading="lazy" onerror="this.hidden=true" src="images/food/antipasti.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Antipasti
+        </h3>
+<p class="forest-dish-price">
+         7,500 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Antipasti quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Antipasti quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Antipasti" data-price="7500" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Herring Under a Fur Coat rolls" loading="lazy" onerror="this.hidden=true" src="images/food/herring-under-a-fur-coat-rolls.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Herring Under a Fur Coat rolls
+        </h3>
+<p class="forest-dish-price">
+         4,900 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Herring Under a Fur Coat rolls quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Herring Under a Fur Coat rolls quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Herring Under a Fur Coat rolls" data-price="4900" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Stracciatella with fresh tomatoes" loading="lazy" onerror="this.hidden=true" src="images/food/stracciatella-with-fresh-tomatoes.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Stracciatella with fresh tomatoes
+        </h3>
+<p class="forest-dish-price">
+         5,500 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Stracciatella with fresh tomatoes quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Stracciatella with fresh tomatoes quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Stracciatella with fresh tomatoes" data-price="5500" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Poultry pâté with port wine jelly" loading="lazy" onerror="this.hidden=true" src="images/food/poultry-p-t-with-port-wine-jelly.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Poultry pâté with port wine jelly
+        </h3>
+<p class="forest-dish-price">
+         4,400 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Poultry pâté with port wine jelly quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Poultry pâté with port wine jelly quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Poultry pâté with port wine jelly" data-price="4400" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Fruit basket" loading="lazy" onerror="this.hidden=true" src="images/food/fruit-basket.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Fruit basket
+        </h3>
+<p class="forest-dish-price">
+         9,500 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Fruit basket quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Fruit basket quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Fruit basket" data-price="9500" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Marinated cabbage with truffle and Parmesan" loading="lazy" onerror="this.hidden=true" src="images/food/marinated-cabbage-with-truffle-and-parmesan.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Marinated cabbage with truffle and Parmesan
+        </h3>
+<p class="forest-dish-price">
+         3,000 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Marinated cabbage with truffle and Parmesan quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Marinated cabbage with truffle and Parmesan quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Marinated cabbage with truffle and Parmesan" data-price="3000" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Baked potato with lightly salted herring and pickled onions" loading="lazy" onerror="this.hidden=true" src="images/food/baked-potato-with-lightly-salted-herring-and-pickled-onions.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Baked potato with lightly salted herring and pickled onions
+        </h3>
+<p class="forest-dish-price">
+         3,900 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Baked potato with lightly salted herring and pickled onions quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Baked potato with lightly salted herring and pickled onions quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Baked potato with lightly salted herring and pickled onions" data-price="3900" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+</div>
+<a class="back-link d-inline-block mt-3" href="#menu-top">
+      ↑ Back to categories
+     </a>
+</div>
+</section>
+<!-- SALADS -->
+<section class="menu-section menu-light py-5" id="salads">
+<div class="container">
+<h2 class="display-6 mb-4">
+      Salads
+     </h2>
+<div class="forest-dish-list">
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Salad with veal tongue, chanterelles and pickled cucumber" loading="lazy" onerror="this.hidden=true" src="images/food/salad-with-veal-tongue-chanterelles-and-pickled-cucumber.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Salad with veal tongue, chanterelles and pickled cucumber
+        </h3>
+<p class="forest-dish-price">
+         6,400 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Salad with veal tongue, chanterelles and pickled cucumber quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Salad with veal tongue, chanterelles and pickled cucumber quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Salad with veal tongue, chanterelles and pickled cucumber" data-price="6400" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="BBQ salad with veal and grilled vegetables" loading="lazy" onerror="this.hidden=true" src="images/food/bbq-salad-with-veal-and-grilled-vegetables.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         BBQ salad with veal and grilled vegetables
+        </h3>
+<p class="forest-dish-price">
+         5,900 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease BBQ salad with veal and grilled vegetables quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase BBQ salad with veal and grilled vegetables quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="BBQ salad with veal and grilled vegetables" data-price="5900" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Vegetable salad with feta mousse and olives" loading="lazy" onerror="this.hidden=true" src="images/food/vegetable-salad-with-feta-mousse-and-olives.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Vegetable salad with feta mousse and olives
+        </h3>
+<p class="forest-dish-price">
+         5,700 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Vegetable salad with feta mousse and olives quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Vegetable salad with feta mousse and olives quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Vegetable salad with feta mousse and olives" data-price="5700" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Salad with roast beef and baked vegetables" loading="lazy" onerror="this.hidden=true" src="images/food/salad-with-roast-beef-and-baked-vegetables.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Salad with roast beef and baked vegetables
+        </h3>
+<p class="forest-dish-price">
+         6,200 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Salad with roast beef and baked vegetables quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Salad with roast beef and baked vegetables quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Salad with roast beef and baked vegetables" data-price="6200" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Warm salad with trout, fern and avocado" loading="lazy" onerror="this.hidden=true" src="images/food/warm-salad-with-trout-fern-and-avocado.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Warm salad with trout, fern and avocado
+        </h3>
+<p class="forest-dish-price">
+         6,500 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Warm salad with trout, fern and avocado quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Warm salad with trout, fern and avocado quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Warm salad with trout, fern and avocado" data-price="6500" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Salad with slow-cooked duck, pear and goat cheese" loading="lazy" onerror="this.hidden=true" src="images/food/salad-with-slow-cooked-duck-pear-and-goat-cheese.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Salad with slow-cooked duck, pear and goat cheese
+        </h3>
+<p class="forest-dish-price">
+         6,400 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Salad with slow-cooked duck, pear and goat cheese quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Salad with slow-cooked duck, pear and goat cheese quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Salad with slow-cooked duck, pear and goat cheese" data-price="6400" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Capital salad with smoked trout and vendace caviar" loading="lazy" onerror="this.hidden=true" src="images/food/capital-salad-with-smoked-trout-and-vendace-caviar.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Capital salad with smoked trout and vendace caviar
+        </h3>
+<p class="forest-dish-price">
+         5,900 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Capital salad with smoked trout and vendace caviar quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Capital salad with smoked trout and vendace caviar quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Capital salad with smoked trout and vendace caviar" data-price="5900" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Salad with marinated artichokes and sun-dried tomatoes" loading="lazy" onerror="this.hidden=true" src="images/food/salad-with-marinated-artichokes-and-sun-dried-tomatoes.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Salad with marinated artichokes and sun-dried tomatoes
+        </h3>
+<p class="forest-dish-price">
+         5,500 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Salad with marinated artichokes and sun-dried tomatoes quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Salad with marinated artichokes and sun-dried tomatoes quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Salad with marinated artichokes and sun-dried tomatoes" data-price="5500" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+</div>
+<a class="back-link d-inline-block mt-3" href="#menu-top">
+      ↑ Back to categories
+     </a>
+</div>
+</section>
+<!-- FISH -->
+<section class="menu-section py-5" id="fish">
+<div class="container">
+<h2 class="display-6 mb-4">
+      Fish
+     </h2>
+<div class="forest-dish-list">
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Pozharsky pike-perch cutlet with sour cream sauce and milk mushrooms" loading="lazy" onerror="this.hidden=true" src="images/food/pozharsky-pike-perch-cutlet-with-sour-cream-sauce-and-milk-mushrooms.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Pozharsky pike-perch cutlet with sour cream sauce and milk mushrooms
+        </h3>
+<p class="forest-dish-price">
+         6,700 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Pozharsky pike-perch cutlet with sour cream sauce and milk mushrooms quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Pozharsky pike-perch cutlet with sour cream sauce and milk mushrooms quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Pozharsky pike-perch cutlet with sour cream sauce and milk mushrooms" data-price="6700" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Halibut in creamy sauce with porcini mushrooms and sun-dried tomatoes" loading="lazy" onerror="this.hidden=true" src="images/food/halibut-in-creamy-sauce-with-porcini-mushrooms-and-sun-dried-tomatoes.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Halibut in creamy sauce with porcini mushrooms and sun-dried tomatoes
+        </h3>
+<p class="forest-dish-price">
+         11,000 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Halibut in creamy sauce with porcini mushrooms and sun-dried tomatoes quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Halibut in creamy sauce with porcini mushrooms and sun-dried tomatoes quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Halibut in creamy sauce with porcini mushrooms and sun-dried tomatoes" data-price="11000" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Pike-perch with vegetables in truffle sauce" loading="lazy" onerror="this.hidden=true" src="images/food/pike-perch-with-vegetables-in-truffle-sauce.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Pike-perch with vegetables in truffle sauce
+        </h3>
+<p class="forest-dish-price">
+         6,900 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Pike-perch with vegetables in truffle sauce quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Pike-perch with vegetables in truffle sauce quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Pike-perch with vegetables in truffle sauce" data-price="6900" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Charcoal-grilled fish with Mansini sauce and potato gratin" loading="lazy" onerror="this.hidden=true" src="images/food/charcoal-grilled-fish-with-mansini-sauce-and-potato-gratin.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Charcoal-grilled fish with Mansini sauce and potato gratin
+        </h3>
+<p class="forest-dish-price">
+         11,000 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Charcoal-grilled fish with Mansini sauce and potato gratin quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Charcoal-grilled fish with Mansini sauce and potato gratin quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Charcoal-grilled fish with Mansini sauce and potato gratin" data-price="11000" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Trout with spinach, red caviar and cauliflower purée" loading="lazy" onerror="this.hidden=true" src="images/food/trout-with-spinach-red-caviar-and-cauliflower-pur-e.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Trout with spinach, red caviar and cauliflower purée
+        </h3>
+<p class="forest-dish-price">
+         8,600 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Trout with spinach, red caviar and cauliflower purée quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Trout with spinach, red caviar and cauliflower purée quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Trout with spinach, red caviar and cauliflower purée" data-price="8600" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+</div>
+<a class="back-link d-inline-block mt-3" href="#menu-top">
+      ↑ Back to categories
+     </a>
+</div>
+</section>
+<!-- SOUPS -->
+<section class="menu-section menu-light py-5" id="soups">
+<div class="container">
+<h2 class="display-6 mb-4">
+      Soups
+     </h2>
+<div class="forest-dish-list">
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Khan-style fish soup with Borodinsky bread and caviar" loading="lazy" onerror="this.hidden=true" src="images/food/khan-style-fish-soup-with-borodinsky-bread-and-caviar.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Khan-style fish soup with Borodinsky bread and caviar
+        </h3>
+<p class="forest-dish-price">
+         6,200 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Khan-style fish soup with Borodinsky bread and caviar quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Khan-style fish soup with Borodinsky bread and caviar quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Khan-style fish soup with Borodinsky bread and caviar" data-price="6200" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Mushroom soup" loading="lazy" onerror="this.hidden=true" src="images/food/mushroom-soup.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Mushroom soup
+        </h3>
+<p class="forest-dish-price">
+         4,000 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Mushroom soup quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Mushroom soup quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Mushroom soup" data-price="4000" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Borscht with slow-cooked beef cheek" loading="lazy" onerror="this.hidden=true" src="images/food/borscht-with-slow-cooked-beef-cheek.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Borscht with slow-cooked beef cheek
+        </h3>
+<p class="forest-dish-price">
+         4,900 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Borscht with slow-cooked beef cheek quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Borscht with slow-cooked beef cheek quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Borscht with slow-cooked beef cheek" data-price="4900" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Ramen soup with horse meat" loading="lazy" onerror="this.hidden=true" src="images/food/ramen-soup-with-horse-meat.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Ramen soup with horse meat
+        </h3>
+<p class="forest-dish-price">
+         6,200 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Ramen soup with horse meat quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Ramen soup with horse meat quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Ramen soup with horse meat" data-price="6200" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+</div>
+<a class="back-link d-inline-block mt-3" href="#menu-top">
+      ↑ Back to categories
+     </a>
+</div>
+</section>
+<!-- SIDE DISHES -->
+<section class="menu-section py-5" id="sides">
+<div class="container">
+<h2 class="display-6 mb-4">
+      Side Dishes
+     </h2>
+<div class="forest-dish-list">
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Buckwheat with porcini mushrooms" loading="lazy" onerror="this.hidden=true" src="images/food/buckwheat-with-porcini-mushrooms.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Buckwheat with porcini mushrooms
+        </h3>
+<p class="forest-dish-price">
+         3,500 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Buckwheat with porcini mushrooms quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Buckwheat with porcini mushrooms quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Buckwheat with porcini mushrooms" data-price="3500" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Fried potatoes with wild mushrooms" loading="lazy" onerror="this.hidden=true" src="images/food/fried-potatoes-with-wild-mushrooms.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Fried potatoes with wild mushrooms
+        </h3>
+<p class="forest-dish-price">
+         3,900 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Fried potatoes with wild mushrooms quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Fried potatoes with wild mushrooms quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Fried potatoes with wild mushrooms" data-price="3900" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Polba with chanterelles" loading="lazy" onerror="this.hidden=true" src="images/food/polba-with-chanterelles.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Polba with chanterelles
+        </h3>
+<p class="forest-dish-price">
+         3,900 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Polba with chanterelles quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Polba with chanterelles quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Polba with chanterelles" data-price="3900" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Mashed potatoes with truffle butter" loading="lazy" onerror="this.hidden=true" src="images/food/mashed-potatoes-with-truffle-butter.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Mashed potatoes with truffle butter
+        </h3>
+<p class="forest-dish-price">
+         3,400 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Mashed potatoes with truffle butter quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Mashed potatoes with truffle butter quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Mashed potatoes with truffle butter" data-price="3400" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Baked potatoes" loading="lazy" onerror="this.hidden=true" src="images/food/baked-potatoes.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Baked potatoes
+        </h3>
+<p class="forest-dish-price">
+         2,900 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Baked potatoes quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Baked potatoes quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Baked potatoes" data-price="2900" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Ajapsandali" loading="lazy" onerror="this.hidden=true" src="images/food/ajapsandali.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Ajapsandali
+        </h3>
+<p class="forest-dish-price">
+         3,500 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Ajapsandali quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Ajapsandali quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Ajapsandali" data-price="3500" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Cauliflower in walnut sauce" loading="lazy" onerror="this.hidden=true" src="images/food/cauliflower-in-walnut-sauce.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Cauliflower in walnut sauce
+        </h3>
+<p class="forest-dish-price">
+         3,300 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Cauliflower in walnut sauce quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Cauliflower in walnut sauce quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Cauliflower in walnut sauce" data-price="3300" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+</div>
+<a class="back-link d-inline-block mt-3" href="#menu-top">
+      ↑ Back to categories
+     </a>
+</div>
+</section>
+<!-- BAURSAKI -->
+<section class="menu-section menu-light py-5" id="baursaki">
+<div class="container">
+<h2 class="display-6 mb-3">
+      Baursaki
+     </h2>
+<p class="text-muted mb-4">
+      Each serving contains 5 pieces.
+     </p>
+<div class="forest-dish-list">
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Baursaki with wild mushrooms" loading="lazy" onerror="this.hidden=true" src="images/food/baursaki-with-wild-mushrooms.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Baursaki with wild mushrooms
+        </h3>
+<p class="forest-dish-price">
+         4,400 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Baursaki with wild mushrooms quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Baursaki with wild mushrooms quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Baursaki with wild mushrooms" data-price="4400" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Baursaki with chicken pâté, foie gras and berry sauce" loading="lazy" onerror="this.hidden=true" src="images/food/baursaki-with-chicken-p-t-foie-gras-and-berry-sauce.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Baursaki with chicken pâté, foie gras and berry sauce
+        </h3>
+<p class="forest-dish-price">
+         5,200 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Baursaki with chicken pâté, foie gras and berry sauce quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Baursaki with chicken pâté, foie gras and berry sauce quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Baursaki with chicken pâté, foie gras and berry sauce" data-price="5200" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Baursaki with halloumi cheese" loading="lazy" onerror="this.hidden=true" src="images/food/baursaki-with-halloumi-cheese.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Baursaki with halloumi cheese
+        </h3>
+<p class="forest-dish-price">
+         4,400 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Baursaki with halloumi cheese quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Baursaki with halloumi cheese quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Baursaki with halloumi cheese" data-price="4400" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Baursaki with horse cheek rillettes" loading="lazy" onerror="this.hidden=true" src="images/food/baursaki-with-horse-cheek-rillettes.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Baursaki with horse cheek rillettes
+        </h3>
+<p class="forest-dish-price">
+         5,200 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Baursaki with horse cheek rillettes quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Baursaki with horse cheek rillettes quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Baursaki with horse cheek rillettes" data-price="5200" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Baursaki with smoked trout and caviar" loading="lazy" onerror="this.hidden=true" src="images/food/baursaki-with-smoked-trout-and-caviar.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Baursaki with smoked trout and caviar
+        </h3>
+<p class="forest-dish-price">
+         5,200 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Baursaki with smoked trout and caviar quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Baursaki with smoked trout and caviar quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Baursaki with smoked trout and caviar" data-price="5200" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Assorted baursaki" loading="lazy" onerror="this.hidden=true" src="images/food/assorted-baursaki.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Assorted baursaki
+        </h3>
+<p class="forest-dish-price">
+         5,500 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Assorted baursaki quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Assorted baursaki quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Assorted baursaki" data-price="5500" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+</div>
+<a class="back-link d-inline-block mt-3" href="#menu-top">
+      ↑ Back to categories
+     </a>
+</div>
+</section>
+<!-- TRADITIONAL BAKERY -->
+<section class="menu-section py-5" id="bakery">
+<div class="container">
+<h2 class="display-6 mb-4">
+      Traditional Bakery
+     </h2>
+<div class="forest-dish-list">
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Pide with minced meat, cabbage and nuts" loading="lazy" onerror="this.hidden=true" src="images/food/pide-with-minced-meat-cabbage-and-nuts.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Pide with minced meat, cabbage and nuts
+        </h3>
+<p class="forest-dish-price">
+         5,500 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Pide with minced meat, cabbage and nuts quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Pide with minced meat, cabbage and nuts quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Pide with minced meat, cabbage and nuts" data-price="5500" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Pide with tomatoes and stracciatella" loading="lazy" onerror="this.hidden=true" src="images/food/pide-with-tomatoes-and-stracciatella.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Pide with tomatoes and stracciatella
+        </h3>
+<p class="forest-dish-price">
+         4,900 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Pide with tomatoes and stracciatella quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Pide with tomatoes and stracciatella quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Pide with tomatoes and stracciatella" data-price="4900" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Pide with eel and avocado" loading="lazy" onerror="this.hidden=true" src="images/food/pide-with-eel-and-avocado.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Pide with eel and avocado
+        </h3>
+<p class="forest-dish-price">
+         6,500 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Pide with eel and avocado quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Pide with eel and avocado quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Pide with eel and avocado" data-price="6500" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Pide with truffle and stracciatella" loading="lazy" onerror="this.hidden=true" src="images/food/pide-with-truffle-and-stracciatella.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Pide with truffle and stracciatella
+        </h3>
+<p class="forest-dish-price">
+         5,100 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Pide with truffle and stracciatella quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Pide with truffle and stracciatella quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Pide with truffle and stracciatella" data-price="5100" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Pide with trout and caviar sauce" loading="lazy" onerror="this.hidden=true" src="images/food/pide-with-trout-and-caviar-sauce.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Pide with trout and caviar sauce
+        </h3>
+<p class="forest-dish-price">
+         6,200 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Pide with trout and caviar sauce quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Pide with trout and caviar sauce quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Pide with trout and caviar sauce" data-price="6200" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+</div>
+<a class="back-link d-inline-block mt-3" href="#menu-top">
+      ↑ Back to categories
+     </a>
+</div>
+</section>
+<!-- DOUGH DISHES -->
+<section class="menu-section menu-light py-5" id="dough">
+<div class="container">
+<h2 class="display-6 mb-4">
+      Dough Dishes
+     </h2>
+<div class="forest-dish-list">
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Manti with shrimp and Tom Yum sauce" loading="lazy" onerror="this.hidden=true" src="images/food/manti-with-shrimp-and-tom-yum-sauce.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Manti with shrimp and Tom Yum sauce
+        </h3>
+<p class="forest-dish-price">
+         7,700 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Manti with shrimp and Tom Yum sauce quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Manti with shrimp and Tom Yum sauce quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Manti with shrimp and Tom Yum sauce" data-price="7700" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Black manti with trout and halibut in bisque sauce" loading="lazy" onerror="this.hidden=true" src="images/food/black-manti-with-trout-and-halibut-in-bisque-sauce.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Black manti with trout and halibut in bisque sauce
+        </h3>
+<p class="forest-dish-price">
+         7,700 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Black manti with trout and halibut in bisque sauce quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Black manti with trout and halibut in bisque sauce quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Black manti with trout and halibut in bisque sauce" data-price="7700" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Altai pelmeni" loading="lazy" onerror="this.hidden=true" src="images/food/altai-pelmeni.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Altai pelmeni
+        </h3>
+<p class="forest-dish-price">
+         4,900 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Altai pelmeni quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Altai pelmeni quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Altai pelmeni" data-price="4900" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Shrimp pelmeni in Tom Yum broth" loading="lazy" onerror="this.hidden=true" src="images/food/shrimp-pelmeni-in-tom-yum-broth.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Shrimp pelmeni in Tom Yum broth
+        </h3>
+<p class="forest-dish-price">
+         6,400 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Shrimp pelmeni in Tom Yum broth quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Shrimp pelmeni in Tom Yum broth quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Shrimp pelmeni in Tom Yum broth" data-price="6400" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+<div class="forest-dish">
+<div class="forest-dish-photo">
+<img alt="Vareniki with potatoes and wild mushroom julienne" loading="lazy" onerror="this.hidden=true" src="images/food/vareniki-with-potatoes-and-wild-mushroom-julienne.jpg"/>
+<span aria-hidden="true" class="forest-dish-placeholder">
+         🍽
+        </span>
+</div>
+<div class="forest-dish-info">
+<h3>
+         Vareniki with potatoes and wild mushroom julienne
+        </h3>
+<p class="forest-dish-price">
+         4,200 ₸
+        </p>
+</div>
+<div class="forest-dish-actions">
+<div class="forest-quantity">
+<button aria-label="Decrease Vareniki with potatoes and wild mushroom julienne quantity" class="quantity-minus" type="button">
+          −
+         </button>
+<span class="quantity-value">
+          1
+         </span>
+<button aria-label="Increase Vareniki with potatoes and wild mushroom julienne quantity" class="quantity-plus" type="button">
+          +
+         </button>
+</div>
+<button class="btn btn-forest add-to-cart" data-name="Vareniki with potatoes and wild mushroom julienne" data-price="4200" type="button">
+         Add to Cart
+        </button>
+</div>
+</div>
+</div>
+<a class="back-link d-inline-block mt-3" href="#menu-top">
+      ↑ Back to categories
+     </a>
+</div>
+</section>
+<!-- PRE-ORDER CART -->
+<button aria-controls="cart" aria-label="Open your order" class="forest-floating-cart" data-bs-target="#cart" data-bs-toggle="offcanvas" type="button"><svg aria-hidden="true" fill="none" height="26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="26" xmlns="http://www.w3.org/2000/svg"><path d="M6 7h12l1 13H5L6 7Z"></path><path d="M9 9V6a3 3 0 0 1 6 0v3"></path></svg><span aria-live="polite" class="forest-cart-count" id="cart-nav-link">Cart (0)</span></button><div aria-labelledby="cart-title" class="offcanvas offcanvas-end forest-cart-panel" id="cart" tabindex="-1"><div class="offcanvas-header"><h2 class="offcanvas-title" id="cart-title">Your Order</h2><button aria-label="Close" class="btn-close" data-bs-dismiss="offcanvas" type="button"></button></div><div class="offcanvas-body d-flex flex-column"><p class="text-muted small mb-4">Select your dishes and continue to table reservation.</p><div class="flex-grow-1" id="cart-items"><p class="text-muted" id="empty-cart-message">Your pre-order is currently empty.</p></div><div class="forest-cart-footer mt-4 pt-3 border-top">
+
+    <div class="d-flex justify-content-between mb-2">
+        <span>Subtotal:</span>
+        <span id="cart-subtotal">0 ₸</span>
+    </div>
+
+    <div class="d-flex justify-content-between mb-2">
+        <span>Service charge (10%):</span>
+        <span id="cart-service">0 ₸</span>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <strong>Total:</strong>
+        <strong id="cart-total">0 ₸</strong>
+    </div><a class="btn btn-forest w-100" href="contact.html#reservation" id="continue-to-reservation">Continue to Reservation</a><div aria-live="polite" class="mt-3 small" id="cart-result"></div></div></div></div>
+</main>
+<!-- FOOTER -->
+<footer class="py-5">
+<div class="container">
+<div class="row g-4 text-center text-md-start">
+<!-- BRAND -->
+<div class="col-12 col-md-4">
+<h2 class="fs-3 text-white">
+       The Forest
+      </h2>
+<p>
+       Good food. Great company.
+       <br/>
+       A place to belong.
+      </p>
+</div>
+<!-- NAVIGATION -->
+<div class="col-12 col-md-4">
+<h3 class="fs-6 text-uppercase text-white">
+       Navigation
+      </h3>
+<ul class="list-unstyled">
+<li class="mb-2">
+<a href="index.html">
+         Home
+        </a>
+</li>
+<li class="mb-2">
+<a href="menu.html">
+         Menu
+        </a>
+</li>
+<li class="mb-2">
+<a href="gallery.html">
+         Gallery
+        </a>
+</li>
+<li class="mb-2">
+<a href="contact.html">
+         Contact
+        </a>
+</li>
+</ul>
+</div>
+<!-- CONTACT -->
+<div class="col-12 col-md-4">
+<h3 class="fs-6 text-uppercase text-white">
+       Contact
+      </h3>
+<p>
+<a href="tel:+77713354393">
+        +7 771 335 43 93
+       </a>
+</p>
+<p>
+       Ust-Kamenogorsk, Kazakhstan
+      </p>
+</div>
+</div>
+<hr class="my-4"/>
+<p class="text-center small mb-0">
+     © 2026 The Forest Restaurant
+    </p>
+</div>
+</footer>
+<script defer="" src="js/menu.js">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script></body>
 </html>

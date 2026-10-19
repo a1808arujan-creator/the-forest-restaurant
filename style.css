@@ -1,288 +1,2407 @@
-
-
-
 body {
+
     background: #f4efe7;
+
     color: #382a22;
+
     font-family: Arial, Helvetica, sans-serif;
+
     line-height: 1.7;
+
 }
+
+
 
 h1, h2, h3, .navbar-brand {
+
     font-family: Georgia, "Times New Roman", serif;
+
     color: #493226;
+
 }
+
+
+
+
 
 
 
 .navbar {
+
     background: #f8f4ed;
+
 }
+
+
 
 .navbar-brand, .nav-link {
+
     color: #493226;
+
 }
 
+
+
 .nav-link:hover, .navbar-brand:hover {
+
     color: #795844;
+
 }
+
+
+
+
 
 
 
 .btn-forest {
+
     background: #563925;
+
     border-color: #563925;
+
     color: #fff;
+
 }
 
+
+
 .btn-forest:hover {
+
     background: #3f2a20;
+
     border-color: #3f2a20;
+
     color: #fff;
+
 }
+
+
+
+
 
 
 
 .hero,
+
 .menu-hero,
+
 .gallery-hero,
+
 .contact-hero {
+
     background-size: cover;
+
     background-position: center;
+
 }
+
+
 
 .hero {
+
     min-height: 650px;
+
     background-image:
+
         linear-gradient(90deg,
+
             rgba(26,17,12,.82),
+
             rgba(26,17,12,.45),
+
             rgba(26,17,12,.1)),
+
         url("images/hero.png");
+
 }
+
+
 
 .menu-hero {
+
     min-height: 570px;
+
     background-image:
+
         linear-gradient(90deg,
+
             rgba(26,17,12,.84),
+
             rgba(26,17,12,.45),
+
             rgba(26,17,12,.1)),
+
         url("images/menu-hero.png");
+
 }
+
+
 
 .gallery-hero {
+
     min-height: 570px;
+
     background-image:
+
         linear-gradient(90deg,
+
             rgba(26,17,12,.82),
+
             rgba(26,17,12,.42),
+
             rgba(26,17,12,.1)),
+
         url("images/gallery2.png");
+
 }
 
+
+
 .contact-hero {
+
     min-height: 500px;
+
     background-image:
+
         linear-gradient(90deg,
+
             rgba(26,17,12,.84),
+
             rgba(26,17,12,.45),
+
             rgba(26,17,12,.12)),
+
         url("images/hero.png");
+
 }
+
+
 
 /* цвета колор секшн */
 
+
+
 .section-name {
+
     color: #93694e;
+
     letter-spacing: 3px;
+
 }
+
+
 
 .about,
+
 .gallery-preview,
+
 .gallery-section,
+
 .exterior-section,
+
 .contact-info,
+
 .menu-section {
+
     background: #f7f2eb;
+
 }
+
+
 
 .why,
+
 .vip-section,
+
 .menu-categories,
+
 .reservation-section {
+
     background: #e9e0d4;
+
 }
 
+
+
 .visit,
+
 .menu-section.menu-light {
+
     background: #eee6dc;
+
 }
+
+
 
 /* сурет */
 
+
+
 .about-image {
+
     height: 500px;
+
     object-fit: cover;
+
 }
+
+
 
 .gallery-image {
+
     height: 380px;
+
     object-fit: cover;
+
     transition: transform .2s;
+
 }
+
+
 
 .gallery-image:hover {
+
     transform: scale(1.02);
+
 }
+
+
 
 .gallery-card img {
+
     height: 430px;
+
     object-fit: cover;
+
 }
+
+
 
 .exterior-image {
+
     height: 480px;
+
     object-fit: cover;
+
 }
 
+
+
 .contact-image {
+
     height: 550px;
+
     object-fit: cover;
+
 }
+
+
 
 /* карточка */
 
+
+
 .reason-card {
+
     background: #f5eee5;
+
     transition: transform .2s;
+
 }
+
+
 
 .gallery-card,
+
 .visit .card {
+
     background: #faf7f2;
+
     transition: transform .2s;
+
 }
 
+
+
 .reason-card:hover,
+
 .gallery-card:hover,
+
 .visit .card:hover {
+
     transform: translateY(-4px);
+
 }
+
+
 
 /*тамак*/
 
+
+
 .menu-table {
+
     --bs-table-bg: #faf7f2;
+
     --bs-table-color: #56473e;
+
     --bs-table-border-color: #ddd2c6;
+
 }
+
+
 
 .menu-table thead {
+
     --bs-table-bg: #493226;
+
     --bs-table-color: #fff;
+
 }
 
+
+
 .menu-table th:last-child,
+
 .menu-table td:last-child {
+
     width: 150px;
+
     text-align: right;
+
 }
+
+
 
 /* линк */
 
+
+
 .back-link,
+
 .contact-item a,
+
 .visit a:not(.btn) {
+
     color: #674632;
+
 }
+
+
+
+
 
 
 
 .reservation-form {
+
     background: #faf7f2;
+
 }
 
+
+
 .reservation-form .form-control:focus,
+
 .reservation-form .form-select:focus {
+
     border-color: #795844;
+
     box-shadow: 0 0 0 .15rem rgba(121,88,68,.15);
+
 }
+
+
+
+
 
 
 
 .final-section {
+
     min-height: 360px;
+
     background: #2c1d15;
+
 }
 
+
+
 .final-section .lead {
+
     max-width: 650px;
+
 }
+
+
+
+
 
 
 
 footer {
+
     background: #2c1e17;
+
     color: #d9cec5;
+
 }
+
+
 
 footer a {
+
     color: inherit;
+
     text-decoration: none;
+
 }
 
+
+
 footer a:hover {
+
     color: #fff;
+
     text-decoration: underline;
+
 }
+
+
+
 
 
 .hidden {
+
     display: none;
+
 }
+
+
 
 .active {
+
     font-weight: bold;
+
 }
+
+
 
 .selected {
+
     border: 2px solid #795844;
+
 }
+
+
 
 .error {
+
     color: #b42318;
+
 }
+
+
 
 .success {
+
     color: #2f6b3b;
+
 }
 
 
 
-/*.scroll-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background: #563925;
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 50%;
-    text-decoration: none;
-    font-weight: bold;
+
+
+
+
+.hidden {
+
+    display: none;
+
+}
+
+/* =========================
+
+   PRE-ORDER CART
+
+\========================= */
+
+
+
+.cart-section {
+
+    background-color: #f5f3ee;
+
+}
+
+
+
+.cart-box {
+
+    background-color: #ffffff;
+
+    padding: 32px;
+
+    border-radius: 16px;
+
+    border: 1px solid rgba(0, 0, 0, 0.08);
+
+}
+
+
+
+\#cart-items {
+
+    min-height: 60px;
+
+}
+
+
+
+\#cart-total {
+
+    font-weight: 600;
+
+}
+
+
+
+\#cart-result {
+
+    min-height: 24px;
+
+}
+
+
+
+/* Future JavaScript states */
+
+
+
+.hidden {
+
+    display: none;
+
+}
+
+
+
+.active {
+
+    font-weight: 600;
+
+}
+
+
+
+.selected {
+
+    border: 2px solid currentColor;
+
+}
+
+
+
+.error {
+
+    font-weight: 500;
+
+}
+
+
+
+.success {
+
+    font-weight: 500;
+
+}
+
+
+
+@media (max-width: 576px) {
+
+    .cart-box {
+
+        padding: 20px;
+
+    }
+
+
+
+    #continue-to-reservation {
+
+        width: 100%;
+
+    }
+
+}
+
+
+
+/* THE FOREST - HORIZONTAL MENU CARDS */
+
+
+
+.forest-dish {
+
     display: flex;
+
     align-items: center;
+
+    gap: 24px;
+
+    width: 100%;
+
+    padding: 20px;
+
+    margin-bottom: 16px;
+
+
+
+    background: #f8f4ee;
+
+    border: 1px solid #e1d8cd;
+
+    border-radius: 16px;
+
+}
+
+
+
+.forest-dish-image {
+
+    width: 125px;
+
+    height: 125px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    flex-shrink: 0;
+
+}
+
+
+
+.forest-dish-info {
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+
+
+.forest-dish-info h3 {
+
+    margin: 0 0 12px;
+
+    font-size: 1.25rem;
+
+    color: #342b24;
+
+}
+
+
+
+.forest-dish-price {
+
+    margin: 0;
+
+    font-size: 1.1rem;
+
+    font-weight: 600;
+
+    color: #526047;
+
+}
+
+
+
+.forest-dish-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+
+}
+
+
+
+.forest-quantity {
+
+    display: flex;
+
+    align-items: center;
+
+    border: 1px solid #d0c5b9;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+}
+
+
+
+.forest-quantity button {
+
+    border: none;
+
+    background: transparent;
+
+    padding: 10px 14px;
+
+    cursor: pointer;
+
+    color: #342b24;
+
+}
+
+
+
+.forest-quantity button:hover {
+
+    background: #e9e1d6;
+
+}
+
+
+
+.quantity-value {
+
+    min-width: 24px;
+
+    text-align: center;
+
+    font-weight: 600;
+
+}
+
+
+
+.forest-dish .add-to-cart {
+
+    white-space: nowrap;
+
+}
+
+
+
+@media (max-width: 768px) {
+
+    .forest-dish {
+
+        gap: 14px;
+
+        padding: 14px;
+
+        flex-wrap: wrap;
+
+    }
+
+
+
+    .forest-dish-image {
+
+        width: 90px;
+
+        height: 90px;
+
+    }
+
+
+
+    .forest-dish-info h3 {
+
+        font-size: 1rem;
+
+    }
+
+
+
+    .forest-dish-actions {
+
+        width: 100%;
+
+        justify-content: space-between;
+
+    }
+
+}
+
+
+
+/* Menu cards */
+
+
+
+.forest-dish-list {
+
+    display: grid;
+
+    gap: 15px;
+
+}
+
+
+
+.forest-dish {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 20px;
+
+    margin-bottom: 10px;
+
+    background-color: #f8f4ee;
+
+    border: 1px solid #e2d8cc;
+
+    border-radius: 15px;
+
+}
+
+
+
+/* Dish photo */
+
+
+
+.forest-dish-photo {
+
+    width: 120px;
+
+    height: 120px;
+
+    position: relative;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    background-color: #e9e3da;
+
+    border-radius: 12px;
+
+}
+
+
+
+.forest-dish-photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+
+.forest-dish-placeholder {
+
+    position: absolute;
+
+    top: 35%;
+
+    left: 35%;
+
+    font-size: 35px;
+
+}
+
+
+
+/* Dish information */
+
+
+
+.forest-dish-info {
+
+    flex: 1;
+
+}
+
+
+
+.forest-dish-info h3 {
+
+    margin-bottom: 10px;
+
+    font-size: 20px;
+
+    color: #352d25;
+
+}
+
+
+
+.forest-dish-price {
+
+    margin: 0;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #4d6045;
+
+}
+
+
+
+/* Quantity and cart button */
+
+
+
+.forest-dish-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+
+.forest-quantity {
+
+    display: flex;
+
+    align-items: center;
+
+    background-color: white;
+
+    border: 1px solid #d0c5b9;
+
+    border-radius: 8px;
+
+}
+
+
+
+.forest-quantity button {
+
+    padding: 10px 14px;
+
+    border: none;
+
+    background-color: transparent;
+
+    cursor: pointer;
+
+}
+
+
+
+.forest-quantity button:hover {
+
+    background-color: #e9e1d6;
+
+}
+
+
+
+.quantity-value {
+
+    padding: 0 10px;
+
+    font-weight: bold;
+
+}
+
+
+
+.forest-dish .add-to-cart {
+
+    white-space: nowrap;
+
+}
+
+
+
+/* Fix menu text */
+
+
+
+.menu-page .menu-hero .lead {
+
+    text-align: left;
+
+    word-spacing: normal;
+
+    letter-spacing: normal;
+
+    max-width: 640px;
+
+}
+
+
+
+/* Fix cart text */
+
+
+
+.menu-page .cart-box p {
+
+    text-align: left;
+
+    word-spacing: normal;
+
+    letter-spacing: normal;
+
+}
+
+
+
+.menu-page .cart-box > .d-flex {
+
+    justify-content: space-between;
+
+}
+
+
+
+/* Mobile version */
+
+
+
+@media (max-width: 768px) {
+
+    .forest-dish {
+
+        flex-wrap: wrap;
+
+        gap: 12px;
+
+        padding: 15px;
+
+    }
+
+
+
+    .forest-dish-photo {
+
+        width: 90px;
+
+        height: 90px;
+
+    }
+
+
+
+    .forest-dish-info h3 {
+
+        font-size: 16px;
+
+    }
+
+
+
+    .forest-dish-price {
+
+        font-size: 16px;
+
+    }
+
+
+
+    .forest-dish-actions {
+
+        width: 100%;
+
+        justify-content: space-between;
+
+        flex-wrap: wrap;
+
+    }
+
+}
+
+
+
+
+
+/* Floating cart button */
+
+
+
+.forest-floating-cart {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    z-index: 1040;
+
+
+
+    display: flex;
+
+    align-items: center;
+
     justify-content: center;
+
+    gap: 10px;
+
+
+
+    min-width: 64px;
+
+    height: 64px;
+
+    padding: 0 18px;
+
+
+
+    border: none;
+
+    border-radius: 50px;
+
+    background: #401c13;
+
+    color: #ffffff;
+
+
+
+    box-shadow: 0 8px 28px rgba(25, 40, 28, 0.25);
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
 }
 
-.scroll-top:hover {
-    background: #3f2a20;
-    color: #fff;
-    width: 55px;
-    height: 55px;
-    transition: all 0.2s ease-in-out;
+
+
+.forest-floating-cart:hover {
+
+    background: #3a2c26;
+
+    transform: translateY(-3px);
+
 }
 
 
+
+.forest-floating-cart:focus-visible {
+
+    outline: 3px solid #d8b889;
+
+    outline-offset: 3px;
+
+}
+
+
+
+.forest-cart-count {
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+
+/* Cart panel */
+
+
+
+.forest-cart-panel {
+
+    --bs-offcanvas-width: 420px;
+
+    background: #faf8f4;
+
+    color: #352d25;
+
+}
+
+
+
+.forest-cart-panel .offcanvas-header {
+
+    padding: 30px 28px 18px;
+
+    border-bottom: 1px solid #e8e1d7;
+
+}
+
+
+
+.forest-cart-panel .offcanvas-title {
+
+    font-family: Georgia, serif;
+
+    font-size: 32px;
+
+    font-weight: 500;
+
+    color: #344b38;
+
+}
+
+
+
+.forest-cart-panel .offcanvas-body {
+
+    padding: 22px 28px;
+
+}
+
+
+
+/* Cart items */
+
+
+
+.forest-cart-panel #cart-items > div {
+
+    display: flex;
+
+    align-items: flex-start !important;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+
+
+    padding: 20px 0;
+
+    margin-bottom: 0 !important;
+
+
+
+    border-bottom: 1px solid #e8e1d7;
+
+}
+
+
+
+.forest-cart-panel #cart-items > div > div:first-child {
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+
+
+.forest-cart-panel #cart-items strong {
+
+    display: block;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    line-height: 1.5;
+
+    color: #352d25;
+
+}
+
+
+
+.forest-cart-panel #cart-items p {
+
+    margin-top: 7px;
+
+    font-size: 14px;
+
+    color: #6b705f;
+
+}
+
+
+
+/* Quantity buttons */
+
+
+
+.forest-cart-panel #cart-items .btn-outline-dark {
+
+    width: 30px;
+
+    height: 30px;
+
+    padding: 0;
+
+
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+
+
+    border: 1px solid #d8d1c6;
+
+    border-radius: 7px;
+
+
+
+    background: #ffffff;
+
+    color: #3c211b;
+
+}
+
+
+
+.forest-cart-panel #cart-items .btn-outline-dark:hover {
+
+    background: #331916;
+
+    color: #ffffff;
+
+}
+
+
+
+.forest-cart-panel #cart-items .btn-outline-danger {
+
+    padding: 5px 8px;
+
+    border: none;
+
+    border-radius: 6px;
+
+
+
+    background: transparent;
+
+    color: #9b6255;
+
+    font-size: 12px;
+
+}
+
+
+
+.forest-cart-panel #cart-items .btn-outline-danger:hover {
+
+    background: #f3e5df;
+
+    color: #7c4034;
+
+}
+
+
+
+/* Clear cart */
+
+
+
+.forest-cart-panel #cart-items > button {
+
+    margin-top: 22px !important;
+
+    padding: 9px 15px;
+
+
+
+    border: 1px solid #d8d1c6;
+
+    border-radius: 8px;
+
+
+
+    background: transparent;
+
+    color: #766459;
+
+    font-size: 13px;
+
+}
+
+
+
+.forest-cart-panel #cart-items > button:hover {
+
+    background: #eee8df;
+
+    color: #352d25;
+
+}
+
+
+
+/* Cart footer */
+
+
+
+.forest-cart-panel .forest-cart-footer {
+
+    padding: 22px 28px 28px;
+
+    background: #faf8f4;
+
+    border-top: 1px solid #e8e1d7;
+
+}
+
+
+
+.forest-cart-panel #cart-total {
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #3d200f;
+
+}
+
+
+
+.forest-cart-panel #continue-to-reservation {
+
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 14px;
+
+
+
+    border: none;
+
+    border-radius: 9px;
+
+
+
+    background: #3b1b18;
+
+    color: #ffffff;
+
+
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    text-align: center;
+
+    text-decoration: none;
+
+
+
+    transition: background 0.2s ease;
+
+}
+
+
+
+.forest-cart-panel #continue-to-reservation:hover {
+
+    background: #322418;
+
+    color: #ffffff;
+
+}
+
+
+
+/* Mobile */
+
+
+
+@media (max-width: 576px) {
+
+    .forest-floating-cart {
+
+        right: 16px;
+
+        bottom: 16px;
+
+        min-width: 58px;
+
+        height: 58px;
+
+    }
+
+
+
+    .forest-cart-panel {
+
+        --bs-offcanvas-width: 100vw;
+
+    }
+
+
+
+    .forest-cart-panel .offcanvas-header {
+
+        padding: 24px 20px 16px;
+
+    }
+
+
+
+    .forest-cart-panel .offcanvas-body {
+
+        padding: 18px 20px;
+
+    }
+
+
+
+    .forest-cart-panel .forest-cart-footer {
+
+        padding: 20px;
+
+    }
+
+
+
+    .forest-cart-panel #cart-items > div {
+
+        flex-direction: column;
+
+        align-items: stretch !important;
+
+    }
+
+}
+
+
+
+/* Reservation section */
+
+
+
+.contact-page .reservation-section {
+
+    background-color: #f4f0e9;
+
+    padding-top: 100px !important;
+
+    padding-bottom: 110px !important;
+
+}
+
+
+
+/* Heading */
+
+
+
+.reservation-heading {
+
+    max-width: 700px;
+
+    margin: 0 auto;
+
+}
+
+
+
+.reservation-eyebrow {
+
+    display: inline-block;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    color: #6e8067;
+
+}
+
+
+
+.reservation-decoration {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    margin: 22px 0;
+
+}
+
+
+
+.reservation-decoration span:not(.reservation-diamond) {
+
+    width: 45px;
+
+    height: 1px;
+
+    background-color: #b9aa91;
+
+}
+
+
+
+.reservation-diamond {
+
+    font-size: 10px;
+
+    color: #a38b64;
+
+}
+
+
+
+.reservation-title {
+
+    font-family: Georgia, 'Times New Roman', serif;
+
+    font-size: clamp(38px, 5vw, 62px);
+
+    font-weight: 400;
+
+    letter-spacing: -1.5px;
+
+    line-height: 1.15;
+
+    color: #304633;
+
+    margin-bottom: 22px;
+
+}
+
+
+
+.reservation-description {
+
+    max-width: 480px;
+
+    margin: 0 auto;
+
+    color: #79766f;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+}
+
+
+
+.reservation-note {
+
+    display: inline-block;
+
+    margin-top: 28px;
+
+    padding: 10px 20px;
+
+    border: 1px solid #d8cdbb;
+
+    border-radius: 30px;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    color: #6b715e;
+
+}
+
+
+
+/* Reservation form */
+
+
+
+.contact-page .reservation-form {
+
+    background-color: #fffdf9;
+
+    border: 1px solid #e7dfd2 !important;
+
+    border-radius: 18px !important;
+
+    padding: 45px !important;
+
+    box-shadow: 0 15px 45px rgba(45, 55, 38, 0.06) !important;
+
+}
+
+
+
+.contact-page .reservation-form .form-label {
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    color: #4b5145;
+
+    margin-bottom: 9px;
+
+}
+
+
+
+.contact-page .reservation-form .form-control,
+
+.contact-page .reservation-form .form-select {
+
+    min-height: 50px;
+
+    border: 1px solid #e0d9cf;
+
+    border-radius: 8px;
+
+    background-color: #faf8f4;
+
+    color: #3b4037;
+
+    padding: 12px 15px;
+
+}
+
+
+
+.contact-page .reservation-form textarea.form-control {
+
+    min-height: 125px;
+
+}
+
+
+
+.contact-page .reservation-form .form-control:focus,
+
+.contact-page .reservation-form .form-select:focus {
+
+    background-color: #ffffff;
+
+    border-color: #7c9278;
+
+    box-shadow: 0 0 0 3px rgba(91, 120, 87, 0.12);
+
+}
+
+
+
+/* Pre-order summary */
+
+
+
+.contact-page .preorder-summary {
+
+    background-color: #f1f0e9;
+
+    border: 1px solid #e0dfd4;
+
+    border-radius: 12px !important;
+
+    padding: 24px !important;
+
+}
+
+
+
+.contact-page .preorder-summary h3 {
+
+    font-family: Georgia, serif;
+
+    color: #304633;
+
+}
+
+
+
+/* Submit button */
+
+
+
+.contact-page #reservation-submit {
+
+    width: 100%;
+
+    min-height: 54px;
+
+    background-color: #344b38;
+
+    border: none;
+
+    border-radius: 8px;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    transition: background-color 0.2s ease;
+
+}
+
+
+
+.contact-page #reservation-submit:hover {
+
+    background-color: #263a2b;
+
+}
+
+
+
+/* Mobile */
+
+
+
+@media (max-width: 576px) {
+
+    .contact-page .reservation-section {
+
+        padding-top: 65px !important;
+
+        padding-bottom: 70px !important;
+
+    }
+
+
+
+    .reservation-title {
+
+        font-size: 38px;
+
+    }
+
+
+
+    .reservation-description {
+
+        font-size: 14px;
+
+    }
+
+
+
+    .contact-page .reservation-form {
+
+        padding: 24px !important;
+
+    }
+
+}
+
+
+
+/* =================================
+
+   FIND US - ELEGANT REDESIGN
+
+   ================================= */
+
+
+
+.contact-page .contact-info {
+
+    background: #f7f3ec;
+
+    padding: 110px 0 !important;
+
+}
+
+
+
+/* Layout */
+
+
+
+.contact-page .contact-info .row {
+
+    align-items: center !important;
+
+    --bs-gutter-x: 5rem;
+
+}
+
+
+
+/* Section label */
+
+
+
+.contact-page .contact-info .section-name {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+
+
+    margin-bottom: 24px !important;
+
+    color: #77836d;
+
+
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+}
+
+
+
+.contact-page .contact-info .section-name::before {
+
+    content: "";
+
+    display: block;
+
+    width: 30px;
+
+    height: 1px;
+
+    background: #a4ad96;
+
+}
+
+
+/* Main heading */
+
+
+
+.contact-page .contact-info h2 {
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(40px, 4vw, 58px);
+
+    font-weight: 400;
+
+    letter-spacing: -1.5px;
+
+    line-height: 1.15;
+
+    color: #304633;
+
+
+
+    margin-bottom: 42px !important;
+
+}
+
+
+
+/* Contact information */
+
+
+
+.contact-page .contact-item {
+
+    position: relative;
+
+    padding: 0 0 22px 23px;
+
+    margin-bottom: 23px !important;
+
+
+
+    border-bottom: 1px solid #e5ded3;
+
+    border-left: 2px solid transparent;
+
+
+
+    transition: border-color 0.2s ease,
+
+                padding-left 0.2s ease;
+
+}
+
+
+
+.contact-page .contact-item:last-child {
+
+    margin-bottom: 0 !important;
+
+    border-bottom: none;
+
+}
+
+
+
+.contact-page .contact-item::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 9px;
+
+
+
+    width: 6px;
+
+    height: 6px;
+
+    border-radius: 50%;
+
+
+
+    background: #a8b19c;
+
+}
+
+
+
+.contact-page .contact-item:hover {
+
+    border-left-color: #789073;
+
+    padding-left: 28px;
+
+}
+
+
+
+/* Contact labels */
+
+
+
+.contact-page .contact-item h3 {
+
+    margin-bottom: 10px !important;
+
+
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 23px !important;
+
+    font-weight: 400;
+
+    color: #344b38;
+
+}
+
+
+
+/* Contact details */
+
+
+
+.contact-page .contact-item p {
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+    color: #77766f;
+
+}
+
+
+
+.contact-page .contact-item a {
+
+    color: #687b60;
+
+    text-decoration: none;
+
+    border-bottom: 1px solid #bdc5b6;
+
+    transition: color 0.2s ease;
+
+}
+
+
+
+.contact-page .contact-item a:hover {
+
+    color: #304633;
+
+}
+
+
+
+/* Restaurant photograph */
+
+
+
+.contact-page .contact-info figure {
+
+    position: relative;
+
+    margin: 0;
+
+}
+
+
+
+.contact-page .contact-image {
+
+    display: block;
+
+    width: 100%;
+
+    height: 590px;
+
+    object-fit: cover;
+
+    object-position: center;
+
+
+
+    border-radius: 4px !important;
+
+
+
+    box-shadow: 18px 18px 0 #e5e0d5 !important;
+
+}
+
+
+
+/* Photo caption */
+
+
+
+.contact-page .contact-info figcaption {
+
+    margin-top: 27px !important;
+
+
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #8a8a7b !important;
+
+}
+
+
+
+/* Responsive */
+
+
+
+@media (max-width: 991px) {
+
+    .contact-page .contact-info {
+
+        padding: 75px 0 !important;
+
+    }
+
+
+
+    .contact-page .contact-info .row {
+
+        --bs-gutter-x: 2rem;
+
+    }
+
+
+
+    .contact-page .contact-image {
+
+        height: 450px;
+
+        box-shadow: 12px 12px 0 #e5e0d5 !important;
+
+    }
+
+}
+
+
+
+@media (max-width: 576px) {
+
+    .contact-page .contact-info {
+
+        padding: 60px 0 !important;
+
+    }
+
+
+
+    .contact-page .contact-info h2 {
+
+        font-size: 40px;
+
+        margin-bottom: 30px !important;
+
+    }
+
+
+
+    .contact-page .contact-item {
+
+        padding-bottom: 18px;
+
+        margin-bottom: 18px !important;
+
+    }
+
+
+
+    .contact-page .contact-image {
+
+        height: 370px;
+
+        box-shadow: 8px 8px 0 #e5e0d5 !important;
+
+    }
+
+}
+
+/* FIX CART SCROLL */
+
+
+
+.forest-cart-panel .offcanvas-body {
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    min-height: 0 !important;
+
+    overflow: hidden !important;
+
+}
+
+
+
+.forest-cart-panel #cart-items {
+
+    flex: 1 1 auto !important;
+
+    min-height: 0 !important;
+
+    overflow-y: auto !important;
+
+    overflow-x: hidden !important;
+
+    padding-right: 8px;
+
+}
+
+
+
+.forest-cart-panel .forest-cart-footer {
+
+    flex-shrink: 0 !important;
+
+}
+
+
+
+/* Hide scrollbar by default */
+
+/* Scrollable cart without visible scrollbar */
+
+
+
+.forest-cart-panel #cart-items {
+
+    overflow-y: auto !important;
+
+    scrollbar-width: none !important;
+
+    scrollbar-gutter: stable;
+
+}
+
+
+
+.forest-cart-panel #cart-items::-webkit-scrollbar {
+
+    width: 0 !important;
+
+    background: transparent;
+
+}
+
+/* New menu grid */
+
+.menu-page .forest-dish-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.menu-page .forest-dish {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 0;
+    padding: 16px;
+}
+
+.menu-page .forest-dish-photo {
+    width: 100%;
+    height: 200px;
+}
+
+.menu-page .forest-dish-info {
+    width: 100%;
+}
+
+.menu-page .forest-dish-actions {
+    width: 100%;
+    margin-top: auto;
+    justify-content: space-between;
+}
+
+@media (max-width: 991px) {
+    .menu-page .forest-dish-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .menu-page .forest-dish-list {
+        grid-template-columns: 1fr;
+    }
+}
