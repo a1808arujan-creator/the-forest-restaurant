@@ -1,391 +1,579 @@
 
 'use strict';
 
+// The Forest — jQuery 3.7.1
+$(function () {
+    if (window.forestContactInitialized) return;
+    window.forestContactInitialized = true;
 
-const STORAGE_KEY = 'forestPreorder';
+    const STORAGE_KEY = 'forestPreorder';
+    const SERVICE_RATE = 0.10;
 
-const form = document.getElementById('reservation-form');
-const submitButton = document.getElementById('reservation-submit');
-const result = document.getElementById('reservation-result');
+    const $form = $('#reservation-form');
+    const $submitButton = $('#reservation-submit');
+    const $result = $('#reservation-result');
+    const $preorderItems = $('#preorder-items');
+    const $preorderTotal = $('#preorder-total');
 
-const preorderItems = document.getElementById('preorder-items');
-const preorderTotal = document.getElementById('preorder-total');
+    // Create Email field using jQuery
+    if ($('#email').length === 0) {
+        const $emailGroup = $('<div>', {
+            class: 'mb-3'
+        });
 
-const nameInput = document.getElementById('name');
-const phoneInput = document.getElementById('phone');
-const dateInput = document.getElementById('date');
-const timeInput = document.getElementById('time');
-const guestsInput = document.getElementById('guests');
-const occasionInput = document.getElementById('occasion');
-const messageInput = document.getElementById('message');
+        $('<label>', {
+            class: 'form-label',
+            for: 'email'
+        })
+            .text('Email')
+            .appendTo($emailGroup);
 
-function loadCart() {
-    try {
-        const savedCart = JSON.parse(
-            sessionStorage.getItem(STORAGE_KEY)
+        $('<input>', {
+            type: 'email',
+            id: 'email',
+            name: 'email',
+            class: 'form-control',
+            placeholder: 'Your email'
+        })
+            .prop('required', true)
+            .appendTo($emailGroup);
+
+        $('#phone')
+            .closest('.mb-3')
+            .after($emailGroup);
+    }
+
+    // Load cart from sessionStorage
+    function loadCart() {
+        try {
+            const saved = JSON.parse(
+                sessionStorage.getItem(STORAGE_KEY)
+            );
+
+            if (Array.isArray(saved)) {
+                return saved.filter(function (item) {
+                    return item &&
+                        typeof item.name === 'string' &&
+                        Number.isFinite(item.price) &&
+                        item.price >= 0 &&
+                        Number.isInteger(item.quantity) &&
+                        item.quantity > 0;
+                });
+            }
+        } catch (error) {
+            // Invalid stored data becomes an empty cart
+        }
+
+        return [];
+    }
+
+    const cart = loadCart();
+
+    function formatPrice(price) {
+        return price.toLocaleString('en-US') + ' ₸';
+    }
+
+    // Calculate subtotal
+    function calculateSubtotal(items) {
+        let total = 0;
+
+        $.each(items, function (index, item) {
+            total += item.price * item.quantity;
+        });
+
+        return total;
+    }
+
+    // Calculate 10% service charge
+    function calculateServiceCharge(items) {
+        return Math.round(
+            calculateSubtotal(items) * SERVICE_RATE
         );
+    }
 
-        if (Array.isArray(savedCart)) {
-            return savedCart.filter(function (item) {
-                return item &&
-                    typeof item.name === 'string' &&
-                    Number.isFinite(item.price) &&
-                    Number.isInteger(item.quantity) &&
-                    item.price >= 0 &&
-                    item.quantity > 0;
+    // Calculate final total including service charge
+    function calculateFinalTotal(items) {
+        return calculateSubtotal(items) +
+            calculateServiceCharge(items);
+    }
+
+    // Create price breakdown dynamically
+    function createPriceBreakdown() {
+        if ($('#preorder-subtotal').length > 0) {
+            return;
+        }
+
+        const $subtotalRow = $('<p>', {
+            class: 'mb-2'
+        });
+
+        $('<span>')
+            .text('Subtotal: ')
+            .appendTo($subtotalRow);
+
+        $('<strong>', {
+            id: 'preorder-subtotal'
+        })
+            .text('0 ₸')
+            .appendTo($subtotalRow);
+
+        const $serviceRow = $('<p>', {
+            class: 'mb-2'
+        });
+
+        $('<span>')
+            .text('Service Charge (10%): ')
+            .appendTo($serviceRow);
+
+        $('<strong>', {
+            id: 'preorder-service'
+        })
+            .text('0 ₸')
+            .appendTo($serviceRow);
+
+        // Insert new rows before the existing total
+        $preorderTotal
+            .closest('p')
+            .before($subtotalRow, $serviceRow);
+    }
+
+    // Display pre-order using jQuery
+    function displayPreorder() {
+        $preorderItems.empty();
+
+        if (cart.length === 0) {
+            $('<p>', {
+                class: 'text-muted'
+            })
+                .text(
+                    'No dishes selected. You can still reserve a table.'
+                )
+                .appendTo($preorderItems);
+        } else {
+            $.each(cart, function (index, item) {
+                const $row = $('<div>', {
+                    class: 'd-flex justify-content-between gap-3 mb-2'
+                });
+
+                $('<span>')
+                    .text(item.name + ' × ' + item.quantity)
+                    .appendTo($row);
+
+                $('<strong>')
+                    .text(
+                        formatPrice(
+                            item.price * item.quantity
+                        )
+                    )
+                    .appendTo($row);
+
+                $preorderItems.append($row);
             });
         }
-    } catch (error) {
-        console.log('Could not load pre-order.');
-    }
 
-    return [];
-}
-
-const cart = loadCart();
-
-
-
-function formatPrice(price) {
-    return price.toLocaleString('en-US') + ' ₸';
-}
-
-
-
-function calculateTotal(items) {
-    let total = 0;
-
-    items.forEach(function (item) {
-        total += item.price * item.quantity;
-    });
-
-    return total;
-}
-
-
-
-function displayPreorder() {
-    preorderItems.replaceChildren();
-
-    if (cart.length === 0) {
-        const emptyMessage = document.createElement('p');
-
-        emptyMessage.className = 'text-muted';
-        emptyMessage.textContent =
-            'No dishes selected. You can still reserve a table.';
-
-        preorderItems.appendChild(emptyMessage);
-        preorderTotal.textContent = '0 ₸';
-
-        return;
-    }
-
-    cart.forEach(function (item) {
-        const row = document.createElement('div');
-
-        row.className =
-            'd-flex justify-content-between gap-3 mb-2';
-
-        const name = document.createElement('span');
-        name.textContent = item.name + ' × ' + item.quantity;
-
-        const price = document.createElement('strong');
-        price.textContent = formatPrice(
-            item.price * item.quantity
+        // Update all three prices
+        $('#preorder-subtotal').text(
+            formatPrice(calculateSubtotal(cart))
         );
 
-        row.appendChild(name);
-        row.appendChild(price);
+        $('#preorder-service').text(
+            formatPrice(calculateServiceCharge(cart))
+        );
 
-        preorderItems.appendChild(row);
-    });
-
-    preorderTotal.textContent = formatPrice(
-        calculateTotal(cart)
-    );
-}
-
-
-
-function showError(input, message) {
-    input.classList.add('is-invalid');
-
-    let feedback = input.parentElement.querySelector(
-        '.invalid-feedback'
-    );
-
-    if (!feedback) {
-        feedback = document.createElement('div');
-        feedback.className = 'invalid-feedback';
-
-        input.parentElement.appendChild(feedback);
+        $preorderTotal.text(
+            formatPrice(calculateFinalTotal(cart))
+        );
     }
 
-    feedback.textContent = message;
-}
+    // Show validation error
+    function showError($input, message) {
+        $input
+            .addClass('is-invalid')
+            .attr('aria-invalid', 'true');
 
-// Clear validation error
+        const $parent = $input.parent();
 
-function clearError(input) {
-    input.classList.remove('is-invalid');
+        let $feedback = $parent.find(
+            '.invalid-feedback:first'
+        );
 
-    const feedback = input.parentElement.querySelector(
-        '.invalid-feedback'
-    );
+        if (!$feedback.length) {
+            $feedback = $('<div>', {
+                class: 'invalid-feedback'
+            });
 
-    if (feedback) {
-        feedback.textContent = '';
-    }
-}
-
-// Get today's date in local time
-
-function getToday() {
-    const now = new Date();
-
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const day = String(now.getDate()).padStart(2, '0');
-
-    return year + '-' + month + '-' + day;
-}
-
-// Validate reservation form
-
-function validateForm() {
-    const inputs = [
-        nameInput,
-        phoneInput,
-        dateInput,
-        timeInput,
-        guestsInput
-    ];
-
-    inputs.forEach(clearError);
-
-    let firstInvalid = null;
-
-    function invalidate(input, message) {
-        showError(input, message);
-
-        if (!firstInvalid) {
-            firstInvalid = input;
+            $parent.append($feedback);
         }
+
+        $feedback
+            .stop(true, true)
+            .hide()
+            .text(message)
+            .slideDown(180);
     }
 
-    const name = nameInput.value.trim();
-    const phone = phoneInput.value.trim();
-    const date = dateInput.value;
-    const time = timeInput.value;
-    const guests = Number(guestsInput.value);
+    // Clear validation error
+    function clearError($input) {
+        $input
+            .removeClass('is-invalid')
+            .attr('aria-invalid', 'false');
 
-    // Name validation
-
-    if (name.length < 2) {
-        invalidate(
-            nameInput,
-            'Please enter your name (at least 2 characters).'
-        );
+        $input
+            .parent()
+            .find('.invalid-feedback')
+            .stop(true, true)
+            .slideUp(150);
     }
 
-    // Phone validation
-
-    const phoneDigits = phone.replace(/\D/g, '');
-
-    if (phoneDigits.length < 10 || phoneDigits.length > 15) {
-        invalidate(
-            phoneInput,
-            'Please enter a valid phone number.'
-        );
-    }
-
-    // Date validation
-
-    if (!date) {
-        invalidate(dateInput, 'Please select a date.');
-    } else if (date < getToday()) {
-        invalidate(
-            dateInput,
-            'Please choose today or a future date.'
-        );
-    }
-
-    // Time validation
-
-    if (!time) {
-        invalidate(timeInput, 'Please select a time.');
-    } else if (time < '11:00' || time > '23:00') {
-        invalidate(
-            timeInput,
-            'Please select a time between 11:00 and 23:00.'
-        );
-    } else if (date === getToday()) {
+    // Get today's date
+    function getToday() {
         const now = new Date();
 
-        const currentTime =
-            String(now.getHours()).padStart(2, '0') +
-            ':' +
-            String(now.getMinutes()).padStart(2, '0');
-
-        if (time <= currentTime) {
-            invalidate(
-                timeInput,
-                'Please choose a future time.'
-            );
-        }
+        return now.getFullYear() + '-' +
+            String(now.getMonth() + 1).padStart(2, '0') +
+            '-' +
+            String(now.getDate()).padStart(2, '0');
     }
 
-    // Guests validation
+    // Validate individual field
+    function validationMessage(id) {
+        const value = String(
+            $('#' + id).val() || ''
+        ).trim();
 
-    if (
-        guestsInput.value.trim() === '' ||
-        !Number.isInteger(guests) ||
-        guests < 1 ||
-        guests > 20
-    ) {
-        invalidate(
-            guestsInput,
-            'Please enter between 1 and 20 guests.'
+        // Name validation
+        if (id === 'name') {
+            return (
+                value.length >= 2 &&
+                value.length <= 80
+            ) ? '' :
+                'Please enter a name (2–80 characters).';
+        }
+
+        // Phone validation
+        if (id === 'phone') {
+            const digits = value.replace(/\D/g, '');
+
+            const validFormat =
+                /^\+?[\d\s()-]+$/.test(value);
+
+            return (
+                validFormat &&
+                digits.length >= 10 &&
+                digits.length <= 15
+            ) ? '' :
+                'Please enter a valid phone number.';
+        }
+
+        // Email validation
+        if (id === 'email') {
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            return emailPattern.test(value) ? '' :
+                'Please enter a valid email address.';
+        }
+
+        // Date validation
+        if (id === 'date') {
+            if (!value) {
+                return 'Please select a date.';
+            }
+
+            if (value < getToday()) {
+                return 'Please choose today or a future date.';
+            }
+
+            return '';
+        }
+
+        // Time validation
+        if (id === 'time') {
+            if (!value) {
+                return 'Please select a time.';
+            }
+
+            if (
+                !/^\d{2}:\d{2}$/.test(value) ||
+                value < '11:00' ||
+                value > '23:00'
+            ) {
+                return 'Please choose a time between 11:00 and 23:00.';
+            }
+
+            if (
+                String($('#date').val()) === getToday()
+            ) {
+                const now = new Date();
+
+                const currentTime =
+                    String(now.getHours()).padStart(2, '0') +
+                    ':' +
+                    String(now.getMinutes()).padStart(2, '0');
+
+                if (value <= currentTime) {
+                    return 'Please choose a future time.';
+                }
+            }
+
+            return '';
+        }
+
+        // Guests validation
+        if (id === 'guests') {
+            const guests = Number(value);
+
+            return (
+                value !== '' &&
+                Number.isInteger(guests) &&
+                guests >= 1 &&
+                guests <= 20
+            ) ? '' :
+                'Please enter between 1 and 20 guests.';
+        }
+
+        // Occasion validation
+        if (id === 'occasion') {
+            const allowed = [
+                'normal',
+                'birthday',
+                'corporate',
+                'private'
+            ];
+
+            return allowed.includes(value) ? '' :
+                'Please select an occasion.';
+        }
+
+        // Special requests validation
+        if (id === 'message') {
+            return value.length <= 500 ? '' :
+                'Please use at most 500 characters.';
+        }
+
+        return '';
+    }
+
+    // Validate whole form
+    function validateForm() {
+        let $firstInvalid = null;
+
+        const fields = [
+            'name',
+            'phone',
+            'email',
+            'date',
+            'time',
+            'guests',
+            'occasion',
+            'message'
+        ];
+
+        $.each(fields, function (index, id) {
+            const $input = $('#' + id);
+            const error = validationMessage(id);
+
+            if (error) {
+                showError($input, error);
+
+                if ($firstInvalid === null) {
+                    $firstInvalid = $input;
+                }
+            } else {
+                clearError($input);
+            }
+        });
+
+        if ($firstInvalid !== null) {
+            $firstInvalid.trigger('focus');
+            return false;
+        }
+
+        return true;
+    }
+
+    // Generate demo reference
+    function generateReference() {
+        return 'FOREST-' + Math.floor(
+            100000 + Math.random() * 900000
         );
     }
 
-    if (firstInvalid) {
-        firstInvalid.focus();
-        return false;
+    // Submit reservation
+    function submitReservation() {
+        $result
+            .stop(true, true)
+            .empty();
+
+        if (!validateForm()) {
+            $result
+                .removeClass('alert-success')
+                .addClass('alert alert-danger')
+                .hide()
+                .text(
+                    'Please correct the highlighted fields.'
+                )
+                .fadeIn(250);
+
+            return;
+        }
+
+        const name = String(
+            $('#name').val()
+        ).trim();
+
+        const date = String(
+            $('#date').val()
+        );
+
+        const time = String(
+            $('#time').val()
+        );
+
+        const guests = String(
+            $('#guests').val()
+        );
+
+        const message = String(
+            $('#message').val() || ''
+        ).trim();
+
+        const occasionText = $('#occasion')
+            .find('option:selected')
+            .text();
+
+        const $confirmation = $('<div>');
+
+        $('<h3>', {
+            class: 'fs-5 mb-3'
+        })
+            .text('Reservation Request Prepared!')
+            .appendTo($confirmation);
+
+        $('<p>')
+            .text(
+                'Thank you, ' + name +
+                '! Your demonstration request is ready.'
+            )
+            .appendTo($confirmation);
+
+        $('<p>')
+            .text(
+                'Reference: ' + generateReference()
+            )
+            .appendTo($confirmation);
+
+        $('<p>')
+            .text(
+                'Date: ' + date +
+                ' | Time: ' + time +
+                ' | Guests: ' + guests
+            )
+            .appendTo($confirmation);
+
+        $('<p>')
+            .text(
+                'Occasion: ' + occasionText
+            )
+            .appendTo($confirmation);
+
+        // Confirmation includes the service charge
+        $('<p>')
+            .text(
+                'Subtotal: ' +
+                formatPrice(calculateSubtotal(cart))
+            )
+            .appendTo($confirmation);
+
+        $('<p>')
+            .text(
+                'Service Charge (10%): ' +
+                formatPrice(calculateServiceCharge(cart))
+            )
+            .appendTo($confirmation);
+
+        $('<p>')
+            .text(
+                'Pre-order total: ' +
+                formatPrice(calculateFinalTotal(cart))
+            )
+            .appendTo($confirmation);
+
+        if (message) {
+            $('<p>')
+                .text(
+                    'Special requests: ' + message
+                )
+                .appendTo($confirmation);
+        }
+
+        $('<p>', {
+            class: 'small mb-0'
+        })
+            .text(
+                'This is a website demonstration. ' +
+                'No real reservation or food order has been sent.'
+            )
+            .appendTo($confirmation);
+
+        // Display confirmation using jQuery effects
+        $result
+            .removeClass('alert-danger')
+            .addClass('alert alert-success')
+            .hide()
+            .append($confirmation)
+            .fadeIn(300, function () {
+                $(this).attr('role', 'status');
+            });
+
+        // Reset form
+        $form.trigger('reset');
+
+        $form
+            .find('.is-invalid')
+            .removeClass('is-invalid');
+
+        $form
+            .find('.invalid-feedback')
+            .stop(true, true)
+            .hide()
+            .text('');
     }
 
-    return true;
-}
+    // Clear errors after user corrects the field
+    $form.on(
+        'input change',
+        'input, select, textarea',
+        function () {
+            const $input = $(this);
 
-// Generate demonstration reference number
-
-function generateReference() {
-    const number = Math.floor(
-        100000 + Math.random() * 900000
+            if (
+                $input.hasClass('is-invalid') &&
+                !validationMessage(
+                    String($input.attr('id'))
+                )
+            ) {
+                clearError($input);
+            }
+        }
     );
 
-    return 'FOREST-' + number;
-}
-
-// Display reservation confirmation
-
-function submitReservation() {
-    result.replaceChildren();
-
-    if (!validateForm()) {
-        result.className =
-            'reservation-result mt-3 alert alert-danger';
-
-        result.textContent =
-            'Please correct the highlighted fields.';
-
-        return;
-    }
-
-    const reference = generateReference();
-
-    const confirmation = document.createElement('div');
-
-    const heading = document.createElement('h3');
-    heading.className = 'fs-5 mb-3';
-    heading.textContent = 'Reservation Request Prepared!';
-
-    const details = document.createElement('p');
-
-    details.textContent =
-        'Thank you, ' + nameInput.value.trim() + '! ' +
-        'Your demonstration request is ready.';
-
-    const referenceText = document.createElement('p');
-    referenceText.textContent = 'Reference: ' + reference;
-
-    const bookingDetails = document.createElement('p');
-
-    bookingDetails.textContent =
-        'Date: ' + dateInput.value +
-        ' | Time: ' + timeInput.value +
-        ' | Guests: ' + guestsInput.value;
-
-    const occasionText = document.createElement('p');
-
-    occasionText.textContent =
-        'Occasion: ' +
-        occasionInput.options[occasionInput.selectedIndex].text;
-
-    const totalText = document.createElement('p');
-
-    totalText.textContent =
-        'Pre-order total: ' + formatPrice(
-            calculateTotal(cart)
-        );
-
-    const notice = document.createElement('p');
-    notice.className = 'small mb-0';
-
-    notice.textContent =
-        'This is a website demonstration. ' +
-        'No real reservation or food order has been sent.';
-
-    confirmation.appendChild(heading);
-    confirmation.appendChild(details);
-    confirmation.appendChild(referenceText);
-    confirmation.appendChild(bookingDetails);
-    confirmation.appendChild(occasionText);
-    confirmation.appendChild(totalText);
-
-    if (messageInput.value.trim()) {
-        const requestText = document.createElement('p');
-
-        requestText.textContent =
-            'Special requests: ' + messageInput.value.trim();
-
-        confirmation.appendChild(requestText);
-    }
-
-    confirmation.appendChild(notice);
-
-    result.className =
-        'reservation-result mt-3 alert alert-success';
-
-    result.appendChild(confirmation);
-
-    result.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest'
+    // Prevent normal browser form submission
+    $form.on('submit', function (event) {
+        event.preventDefault();
+        submitReservation();
     });
-}
 
-// Remove errors when user edits fields
-
-const requiredInputs = [
-    nameInput,
-    phoneInput,
-    dateInput,
-    timeInput,
-    guestsInput
-];
-
-requiredInputs.forEach(function (input) {
-    input.addEventListener('input', function () {
-        clearError(input);
+    // Handle Send Request button
+    $submitButton.on('click', function (event) {
+        event.preventDefault();
+        submitReservation();
     });
+
+    // Set minimum reservation date
+    $('#date').attr('min', getToday());
+
+    // Initialize the page
+    createPriceBreakdown();
+    displayPreorder();
 });
-
-// Prevent accidental form submission
-
-form.addEventListener('submit', function (event) {
-    event.preventDefault();
-    submitReservation();
-});
-
-// Handle Send Request button
-
-submitButton.addEventListener('click', submitReservation);
-
-// Initialize page
-
-dateInput.min = getToday();
-
-displayPreorder();
-
-console.log('Contact JavaScript connected!');

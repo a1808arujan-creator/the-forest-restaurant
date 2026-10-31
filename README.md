@@ -1,241 +1,238 @@
-# The Forest Restaurant Website
 
-## About the Project
+# The Forest — Restaurant Website
 
-The Forest is a responsive multi-page restaurant website created for the
-Introduction to Web Technologies course.
+## Project Overview
 
-The project is based on The Forest restaurant in Ust-Kamenogorsk, Kazakhstan.
-The website allows visitors to explore the restaurant, view the menu,
-see the restaurant's atmosphere and spaces, find contact information,
-and prepare a table reservation request.
+The Forest is a responsive restaurant website developed for the Introduction to Web Technologies course.
 
-The website uses Bootstrap for responsive layout and reusable interface
-components, while custom CSS is used for the restaurant's visual style.
+The project allows visitors to explore the restaurant menu, search for dishes, manage a pre-order cart, and prepare a demonstration table reservation request.
 
----
+The website is a frontend project. No real reservations or payments are processed.
 
-## Pages
+## Technologies Used
 
-The website contains four main pages:
+- HTML5 — page structure and semantic elements
+- CSS3 — custom website styling
+- Bootstrap 5.3.8 — responsive layout and components
+- JavaScript — application logic and calculations
+- jQuery 3.7.1 — DOM manipulation, events, effects, and validation
+- sessionStorage — temporary storage of pre-order items
 
-### 1. Home — `index.html`
+## Website Pages
 
-The Home page introduces The Forest restaurant and its atmosphere.
+- `index.html` — Home page
+- `menu.html` — Menu, dish search, and shopping cart
+- `gallery.html` — Restaurant gallery
+- `contact.html` — Contact information and reservation form
 
-It includes:
-- Hero section
-- Information about the restaurant
-- Reasons to visit The Forest
-- Gallery preview
-- Contact information
-- Links to the menu, gallery and reservation section
+## Assignment 4 — jQuery Implementation
 
-### 2. Menu — `menu.html`
+This assignment continues the existing restaurant project without creating a new repository or changing the project theme.
 
-The Menu page presents restaurant dishes and prices.
+The main objective is to replace selected Vanilla JavaScript functionality with jQuery and demonstrate selectors, traversal, chaining, DOM manipulation, event handling, delegation, effects, and form validation.
 
-Menu categories include:
-- Cold Starters
-- Salads
-- Fish
-- Soups
-- Side Dishes
-- Baursaki
-- Traditional Bakery
-- Dough Dishes
+### 1. Rewritten JavaScript Features
 
-Visitors can use category navigation to move directly to different
-sections of the menu.
+The following features were rewritten using jQuery:
 
-### 3. Gallery — `gallery.html`
+**Feature 1: Menu Search**
 
-The Gallery page presents the atmosphere and different spaces of
-The Forest restaurant.
+- Search dishes by name.
+- Hide dishes that do not match the search.
+- Hide categories without matching dishes.
+- Display the number of search results.
+- Create the search input dynamically using jQuery.
 
-It includes:
-- Interior
-- VIP rooms
-- Exterior
+Main methods: `.on()`, `.val()`, `.each()`, `.find()`, `.toggle()`, `.text()`, `.slideDown()`, `.slideUp()`.
 
-The page also provides a link to the reservation section for visitors
-who want to book a table.
+**Feature 2: Shopping Cart**
 
-### 4. Contact — `contact.html`
+- Add dishes to the cart.
+- Increase or decrease quantities.
+- Remove individual dishes.
+- Clear the entire cart.
+- Calculate subtotal, service charge, and final total.
+- Save pre-order items in `sessionStorage`.
+- Generate cart elements dynamically.
 
-The Contact page provides practical restaurant information.
+Main methods: `.on()`, `.append()`, `.appendTo()`, `.empty()`, `.html()`, `.text()`, `.attr()`, `.prop()`.
 
-It includes:
-- Phone number
-- Address
-- Opening hours
-- Instagram
-- Restaurant image
-- Table reservation form
+**Feature 3: Pre-order Display**
 
-The reservation form collects the visitor's name, phone number,
-preferred date and time, number of guests, occasion and special requests.
+- Load selected dishes from `sessionStorage`.
+- Display item names, quantities, and prices.
+- Show subtotal, 10% service charge, and final total.
 
----
+Main methods: `.empty()`, `.appendTo()`, `.text()`.
 
-## Technologies
+**Feature 4: Reservation Form Validation**
 
-The project uses:
+- Validate name length.
+- Validate phone number format.
+- Validate email address format.
+- Reject past reservation dates.
+- Validate reservation time.
+- Validate the number of guests (1–20).
+- Validate occasion and special request fields.
+- Display field-specific error messages.
+- Clear errors when invalid fields are corrected.
+- Show a demonstration confirmation after successful validation.
+- Reset the form after successful validation.
 
-- HTML5 for page structure and semantic markup
-- CSS3 for custom styling
-- Bootstrap 5.3 for responsive layout, grid, spacing, forms,
-  buttons, tables and utility classes
+Main methods: `.val()`, `.on()`, `.addClass()`, `.removeClass()`, `.find()`, `.parent()`, `.fadeIn()`.
 
-JavaScript functionality is not implemented in the midterm version.
-The HTML structure is prepared for JavaScript functionality that will
-be added in later assignments.
+The new email input is created dynamically through jQuery.
 
----
+### 2. Selectors and Traversal
 
-## Responsive Design
+The project demonstrates:
 
-The website follows a responsive design approach.
+- ID selectors: `$('#name')`
+- Class selectors: `$('.forest-dish')`
+- Element selectors: `$('input')`
+- Attribute selectors: `$('button[data-name]')`
+- Filtering selectors: `:first`, `:selected`
+- Traversal: `.find()`, `.closest()`, `.parent()`, `.siblings()`, `.each()`
 
-Bootstrap's grid system is used to adapt the layout to different
-screen sizes, including:
+### 3. DOM Manipulation
 
-- Mobile phones
-- Tablets
-- Desktop computers
+The implementation uses:
 
-Classes such as `container`, `row`, `col-12`, `col-md-6`,
-`col-lg-3`, responsive spacing utilities and flex utilities are
-used throughout the project.
+- `.text()` — update text safely
+- `.html()` — insert fixed HTML content
+- `.val()` — read form values
+- `.attr()` — access HTML attributes
+- `.prop()` — update element properties
+- `.append()` / `.appendTo()` — create and insert elements
+- `.empty()` — clear existing content
+- `.addClass()` / `.removeClass()` / `.toggleClass()` / `.hasClass()` — manage CSS classes
 
----
+Cart rows, buttons, search elements, and the email field are created dynamically using jQuery.
 
-## JavaScript Readiness
+### 4. Events and Event Delegation
 
-Although JavaScript is not implemented in the midterm version,
-the website structure is prepared for future interaction.
+Events are registered using `.on()`.
 
-Interactive elements have consistent IDs and classes so that
-JavaScript can find and modify them later.
+Event types include:
 
-The reservation form includes a dedicated result area for future
-confirmation or error messages.
+- `click` — cart buttons and form submission button
+- `input` — menu search and form fields
+- `change` — form field changes
+- `submit` — reservation form submission
 
-CSS state classes are also prepared for future states such as:
+Event delegation is used for dynamically generated cart buttons.
 
-- hidden
-- active
-- selected
-- error
-- success
+For example, a click handler is attached to the existing `#cart-items` container, allowing newly generated buttons to work without separate event listeners.
 
----
+`event.preventDefault()` is used to prevent unwanted browser navigation or native form submission.
 
-# User Journeys
+### 5. jQuery Effects
 
-## Journey 1 — Explore the Menu
+The project uses the following effects:
 
-**Start:** Home page
+- `.fadeIn()` — display cart messages and reservation confirmation
+- `.slideDown()` — reveal search results and validation errors
+- `.slideUp()` — hide messages or errors
 
-1. The visitor opens the Home page.
-2. The visitor selects "View Menu".
-3. The Menu page opens.
-4. The visitor chooses a menu category.
-5. The visitor views dishes and prices.
+Custom animation durations and completion callbacks are also demonstrated.
 
-**End:** The visitor finds the restaurant's food options and prices.
+### 6. Method Chaining
 
----
+Multiple jQuery methods are called in a single chain.
 
-## Journey 2 — Explore the Restaurant
+Example:
 
-**Start:** Home page
+```javascript
+$cartResult
+    .stop(true, true)
+    .hide()
+    .text(message)
+    .fadeIn(250);
+```
 
-1. The visitor opens the Home page.
-2. The visitor selects "Gallery".
-3. The Gallery page opens.
-4. The visitor explores the restaurant interior.
-5. The visitor views the VIP rooms and exterior.
+This chain stops previous animations, hides the element, updates its text, and displays it with an animation.
 
-**End:** The visitor understands the atmosphere and available spaces
-at The Forest.
+### 7. Client-Side Form Validation
 
----
+The reservation form is validated before displaying confirmation.
 
-## Journey 3 — Prepare a Table Reservation
+Validation errors are shown next to their corresponding fields, and users can correct them without reloading the page.
 
-**Start:** Home page
+HTML form attributes such as `required`, `min`, and `max` provide additional information.
 
-1. The visitor selects "Book a Table".
-2. The browser opens the reservation section on the Contact page.
-3. The visitor enters their name and phone number.
-4. The visitor chooses a date and preferred time.
-5. The visitor selects the number of guests and occasion.
-6. The visitor can enter special requests.
-7. The visitor selects "Send Request".
-8. The page contains a dedicated area for a future reservation
-   confirmation message.
+Client-side validation is not a replacement for server-side validation. A production reservation system would require backend validation.
 
-**End:** The visitor completes the reservation request flow.
+### 8. Vanilla JavaScript Comparison
 
-In the midterm version, no backend or JavaScript processing is
-implemented. Visitors are informed that actual reservations should
-be confirmed by phone.
+Original versions of the rewritten functionality are preserved in:
 
----
+`js/old-js-version.js`
 
-## Navigation
+This file is kept for comparison and is not connected to the website.
 
-All pages use the same navigation structure:
+Compared with Vanilla JavaScript, jQuery provides shorter syntax for DOM selection, element creation, event handling, and effects.
 
-- Home
-- Menu
-- Gallery
-- Contact
+### 9. HTML/CSS Freeze
 
-Every main page can be reached from every other page through the
-navigation menu.
+The existing project structure and styling are preserved.
 
----
+New interactive elements required for this assignment are created dynamically through JavaScript and jQuery instead of being added manually to HTML.
 
-## Real Content
+No new custom CSS rules are required for the jQuery features.
 
-The website uses restaurant-specific content, including:
+## Project Files
 
-- Restaurant menu and prices
-- Opening hours
-- Phone number
-- Address
-- Restaurant photographs
+```text
+The-Forest/
+├── index.html
+├── menu.html
+├── gallery.html
+├── contact.html
+├── style.css
+├── preorder.css
+├── menu-cards-compact.css
+├── floating-cart.css
+├── images/
+├── js/
+│   ├── main.js
+│   ├── menu.js
+│   ├── contact.js
+│   └── old-js-version.js
+└── README.md
+```
 
-Placeholder content is not used in the final midterm version.
+## How to Run
 
----
+1. Clone or download the repository.
+2. Open the project folder in Visual Studio Code.
+3. Start Live Server.
+4. Open `index.html` or `menu.html`.
+5. Explore the menu and add dishes to the cart.
+6. Continue to `contact.html` to review the pre-order and test the reservation form.
 
-## Quality Pass
+An internet connection is needed to load jQuery and Bootstrap from their CDNs.
 
-Before submission, the website is tested on desktop and mobile screen sizes.
+Use the same Live Server origin for both pages so `sessionStorage` can preserve the cart during navigation.
 
-The quality check includes:
+## Testing
 
-- Navigation links
-- Internal section links
-- Images
-- Reservation form structure
-- Mobile responsiveness
-- Horizontal overflow
-- Browser console
-- HTML validation
-- Consistent navigation and footer
+The project should be tested for:
 
-Any problems found during testing are documented and fixed before
-the final midterm submission.
+- Menu search and category filtering
+- Adding and removing cart items
+- Quantity changes
+- Subtotal and 10% service charge calculations
+- Pre-order persistence between Menu and Contact
+- Required and invalid form fields
+- Successful demonstration reservation requests
+- Browser console errors
 
----
+## AI Usage
 
-## Author
+AI assistance was used for code explanation, jQuery migration, debugging, and reviewing assignment requirements, as permitted by the current instructor.
 
-Baktiyarova Aruzhan  
-Group: SE-2533
+The project includes a separate AI usage log documenting assistance.
 
-Introduction to Web Technologies 1
+## Notes
+
+This website is an educational demonstration. No backend service, actual restaurant reservation, or online payment is connected.
