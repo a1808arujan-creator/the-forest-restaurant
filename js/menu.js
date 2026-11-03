@@ -485,11 +485,72 @@ $(function () {
             .attr('aria-disabled', String(!cart.length));
     }
 
+
+function buildPriceSort() {
+    const $select = $(`
+        <select class="form-select">
+            <option value="default">Default order</option>
+            <option value="asc">Price: Low to High</option>
+            <option value="desc">Price: High to Low</option>
+        </select>
+    `);
+
+    const $box = $('<div>', {
+        class: 'col-12 col-md-6 mb-4'
+    }).append($select);
+
+    const $row = $('<div>', {
+        class: 'row justify-content-center'
+    }).append($box);
+
+    $('#menu-search').closest('.row').after($row);
+
+    $('.dish-grid').each(function () {
+        $(this).children('.dish-column').each(function (index) {
+            $(this).data('originalIndex', index);
+        });
+    });
+
+    $select.on('change', function () {
+        const order = $(this).val();
+
+        $('.dish-grid').each(function () {
+            const $grid = $(this);
+            const cards = $grid.children('.dish-column').get();
+
+            cards.sort(function (a, b) {
+                if (order === 'default') {
+                    return $(a).data('originalIndex') -
+                           $(b).data('originalIndex');
+                }
+
+                const priceA = Number(
+                    $(a).find('.add-to-cart').attr('data-price')
+                );
+
+                const priceB = Number(
+                    $(b).find('.add-to-cart').attr('data-price')
+                );
+
+                return order === 'asc'
+                    ? priceA - priceB
+                    : priceB - priceA;
+            });
+
+            cards.forEach(function (card) {
+                $grid.append(card);
+            });
+        });
+    });
+}
+
+
     buildMenu();
-    buildSearch();
-    buildCart();
-    loadCart();
-    renderCart();
+buildSearch();
+buildPriceSort();
+buildCart();
+loadCart();
+renderCart();
 
     $('.menu-section').on('click', '.quantity-change', function () {
         const $card = $(this).closest('.card');
