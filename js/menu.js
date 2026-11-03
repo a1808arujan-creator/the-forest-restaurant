@@ -1,159 +1,531 @@
 
 'use strict';
 
-// The Forest — jQuery 3.7.1. jQuery must load before this file.
 $(function () {
-    // Guard against accidentally connecting the same script twice.
-    if (window.forestMenuInitialized) return;
+    if (!$('body').hasClass('menu-page') || window.forestMenuInitialized) return;
     window.forestMenuInitialized = true;
 
     const STORAGE_KEY = 'forestPreorder';
+    const PHOTO_FILES = {};
+    const menuData = [];
     let cart = [];
 
-    try {
-        const saved = JSON.parse(sessionStorage.getItem(STORAGE_KEY));
-        if (Array.isArray(saved)) {
-            cart = saved.filter(function (item) {
-                return item && typeof item.name === 'string' &&
-                    Number.isFinite(item.price) && item.price >= 0 &&
-                    Number.isInteger(item.quantity) && item.quantity > 0;
-            });
-        }
-    } catch (error) {
-        cart = [];
+    function formatPrice(value) {
+        return Number(value).toLocaleString('en-US') + ' ₸';
     }
 
-    // Feature 1: MENU SEARCH (Vanilla JS -> jQuery).
-    // querySelectorAll/addEventListener/style.display became $(), .on(), .each(), .toggle().
-    // jQuery is shorter for finding elements and updating their visibility.
-    // Remove an old manually added search, if present, before creating one in JS.
-    $('.menu-categories #menu-search').closest('.row').remove();
-    $('.menu-categories #search-result').remove();
+    function makeCard(dish) {
+        const $column = $('<div>', {
+            class: 'col-12 col-md-6 col-lg-4 dish-column'
+        });
 
-    const $searchBox = $('<div>', { class: 'row justify-content-center mb-4' });
-    const $searchColumn = $('<div>', { class: 'col-12 col-md-6' });
-    const $searchInput = $('<input>', {
-        type: 'text',
-        id: 'menu-search',
-        class: 'form-control',
-        placeholder: 'Search dishes...',
-        'aria-label': 'Search dishes'
-    });
-    const $searchResult = $('<p>', {
-        id: 'search-result',
-        class: 'text-center mt-3 text-muted',
-        'aria-live': 'polite'
-    });
+        const $card = $('<div>', {
+            class: 'card h-100 border-0 shadow-sm rounded-3 overflow-hidden'
+        });
 
-    $searchColumn.append($searchInput, $searchResult);
-    $searchBox.append($searchColumn);
-    $('.menu-categories .container').find('h2:first').after($searchBox);
+        const $photo = $('<div>', {
+            class: 'ratio ratio-4x3 bg-light'
+        });
 
-    const $dishes = $('.forest-dish');
-    const $sections = $('.menu-section');
-    const $cartItems = $('#cart-items');
-    const $cartResult = $('#cart-result');
+        const $placeholder = $('<div>', {
+            class: 'd-flex flex-column align-items-center justify-content-center text-muted'
+        });
 
-    // Image errors are handled here, not in an inline HTML event attribute.
-    $('.forest-dish-photo img').on('error', function () {
-        $(this).prop('hidden', true);
-    });
+        $('<span>', {
+            class: 'fs-1'
+        }).text('🍽️').appendTo($placeholder);
+
+        $('<span>', {
+            class: 'small'
+        }).text('Photo coming soon').appendTo($placeholder);
+
+        $photo.append($placeholder);
+
+        if (PHOTO_FILES[dish.name]) {
+            const $image = $('<img>', {
+                src: PHOTO_FILES[dish.name],
+                alt: dish.name,
+                loading: 'lazy',
+                class: 'w-100 h-100 object-fit-cover'
+            }).hide();
+
+            $image.on('load', function () {
+                $placeholder.hide();
+                $image.show();
+            }).on('error', function () {
+                $image.remove();
+                $placeholder.show();
+            });
+
+            $photo.append($image);
+        }
+
+        const $body = $('<div>', {
+            class: 'card-body d-flex flex-column'
+        });
+
+        $('<h3>', {
+            class: 'card-title h5'
+        }).text(dish.name).appendTo($body);
+
+        $('<p>', {
+            class: 'fw-semibold mb-3'
+        }).text(formatPrice(dish.price)).appendTo($body);
+
+        const $controls = $('<div>', {
+            class: 'mt-auto'
+        });
+
+        const $quantity = $('<div>', {
+            class: 'd-flex align-items-center gap-3 mb-3'
+        });
+
+        $('<button>', {
+            type: 'button',
+            class: 'btn btn-outline-secondary btn-sm quantity-change',
+            'data-change': -1,
+            'aria-label': 'Decrease quantity'
+        })
+        .text('−')
+        .prop('disabled', true)
+        .appendTo($quantity);
+
+        $('<span>', {
+            class: 'quantity-value fw-bold'
+        }).text('1').appendTo($quantity);
+
+        $('<button>', {
+            type: 'button',
+            class: 'btn btn-outline-secondary btn-sm quantity-change',
+            'data-change': 1,
+            'aria-label': 'Increase quantity'
+        })
+        .text('+')
+        .appendTo($quantity);
+
+        $controls.append($quantity);
+
+        $('<button>', {
+            type: 'button',
+            class: 'btn btn-forest w-100 add-to-cart',
+            'data-name': dish.name,
+            'data-price': dish.price
+        })
+        .text('Add to Cart')
+        .appendTo($controls);
+
+        $('<p>', {
+            class: 'small text-success mt-2 mb-0 add-message',
+            role: 'status'
+        })
+        .hide()
+        .appendTo($controls);
+
+        $body.append($controls);
+        $card.append($photo, $body);
+
+        return $column.append($card);
+    }
+
+    function buildMenu() {
+        $('.menu-section').each(function () {
+            const $section = $(this);
+            const $table = $section.find('table.menu-table').first();
+
+            if (!$table.length) return;
+
+            const category = {
+                id: $section.attr('id'),
+                dishes: []
+            };
+
+            const $grid = $('<div>', {
+                class: 'row g-4 dish-grid'
+            });
+
+            $table.find('tbody tr').each(function () {
+                const $cells = $(this).find('td');
+
+                if ($cells.length < 2) return;
+
+                const name = $cells.eq(0)
+                    .text()
+                    .trim()
+                    .replace(/\s+/g, ' ');
+
+                const priceText = $cells.eq(1)
+                    .text()
+                    .replace(/[^0-9]/g, '');
+
+                const price = Number(priceText);
+
+                if (!name || !priceText || !Number.isFinite(price)) return;
+
+                const dish = {
+                    name: name,
+                    price: price
+                };
+
+                category.dishes.push(dish);
+                $grid.append(makeCard(dish));
+            });
+
+            if (category.dishes.length) {
+                menuData.push(category);
+
+                $table
+                    .closest('.table-responsive')
+                    .replaceWith($grid);
+            }
+        });
+    }
+
+    function buildSearch() {
+        const $row = $('<div>', {
+            class: 'row justify-content-center mb-4'
+        });
+
+        const $box = $('<div>', {
+            class: 'col-12 col-md-8 col-lg-6'
+        });
+
+        const $input = $('<input>', {
+            type: 'search',
+            id: 'menu-search',
+            class: 'form-control',
+            placeholder: 'Search dishes...',
+            'aria-label': 'Search dishes'
+        });
+
+        const $result = $('<p>', {
+            class: 'small text-muted mt-2',
+            'aria-live': 'polite'
+        }).hide();
+
+        $box.append($input, $result);
+        $row.append($box);
+
+        $('.menu-categories .container > h2')
+            .first()
+            .after($row);
+
+        $input.on('input', function () {
+            const query = String($(this).val())
+                .trim()
+                .toLowerCase();
+
+            let found = 0;
+
+            $('.dish-column').each(function () {
+                const $column = $(this);
+                const name = $column.find('.add-to-cart')
+                    .attr('data-name') || '';
+
+                const matches = name.toLowerCase().includes(query);
+
+                $column.toggle(matches);
+
+                if (matches) found++;
+            });
+
+            $('.menu-section').each(function () {
+                const visible = $(this)
+                    .find('.dish-column')
+                    .filter(function () {
+                        return $(this).css('display') !== 'none';
+                    }).length > 0;
+
+                $(this).toggle(visible);
+            });
+
+            if (!query) {
+                $result.stop(true, true).slideUp(200);
+            } else {
+                $result
+                    .stop(true, true)
+                    .hide()
+                    .text(
+                        found
+                            ? 'Found ' + found + ' dishes'
+                            : 'No dishes found'
+                    )
+                    .slideDown(200);
+            }
+        });
+    }
+
+    function buildCart() {
+        const $open = $('<button>', {
+            type: 'button',
+            class: 'btn btn-forest position-fixed bottom-0 end-0 m-3 rounded-pill shadow-lg z-3 d-flex align-items-center gap-2',
+            'data-bs-toggle': 'offcanvas',
+            'data-bs-target': '#forest-cart',
+            'aria-controls': 'forest-cart',
+            'aria-label': 'Open shopping cart'
+        }).text('🛒 Cart');
+
+        $('<span>', {
+            id: 'cart-count',
+            class: 'badge rounded-pill bg-light text-dark'
+        })
+        .text('0')
+        .appendTo($open);
+
+        const $panel = $('<div>', {
+            id: 'forest-cart',
+            class: 'offcanvas offcanvas-end',
+            tabindex: '-1',
+            'aria-labelledby': 'forest-cart-title'
+        });
+
+        const $header = $('<div>', {
+            class: 'offcanvas-header'
+        });
+
+        $('<h2>', {
+            id: 'forest-cart-title',
+            class: 'offcanvas-title h4'
+        })
+        .text('Your Order')
+        .appendTo($header);
+
+        $('<button>', {
+            type: 'button',
+            class: 'btn-close',
+            'data-bs-dismiss': 'offcanvas',
+            'aria-label': 'Close cart'
+        }).appendTo($header);
+
+        const $body = $('<div>', {
+            class: 'offcanvas-body d-flex flex-column'
+        });
+
+        $('<div>', {
+            id: 'cart-items',
+            class: 'flex-grow-1'
+        }).appendTo($body);
+
+        const $footer = $('<div>', {
+            class: 'border-top pt-3 mt-3'
+        });
+
+        function addTotalRow(label, id, strong) {
+            const $row = $('<div>', {
+                class: 'd-flex justify-content-between mb-2'
+            });
+
+            $('<span>')
+                .text(label)
+                .appendTo($row);
+
+            const $value = $(strong ? '<strong>' : '<span>');
+
+            $value
+                .attr('id', id)
+                .text('0 ₸')
+                .appendTo($row);
+
+            $footer.append($row);
+        }
+
+        addTotalRow('Subtotal', 'cart-subtotal', false);
+        addTotalRow('Service (10%)', 'cart-service', false);
+        addTotalRow('Total', 'cart-total', true);
+
+        $('<a>', {
+            id: 'continue-to-reservation',
+            class: 'btn btn-forest w-100 mt-3',
+            href: 'contact.html#reservation'
+        })
+        .text('Continue to Reservation')
+        .appendTo($footer);
+
+        $('<p>', {
+            id: 'cart-message',
+            class: 'small text-success mt-2',
+            role: 'status'
+        })
+        .hide()
+        .appendTo($footer);
+
+        $body.append($footer);
+        $panel.append($header, $body);
+
+        $('body').append($open, $panel);
+    }
+
+    function loadCart() {
+        try {
+            const saved = JSON.parse(
+                sessionStorage.getItem(STORAGE_KEY)
+            );
+
+            if (!Array.isArray(saved)) return;
+
+            cart = saved.map(function (item) {
+                return {
+                    name: String(item.name || ''),
+                    price: Number(item.price),
+                    quantity: Number(item.quantity)
+                };
+            }).filter(function (item) {
+                return item.name &&
+                    Number.isFinite(item.price) &&
+                    item.price >= 0 &&
+                    Number.isInteger(item.quantity) &&
+                    item.quantity > 0;
+            });
+        } catch (error) {
+            cart = [];
+        }
+    }
 
     function saveCart() {
-        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+        sessionStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify(cart)
+        );
     }
 
-    function formatPrice(price) {
-        return price.toLocaleString('en-US') + ' ₸';
-    }
+    function changeQuantity(index, delta) {
+        if (!Number.isInteger(index) || !cart[index]) return;
 
-    function calculateSubtotal() {
-        let total = 0;
-        $.each(cart, function (index, item) {
-            total += item.price * item.quantity;
-        });
-        return total;
-    }
+        cart[index].quantity += delta;
 
-    function calculateQuantity() {
-        let quantity = 0;
-        $.each(cart, function (index, item) {
-            quantity += item.quantity;
-        });
-        return quantity;
-    }
-
-    // Feature 2: CART RENDERING (Vanilla JS -> jQuery).
-    // createElement/appendChild/replaceChildren became $('<...>'), .appendTo(), .html().
-    // Building the cart is shorter; delegated events avoid listeners on each new button.
-    function renderCart() {
-        $cartItems.empty();
-
-        if (cart.length === 0) {
-            // .html() is safe here because this is fixed HTML, not user input.
-            $cartItems.html('<p>Your pre-order is currently empty.</p>');
-        } else {
-            // All cart rows and buttons come from the cart array, not from HTML.
-            $.each(cart, function (index, item) {
-                const $row = $('<div>', {
-                    class: 'd-flex flex-wrap justify-content-between align-items-center gap-3 mb-3'
-                });
-                const $information = $('<div>');
-                const $actions = $('<div>', {
-                    class: 'd-flex align-items-center gap-2'
-                });
-
-                $('<strong>').text(item.name).appendTo($information);
-                $('<p>', { class: 'mb-0' })
-                    .text(formatPrice(item.price * item.quantity))
-                    .appendTo($information);
-
-                $('<button>', {
-                    type: 'button',
-                    class: 'btn btn-outline-dark btn-sm cart-minus',
-                    'data-index': index,
-                    'aria-label': 'Decrease ' + item.name
-                }).text('−').appendTo($actions);
-
-                $('<span>').text(item.quantity).appendTo($actions);
-
-                $('<button>', {
-                    type: 'button',
-                    class: 'btn btn-outline-dark btn-sm cart-plus',
-                    'data-index': index,
-                    'aria-label': 'Increase ' + item.name
-                }).text('+').appendTo($actions);
-
-                $('<button>', {
-                    type: 'button',
-                    class: 'btn btn-outline-danger btn-sm cart-remove',
-                    'data-index': index
-                }).text('Remove').appendTo($actions);
-
-                // Chain: append() adds children; appendTo() places the row in #cart-items.
-                $row.append($information, $actions).appendTo($cartItems);
-            });
-
-            $('<button>', {
-                type: 'button',
-                class: 'btn btn-outline-danger btn-sm mt-2 cart-clear'
-            }).text('Clear Cart').appendTo($cartItems);
+        if (cart[index].quantity <= 0) {
+            cart.splice(index, 1);
         }
 
-        const subtotal = calculateSubtotal();
-        const service = Math.round(subtotal * 0.10);
+        saveCart();
+        renderCart();
+    }
+
+    function renderCart() {
+        const $items = $('#cart-items').empty();
+
+        let subtotal = 0;
+        let quantity = 0;
+
+        if (!cart.length) {
+            $('<p>', {
+                class: 'text-muted'
+            })
+            .text('Your cart is empty.')
+            .appendTo($items);
+        }
+
+        cart.forEach(function (item, index) {
+            subtotal += item.price * item.quantity;
+            quantity += item.quantity;
+
+            const $row = $('<div>', {
+                class: 'border-bottom pb-3 mb-3'
+            });
+
+            $('<strong>', {
+                class: 'd-block'
+            })
+            .text(item.name)
+            .appendTo($row);
+
+            $('<p>', {
+                class: 'small text-muted mb-2'
+            })
+            .text(formatPrice(item.price * item.quantity))
+            .appendTo($row);
+
+            const $actions = $('<div>', {
+                class: 'd-flex align-items-center gap-2 flex-wrap'
+            });
+
+            function cartButton(text, action, cssClass) {
+                $('<button>', {
+                    type: 'button',
+                    class: 'btn btn-sm ' + cssClass,
+                    'data-action': action,
+                    'data-index': index
+                })
+                .text(text)
+                .appendTo($actions);
+            }
+
+            cartButton('−', 'minus', 'btn-outline-secondary');
+
+            $('<span>', {
+                class: 'fw-semibold'
+            })
+            .text(item.quantity)
+            .appendTo($actions);
+
+            cartButton('+', 'plus', 'btn-outline-secondary');
+            cartButton('Remove', 'remove', 'btn-outline-danger');
+
+            $row.append($actions).appendTo($items);
+        });
+
+        if (cart.length) {
+            $('<button>', {
+                type: 'button',
+                class: 'btn btn-outline-danger btn-sm',
+                id: 'clear-cart'
+            })
+            .text('Clear Cart')
+            .appendTo($items);
+        }
+
+        const service = Math.round(subtotal * 0.1);
 
         $('#cart-subtotal').text(formatPrice(subtotal));
         $('#cart-service').text(formatPrice(service));
         $('#cart-total').text(formatPrice(subtotal + service));
-        $('#cart-nav-link').text('Cart (' + calculateQuantity() + ')');
+        $('#cart-count').text(quantity);
 
         $('#continue-to-reservation')
-            .toggleClass('disabled', cart.length === 0)
-            .attr('aria-disabled', String(cart.length === 0));
+            .toggleClass('disabled', !cart.length)
+            .attr('aria-disabled', String(!cart.length));
     }
 
-    function addToCart(name, price, quantity) {
+    buildMenu();
+    buildSearch();
+    buildCart();
+    loadCart();
+    renderCart();
+
+    $('.menu-section').on('click', '.quantity-change', function () {
+        const $card = $(this).closest('.card');
+        const $value = $card.find('.quantity-value');
+
+        const change = Number(
+            $(this).attr('data-change')
+        );
+
+        const number = Math.max(
+            1,
+            Number($value.text()) + change
+        );
+
+        $value.text(number);
+
+        $card.find('[data-change="-1"]')
+            .prop('disabled', number === 1);
+    });
+
+    $('.menu-section').on('click', '.add-to-cart', function () {
+        const $button = $(this);
+        const $card = $button.closest('.card');
+
+        const name = String(
+            $button.attr('data-name')
+        );
+
+        const price = Number(
+            $button.attr('data-price')
+        );
+
+        const quantity = Number(
+            $card.find('.quantity-value').text()
+        ) || 1;
+
         const existing = cart.find(function (item) {
             return item.name === name;
         });
@@ -161,132 +533,65 @@ $(function () {
         if (existing) {
             existing.quantity += quantity;
         } else {
-            cart.push({ name: name, price: price, quantity: quantity });
+            cart.push({
+                name: name,
+                price: price,
+                quantity: quantity
+            });
         }
+
         saveCart();
         renderCart();
-    }
 
-    function changeCartQuantity(index, difference) {
-        if (!Number.isInteger(index) || !cart[index]) return;
-        cart[index].quantity += difference;
-        if (cart[index].quantity <= 0) cart.splice(index, 1);
-        saveCart();
-        renderCart();
-    }
+        $card.find('.quantity-value').text('1');
 
-    function removeFromCart(index) {
-        if (!Number.isInteger(index) || !cart[index]) return;
-        cart.splice(index, 1);
-        saveCart();
-        renderCart();
-    }
+        $card.find('[data-change="-1"]')
+            .prop('disabled', true);
 
-    function showCartMessage(message) {
-        // Chain: stop() cancels an old animation; hide() resets visibility;
-        // text() safely sets a message; fadeIn() reveals it to the visitor.
-        $cartResult.stop(true, true).hide().text(message).fadeIn(250, function () {
-            $(this).attr('role', 'status'); // Completion callback.
-        });
-    }
-
-    // Delegation: cart buttons are created AFTER page load by renderCart().
-    // Binding .on() directly to .cart-plus at startup would miss these buttons.
-    $cartItems.on('click', '.cart-minus', function () {
-        changeCartQuantity(Number($(this).attr('data-index')), -1);
+        $card.find('.add-message')
+            .stop(true, true)
+            .hide()
+            .text('Added to your cart: ' + quantity)
+            .slideDown(200);
     });
 
-    $cartItems.on('click', '.cart-plus', function () {
-        changeCartQuantity(Number($(this).attr('data-index')), 1);
+    $('#cart-items').on('click', '[data-action]', function () {
+        const index = Number(
+            $(this).attr('data-index')
+        );
+
+        const action = $(this).attr('data-action');
+
+        if (action === 'plus') {
+            changeQuantity(index, 1);
+        }
+
+        if (action === 'minus') {
+            changeQuantity(index, -1);
+        }
+
+        if (action === 'remove' && cart[index]) {
+            cart.splice(index, 1);
+            saveCart();
+            renderCart();
+        }
     });
 
-    $cartItems.on('click', '.cart-remove', function () {
-        removeFromCart(Number($(this).attr('data-index')));
-    });
-
-    $cartItems.on('click', '.cart-clear', function () {
+    $('#cart-items').on('click', '#clear-cart', function () {
         cart = [];
         saveCart();
         renderCart();
-        showCartMessage('Your cart has been cleared.');
-    });
 
-    // Menu quantity buttons: .siblings() finds the counter in the same control.
-    $('.forest-dish-list').on('click', '.quantity-plus, .quantity-minus', function () {
-        const $button = $(this);
-        const $quantityValue = $button.siblings('.quantity-value');
-        const $dish = $button.closest('.forest-dish');
-        let quantity = Number($quantityValue.text()) || 1;
-
-        if ($button.hasClass('quantity-plus')) {
-            quantity++;
-        } else if (quantity > 1) {
-            quantity--;
-        }
-
-        $quantityValue.text(quantity);
-        // .prop() changes the actual disabled property, not a text attribute.
-        $dish.find('.quantity-minus').prop('disabled', quantity === 1);
-    });
-
-    $('.forest-dish-list').on('click', '.add-to-cart[data-price]', function () {
-        // The selector above uses element class AND an attribute selector.
-        const $button = $(this);
-        const $dish = $button.closest('.forest-dish');
-        const name = String($button.attr('data-name') || '').replace(/^🍽\s*/, '');
-        const price = Number($button.attr('data-price'));
-        const quantity = Number($dish.find('.quantity-value').text()) || 1;
-
-        if (!name || !Number.isFinite(price) || price < 0) return;
-
-        addToCart(name, price, quantity);
-        $dish.find('.quantity-value').text('1');
-        $dish.find('.quantity-minus').prop('disabled', true);
-        showCartMessage(name + ' × ' + quantity + ' added to your cart.');
-    });
-
-    $searchInput.on('input', function () {
-        const searchText = String($(this).val()).trim().toLowerCase();
-        let found = 0;
-
-        $dishes.each(function () {
-            const $dish = $(this);
-            const name = String(
-                $dish.find('button[data-name]').attr('data-name') || ''
-            ).toLowerCase();
-            const matches = name.includes(searchText);
-            $dish.toggle(matches);
-            if (matches) found++;
-        });
-
-        $sections.each(function () {
-            const $section = $(this);
-            const visibleCount = $section.find('.forest-dish').filter(function () {
-                return $(this).css('display') !== 'none';
-            }).length;
-            $section.toggle(visibleCount > 0);
-        });
-
-        const message = searchText === '' ? '' :
-            (found === 0 ? 'No dishes found' : 'Found ' + found + ' dishes');
-
-        if (message) {
-            $searchResult.stop(true, true).hide().text(message).slideDown(200);
-        } else {
-            $searchResult.stop(true, true).slideUp(200, function () {
-                $(this).text('');
-            });
-        }
+        $('#cart-message')
+            .stop(true, true)
+            .hide()
+            .text('Your cart has been cleared.')
+            .fadeIn(250);
     });
 
     $('#continue-to-reservation').on('click', function (event) {
-        if ($(this).hasClass('disabled')) {
-            // Without preventDefault(), the empty cart link would still navigate.
+        if (!cart.length) {
             event.preventDefault();
         }
     });
-
-    // Initialize existing quantity controls and the cart.
-    $('.forest-dish .quantity-minus').prop('disabled', true);
-    renderCart();
 });
