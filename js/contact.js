@@ -1,7 +1,6 @@
 
 'use strict';
 
-// The Forest — jQuery 3.7.1
 $(function () {
     if (window.forestContactInitialized) return;
     window.forestContactInitialized = true;
@@ -15,7 +14,7 @@ $(function () {
     const $preorderItems = $('#preorder-items');
     const $preorderTotal = $('#preorder-total');
 
-    // Create Email field using jQuery
+    
     if ($('#email').length === 0) {
         const $emailGroup = $('<div>', {
             class: 'mb-3'
@@ -43,7 +42,7 @@ $(function () {
             .after($emailGroup);
     }
 
-    // Load cart from sessionStorage
+   
     function loadCart() {
         try {
             const saved = JSON.parse(
@@ -61,7 +60,7 @@ $(function () {
                 });
             }
         } catch (error) {
-            // Invalid stored data becomes an empty cart
+            
         }
 
         return [];
@@ -73,7 +72,7 @@ $(function () {
         return price.toLocaleString('en-US') + ' ₸';
     }
 
-    // Calculate subtotal
+   
     function calculateSubtotal(items) {
         let total = 0;
 
@@ -84,20 +83,20 @@ $(function () {
         return total;
     }
 
-    // Calculate 10% service charge
+    
     function calculateServiceCharge(items) {
         return Math.round(
             calculateSubtotal(items) * SERVICE_RATE
         );
     }
 
-    // Calculate final total including service charge
+
     function calculateFinalTotal(items) {
         return calculateSubtotal(items) +
             calculateServiceCharge(items);
     }
 
-    // Create price breakdown dynamically
+    
     function createPriceBreakdown() {
         if ($('#preorder-subtotal').length > 0) {
             return;
@@ -131,13 +130,12 @@ $(function () {
             .text('0 ₸')
             .appendTo($serviceRow);
 
-        // Insert new rows before the existing total
+
         $preorderTotal
             .closest('p')
             .before($subtotalRow, $serviceRow);
     }
 
-    // Display pre-order using jQuery
     function displayPreorder() {
         $preorderItems.empty();
 
@@ -171,7 +169,7 @@ $(function () {
             });
         }
 
-        // Update all three prices
+       
         $('#preorder-subtotal').text(
             formatPrice(calculateSubtotal(cart))
         );
@@ -185,7 +183,7 @@ $(function () {
         );
     }
 
-    // Show validation error
+    
     function showError($input, message) {
         $input
             .addClass('is-invalid')
@@ -212,7 +210,7 @@ $(function () {
             .slideDown(180);
     }
 
-    // Clear validation error
+    
     function clearError($input) {
         $input
             .removeClass('is-invalid')
@@ -225,7 +223,7 @@ $(function () {
             .slideUp(150);
     }
 
-    // Get today's date
+
     function getToday() {
         const now = new Date();
 
@@ -235,13 +233,13 @@ $(function () {
             String(now.getDate()).padStart(2, '0');
     }
 
-    // Validate individual field
+    
     function validationMessage(id) {
         const value = String(
             $('#' + id).val() || ''
         ).trim();
 
-        // Name validation
+        
         if (id === 'name') {
             return (
                 value.length >= 2 &&
@@ -250,7 +248,7 @@ $(function () {
                 'Please enter a name (2–80 characters).';
         }
 
-        // Phone validation
+        
         if (id === 'phone') {
             const digits = value.replace(/\D/g, '');
 
@@ -265,7 +263,7 @@ $(function () {
                 'Please enter a valid phone number.';
         }
 
-        // Email validation
+     
         if (id === 'email') {
             const emailPattern =
                 /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -274,7 +272,7 @@ $(function () {
                 'Please enter a valid email address.';
         }
 
-        // Date validation
+      
         if (id === 'date') {
             if (!value) {
                 return 'Please select a date.';
@@ -287,7 +285,6 @@ $(function () {
             return '';
         }
 
-        // Time validation
         if (id === 'time') {
             if (!value) {
                 return 'Please select a time.';
@@ -319,7 +316,7 @@ $(function () {
             return '';
         }
 
-        // Guests validation
+        
         if (id === 'guests') {
             const guests = Number(value);
 
@@ -332,7 +329,7 @@ $(function () {
                 'Please enter between 1 and 20 guests.';
         }
 
-        // Occasion validation
+        
         if (id === 'occasion') {
             const allowed = [
                 'normal',
@@ -345,7 +342,7 @@ $(function () {
                 'Please select an occasion.';
         }
 
-        // Special requests validation
+    
         if (id === 'message') {
             return value.length <= 500 ? '' :
                 'Please use at most 500 characters.';
@@ -354,7 +351,7 @@ $(function () {
         return '';
     }
 
-    // Validate whole form
+    
     function validateForm() {
         let $firstInvalid = null;
 
@@ -392,14 +389,14 @@ $(function () {
         return true;
     }
 
-    // Generate demo reference
+    
     function generateReference() {
         return 'FOREST-' + Math.floor(
             100000 + Math.random() * 900000
         );
     }
 
-    // Submit reservation
+    
     function submitReservation() {
         $result
             .stop(true, true)
@@ -477,7 +474,7 @@ $(function () {
             )
             .appendTo($confirmation);
 
-        // Confirmation includes the service charge
+     
         $('<p>')
             .text(
                 'Subtotal: ' +
@@ -516,7 +513,7 @@ $(function () {
             )
             .appendTo($confirmation);
 
-        // Display confirmation using jQuery effects
+        
         $result
             .removeClass('alert-danger')
             .addClass('alert alert-success')
@@ -526,7 +523,7 @@ $(function () {
                 $(this).attr('role', 'status');
             });
 
-        // Reset form
+        
         $form.trigger('reset');
 
         $form
@@ -540,7 +537,7 @@ $(function () {
             .text('');
     }
 
-    // Clear errors after user corrects the field
+    
     $form.on(
         'input change',
         'input, select, textarea',
@@ -558,22 +555,22 @@ $(function () {
         }
     );
 
-    // Prevent normal browser form submission
+    
     $form.on('submit', function (event) {
         event.preventDefault();
         submitReservation();
     });
 
-    // Handle Send Request button
+    
     $submitButton.on('click', function (event) {
         event.preventDefault();
         submitReservation();
     });
 
-    // Set minimum reservation date
+    
     $('#date').attr('min', getToday());
 
-    // Initialize the page
+    
     createPriceBreakdown();
     displayPreorder();
 });

@@ -6,9 +6,20 @@ $(function () {
     window.forestMenuInitialized = true;
 
     const STORAGE_KEY = 'forestPreorder';
-    const PHOTO_FILES = {};
+    const PHOTO_FOLDER = 'images/food/';
     const menuData = [];
     let cart = [];
+
+    function photoPath(name) {
+        const filename = name
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-|-$/g, '');
+
+        return PHOTO_FOLDER + filename + '.jpg';
+    }
 
     function formatPrice(value) {
         return Number(value).toLocaleString('en-US') + ' ₸';
@@ -28,37 +39,26 @@ $(function () {
         });
 
         const $placeholder = $('<div>', {
-            class: 'd-flex flex-column align-items-center justify-content-center text-muted'
+            class: 'd-flex align-items-center justify-content-center text-muted small'
+        }).text('Photo coming soon');
+
+        const $image = $('<img>', {
+            alt: dish.name,
+            loading: 'lazy',
+            class: 'w-100 h-100 object-fit-cover'
         });
 
-        $('<span>', {
-            class: 'fs-1'
-        }).text('🍽️').appendTo($placeholder);
+        $image.on('load', function () {
+            $placeholder.hide();
+        });
 
-        $('<span>', {
-            class: 'small'
-        }).text('Photo coming soon').appendTo($placeholder);
+        $image.on('error', function () {
+            $image.hide();
+            $placeholder.show();
+        });
 
-        $photo.append($placeholder);
-
-        if (PHOTO_FILES[dish.name]) {
-            const $image = $('<img>', {
-                src: PHOTO_FILES[dish.name],
-                alt: dish.name,
-                loading: 'lazy',
-                class: 'w-100 h-100 object-fit-cover'
-            }).hide();
-
-            $image.on('load', function () {
-                $placeholder.hide();
-                $image.show();
-            }).on('error', function () {
-                $image.remove();
-                $placeholder.show();
-            });
-
-            $photo.append($image);
-        }
+        $photo.append($placeholder, $image);
+        $image.attr('src', photoPath(dish.name));
 
         const $body = $('<div>', {
             class: 'card-body d-flex flex-column'
@@ -485,72 +485,70 @@ $(function () {
             .attr('aria-disabled', String(!cart.length));
     }
 
+    function buildPriceSort() {
+        const $select = $(`
+            <select class="form-select">
+                <option value="default">Default order</option>
+                <option value="asc">Price: Low to High</option>
+                <option value="desc">Price: High to Low</option>
+            </select>
+        `);
 
-function buildPriceSort() {
-    const $select = $(`
-        <select class="form-select">
-            <option value="default">Default order</option>
-            <option value="asc">Price: Low to High</option>
-            <option value="desc">Price: High to Low</option>
-        </select>
-    `);
+        const $box = $('<div>', {
+            class: 'col-12 col-md-6 mb-4'
+        }).append($select);
 
-    const $box = $('<div>', {
-        class: 'col-12 col-md-6 mb-4'
-    }).append($select);
+        const $row = $('<div>', {
+            class: 'row justify-content-center'
+        }).append($box);
 
-    const $row = $('<div>', {
-        class: 'row justify-content-center'
-    }).append($box);
-
-    $('#menu-search').closest('.row').after($row);
-
-    $('.dish-grid').each(function () {
-        $(this).children('.dish-column').each(function (index) {
-            $(this).data('originalIndex', index);
-        });
-    });
-
-    $select.on('change', function () {
-        const order = $(this).val();
+        $('#menu-search').closest('.row').after($row);
 
         $('.dish-grid').each(function () {
-            const $grid = $(this);
-            const cards = $grid.children('.dish-column').get();
-
-            cards.sort(function (a, b) {
-                if (order === 'default') {
-                    return $(a).data('originalIndex') -
-                           $(b).data('originalIndex');
-                }
-
-                const priceA = Number(
-                    $(a).find('.add-to-cart').attr('data-price')
-                );
-
-                const priceB = Number(
-                    $(b).find('.add-to-cart').attr('data-price')
-                );
-
-                return order === 'asc'
-                    ? priceA - priceB
-                    : priceB - priceA;
-            });
-
-            cards.forEach(function (card) {
-                $grid.append(card);
+            $(this).children('.dish-column').each(function (index) {
+                $(this).data('originalIndex', index);
             });
         });
-    });
-}
 
+        $select.on('change', function () {
+            const order = $(this).val();
+
+            $('.dish-grid').each(function () {
+                const $grid = $(this);
+                const cards = $grid.children('.dish-column').get();
+
+                cards.sort(function (a, b) {
+                    if (order === 'default') {
+                        return $(a).data('originalIndex') -
+                               $(b).data('originalIndex');
+                    }
+
+                    const priceA = Number(
+                        $(a).find('.add-to-cart').attr('data-price')
+                    );
+
+                    const priceB = Number(
+                        $(b).find('.add-to-cart').attr('data-price')
+                    );
+
+                    return order === 'asc'
+                        ? priceA - priceB
+                        : priceB - priceA;
+                });
+
+                cards.forEach(function (card) {
+                    $grid.append(card);
+                });
+            });
+        });
+    }
 
     buildMenu();
-buildSearch();
-buildPriceSort();
-buildCart();
-loadCart();
-renderCart();
+    buildSearch();
+    buildPriceSort();
+    buildCart();
+    loadCart();
+    renderCart();
 
     $('.menu-section').on('click', '.quantity-change', function () {
         const $card = $(this).closest('.card');
