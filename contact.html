@@ -17,429 +17,569 @@
 
 <body class="contact-page">
 
-<!-- NAVBAR -->
-<header>
-    <nav class="navbar forest-navbar">
-        <div class="container d-flex flex-wrap align-items-center justify-content-between gap-3">
-            <a class="navbar-brand" href="index.html">The Forest</a>
 
-            <div class="navbar-nav d-flex flex-row flex-wrap gap-3">
-                <a class="nav-link" href="index.html">Home</a>
-                <a class="nav-link" href="menu.html">Menu</a>
-                <a class="nav-link" href="gallery.html">Gallery</a>
-                <a class="nav-link" href="contact.html">Contact</a>
+
+<header class="site-header sticky-top">
+    <nav class="navbar navbar-expand-lg forest-navbar"
+         aria-label="Main navigation">
+
+        <div class="container">
+
+            <a class="navbar-brand forest-brand" href="index.html">
+                
+<svg class="forest-logo"
+     width="37" height="38"
+     viewBox="0 0 44 44"
+     fill="none"
+     aria-hidden="true">
+    <path d="M12 3 4 17h4L2 29h8v10h5V29h8l-7-12h4L12 3Z"
+          fill="currentColor"/>
+    <path d="m29 7-7 12h4l-6 10h6v10h5V29h7l-6-10h4L29 7Z"
+          fill="currentColor" opacity=".85"/>
+</svg>
+
+                <span>The Forest</span>
+            </a>
+
+            <div class="site-header-actions order-lg-3">
+
+                <a href="menu.html#forest-cart"
+                   class="btn header-cart"
+                   aria-label="Open shopping cart">
+
+                    
+<svg width="19" height="19"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="1.8"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     aria-hidden="true">
+    <circle cx="9" cy="21" r="1"/>
+    <circle cx="20" cy="21" r="1"/>
+    <path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6H20a2 2 0 0 0 2-1.6l1-7.4H6"/>
+</svg>
+<span>Cart</span>
+
+
+                    <span id="cart-count" class="cart-count">
+                        0
+                    </span>
+                </a>
+
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#forest-navigation"
+                        aria-controls="forest-navigation"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
             </div>
+
+            <div class="collapse navbar-collapse order-lg-2"
+                 id="forest-navigation">
+
+                <div class="navbar-nav ms-lg-auto">
+
+                    <a class="nav-link" href="index.html">
+                        Home
+                    </a>
+
+                    <a class="nav-link" href="menu.html">
+                        Menu
+                    </a>
+
+                    <a class="nav-link" href="gallery.html">
+                        Gallery
+                    </a>
+
+                    <a class="nav-link" href="contact.html">
+                        Contact
+                    </a>
+
+                </div>
+            </div>
+
         </div>
     </nav>
 </header>
 
-<main>
+
+
+<main class="contact-main">
 
     <!-- CONTACT HERO -->
-    <section class="contact-hero d-flex align-items-center py-5 text-white">
+    <section class="contact-hero contact-hero-redesign">
         <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-8">
-                    <p class="small text-uppercase text-white-50 mb-3">
-                        Contact Us
-                    </p>
 
-                    <h1 class="display-2 fw-normal text-white mb-4">
-                        Visit The Forest
-                    </h1>
+            <p class="contact-hero-label">
+                RESERVATIONS & PRE-ORDERS
+            </p>
 
-                    <p class="lead text-white">
-                        Plan your visit, contact our restaurant
-                        or send us a reservation request.
-                    </p>
-                </div>
-            </div>
+            <h1>Reserve Your Moment</h1>
+
+            <p class="contact-hero-description">
+                Good food, warm conversations, and a place to unwind.
+                <br>
+                Let us prepare something special for your visit.
+            </p>
+
         </div>
     </section>
 
-    <!-- CONTACT INFORMATION -->
-    <section class="contact-info py-5">
+    <!-- RESERVATION CONTENT -->
+    <section class="reservation-section contact-reservation-layout"
+             id="reservation">
+
         <div class="container">
-            <div class="row align-items-center g-5">
 
-                <div class="col-12 col-md-6">
-                    <p class="section-name small text-uppercase fw-bold mb-3">
-                        FIND US
-                    </p>
+            <div class="row g-4 align-items-start">
 
-                    <h2 class="display-6 mb-4">
-                        Visit The Forest
-                    </h2>
+                <!-- LEFT: RESERVATION FORM -->
+                <div class="col-12 col-lg-7">
 
-                    <!-- ADDRESS -->
-                    <div class="contact-item mb-4">
-                        <h3 class="fs-4 mb-2">Address</h3>
-                        <p class="mb-0">
-                            Улица Горная Ульбинка, 157
-                            <br>
-                            Ust-Kamenogorsk, Kazakhstan
-                        </p>
-                    </div>
+                    <div class="contact-panel reservation-panel">
 
-                    <!-- PHONE -->
-                    <div class="contact-item mb-4">
-                        <h3 class="fs-4 mb-2">Phone</h3>
-                        <p class="mb-0">
-                            <a href="tel:+77713354393">
-                                +7 771 335 43 93
-                            </a>
-                        </p>
-                    </div>
-
-                    <!-- INSTAGRAM -->
-                    <div class="contact-item mb-4">
-                        <h3 class="fs-4 mb-2">Instagram</h3>
-                        <p class="mb-0">
-                            <a
-                                href="https://www.instagram.com/theforest.kz/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                @theforest.kz
-                            </a>
-                        </p>
-                    </div>
-
-                    <!-- OPENING HOURS -->
-                    <div class="contact-item mb-4">
-                        <h3 class="fs-4 mb-2">Opening Hours</h3>
-                        <p class="mb-0">
-                            Daily 11:00–23:00
-                        </p>
-                    </div>
-                </div>
-
-                <!-- CONTACT IMAGE -->
-                <div class="col-12 col-md-6">
-                    <figure class="mb-0">
-                        <img
-                            src="images/interior1.png"
-                            alt="Entrance of The Forest restaurant"
-                            class="img-fluid w-100 rounded-3 shadow-sm contact-image"
-                        >
-
-                        <figcaption class="small text-muted mt-2">
-                            The Forest restaurant
-                        </figcaption>
-                    </figure>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- RESERVATION -->
-    <section class="reservation-section py-5" id="reservation">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-10 col-lg-8">
-
-                    <!-- RESERVATION HEADING -->
-                    <div class="reservation-heading text-center mb-5">
-                        <span class="reservation-eyebrow">
-                            THE FOREST EXPERIENCE
-                        </span>
-
-                        <div class="reservation-decoration">
-                            <span></span>
-                            <span class="reservation-diamond">◆</span>
-                            <span></span>
-                        </div>
-
-                        <h2 class="reservation-title">
-                            Reserve Your Moment
-                        </h2>
-
-                        <p class="reservation-description">
-                            Good food, warm conversations,
-                            and a place to unwind.
-                            Let us prepare something special for your visit.
-                        </p>
-
-                        <span class="reservation-note">
-                            RESERVATIONS &amp; PRE-ORDERS
-                        </span>
-                    </div>
-
-                    <!-- RESERVATION FORM -->
-                    <!-- Demonstration only: no backend is connected -->
-                    <form
-                        id="reservation-form"
-                        class="reservation-form border rounded-3 shadow-sm p-4 p-md-5"
-                        novalidate
-                    >
-
-                        <!-- NAME -->
-                        <div class="mb-3">
-                            <label class="form-label" for="name">
-                                Name
-                            </label>
-
-                            <input
-                                class="form-control"
-                                id="name"
-                                name="name"
-                                type="text"
-                                placeholder="Your name"
-                                required
-                            >
-                        </div>
-
-                        <!-- PHONE -->
-                        <div class="mb-3">
-                            <label class="form-label" for="phone">
-                                Phone
-                            </label>
-
-                            <input
-                                class="form-control"
-                                id="phone"
-                                name="phone"
-                                type="tel"
-                                placeholder="+7..."
-                                required
-                            >
-                        </div>
-
-                        <!-- Email field is created by js/contact.js using jQuery -->
-
-                        <!-- DATE AND TIME -->
-                        <div class="row g-3">
-
-                            <div class="col-12 col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label" for="date">
-                                        Date
-                                    </label>
-
-                                    <input
-                                        class="form-control"
-                                        id="date"
-                                        name="date"
-                                        type="date"
-                                        required
-                                    >
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label" for="time">
-                                        Preferred Time
-                                    </label>
-
-                                    <input
-                                        class="form-control"
-                                        id="time"
-                                        name="time"
-                                        type="time"
-                                        required
-                                    >
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!-- GUESTS AND OCCASION -->
-                        <div class="row g-3">
-
-                            <div class="col-12 col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label" for="guests">
-                                        Guests
-                                    </label>
-
-                                    <input
-                                        class="form-control"
-                                        id="guests"
-                                        name="guests"
-                                        type="number"
-                                        min="1"
-                                        max="20"
-                                        required
-                                    >
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label" for="occasion">
-                                        Occasion
-                                    </label>
-
-                                    <select
-                                        class="form-select"
-                                        id="occasion"
-                                        name="occasion"
-                                    >
-                                        <option value="normal">
-                                            Regular Visit
-                                        </option>
-
-                                        <option value="birthday">
-                                            Birthday
-                                        </option>
-
-                                        <option value="corporate">
-                                            Corporate Event
-                                        </option>
-
-                                        <option value="private">
-                                            Private Event
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!-- SPECIAL REQUESTS -->
-                        <div class="mb-4">
-                            <label class="form-label" for="message">
-                                Special Requests
-                            </label>
-
-                            <textarea
-                                class="form-control"
-                                id="message"
-                                name="message"
-                                rows="5"
-                                placeholder="Tell us about your request"
-                            ></textarea>
-                        </div>
-
-                        <!-- PRE-ORDER SUMMARY -->
-                        <div
-                            id="preorder-summary"
-                            class="preorder-summary p-3 rounded-3 mb-4"
-                            aria-live="polite"
-                        >
-                            <h3 class="fs-4 mb-3">
-                                Your Pre-order
-                            </h3>
-
-                            <div id="preorder-items">
-                                <p class="text-muted">
-                                    No dishes selected. You can still reserve a table.
-                                </p>
-                            </div>
-
-                            <p class="mb-2">
-                                <strong>
-                                    Pre-order total:
-                                    <span id="preorder-total">0 ₸</span>
-                                </strong>
+                        <div class="reservation-panel-heading">
+                            <p class="contact-eyebrow">
+                                ✦ &nbsp; BOOK A TABLE &nbsp; ✦
                             </p>
 
-                            <a class="small" href="menu.html">
-                                Edit your pre-order
-                            </a>
+                            <h2>Make a Reservation</h2>
+
+                            <p>
+                                Plan your visit to The Forest and
+                                let us take care of the details.
+                            </p>
                         </div>
 
-                        <!-- SEND REQUEST -->
-                        <button
-                            class="btn btn-forest btn-lg"
-                            id="reservation-submit"
-                            type="button"
-                        >
-                            Send Request
-                        </button>
+                        <form id="reservation-form"
+                              class="contact-reservation-form"
+                              novalidate>
 
-                        <!-- VALIDATION AND CONFIRMATION -->
-                        <div
-                            class="reservation-result mt-3"
-                            id="reservation-result"
-                            aria-live="polite"
-                        ></div>
+                            <!-- NAME -->
+                            <div class="field-wrap mb-3">
+                                <label for="name" class="form-label">
+                                    Name <span class="required-star">*</span>
+                                </label>
 
-                    </form>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    class="form-control"
+                                    placeholder="Your name"
+                                    autocomplete="name"
+                                    maxlength="80"
+                                    required>
+                            </div>
 
+                            <!-- PHONE AND EMAIL -->
+                            <div class="row g-3 mb-3">
+
+                                <div class="col-12 col-md-6">
+                                    <div class="field-wrap">
+                                        <label for="phone" class="form-label">
+                                            Phone <span class="required-star">*</span>
+                                        </label>
+
+                                        <input
+                                            type="tel"
+                                            id="phone"
+                                            name="phone"
+                                            class="form-control"
+                                            placeholder="+7 777 123 45 67"
+                                            autocomplete="tel"
+                                            required>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <div class="field-wrap">
+                                        <label for="email" class="form-label">
+                                            Email <span class="required-star">*</span>
+                                        </label>
+
+                                        <input
+                                            type="email"
+                                            id="email"
+                                            name="email"
+                                            class="form-control"
+                                            placeholder="example@gmail.com"
+                                            autocomplete="email"
+                                            required>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- DATE AND TIME -->
+                            <div class="row g-3 mb-3">
+
+                                <div class="col-12 col-md-6">
+                                    <div class="field-wrap">
+                                        <label for="date" class="form-label">
+                                            Date <span class="required-star">*</span>
+                                        </label>
+
+                                        <input
+                                            type="date"
+                                            id="date"
+                                            name="date"
+                                            class="form-control"
+                                            required>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <div class="field-wrap">
+                                        <label for="time" class="form-label">
+                                            Preferred Time
+                                            <span class="required-star">*</span>
+                                        </label>
+
+                                        <input
+                                            type="time"
+                                            id="time"
+                                            name="time"
+                                            class="form-control"
+                                            min="11:00"
+                                            max="23:00"
+                                            required>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- GUESTS AND OCCASION -->
+                            <div class="row g-3 mb-3">
+
+                                <div class="col-12 col-md-6">
+                                    <div class="field-wrap">
+                                        <label for="guests" class="form-label">
+                                            Guests <span class="required-star">*</span>
+                                        </label>
+
+                                        <select
+                                            id="guests"
+                                            name="guests"
+                                            class="form-select"
+                                            required>
+                                            <option value="1">1 guest</option>
+                                            <option value="2" selected>2 guests</option>
+                                            <option value="3">3 guests</option>
+                                            <option value="4">4 guests</option>
+                                            <option value="5">5 guests</option>
+                                            <option value="6">6 guests</option>
+                                            <option value="7">7 guests</option>
+                                            <option value="8">8 guests</option>
+                                            <option value="9">9 guests</option>
+                                            <option value="10">10 guests</option>
+                                            <option value="11">11 guests</option>
+                                            <option value="12">12 guests</option>
+                                            <option value="13">13 guests</option>
+                                            <option value="14">14 guests</option>
+                                            <option value="15">15 guests</option>
+                                            <option value="16">16 guests</option>
+                                            <option value="17">17 guests</option>
+                                            <option value="18">18 guests</option>
+                                            <option value="19">19 guests</option>
+                                            <option value="20">20 guests</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <div class="field-wrap">
+                                        <label for="occasion" class="form-label">
+                                            Occasion
+                                        </label>
+
+                                        <select
+                                            id="occasion"
+                                            name="occasion"
+                                            class="form-select">
+                                            <option value="normal">
+                                                Regular Visit
+                                            </option>
+                                            <option value="birthday">
+                                                Birthday
+                                            </option>
+                                            <option value="corporate">
+                                                Corporate Event
+                                            </option>
+                                            <option value="private">
+                                                Private Event
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- SPECIAL REQUESTS -->
+                            <div class="field-wrap mb-3">
+                                <label for="message" class="form-label">
+                                    Special Requests
+                                </label>
+
+                                
+<textarea
+    id="message"
+    name="message"
+    class="form-control"
+    rows="3"
+    maxlength="300"
+    placeholder="Dietary preferences, seating, celebrations, etc."
+    oninput="document.getElementById('message-count').textContent = this.value.length"></textarea>
+
+<div class="message-counter">
+    <span id="message-count">0</span>/300
+</div>
+
+                            </div>
+
+                            
+                            <button
+                                type="submit"
+                                id="reservation-submit"
+                                class="btn btn-forest reservation-submit-btn">
+                                <span aria-hidden="true">▣</span>
+                                Reserve a Table
+                            </button>
+
+                            <div
+                                id="reservation-result"
+                                class="reservation-result mt-3"
+                                role="status"
+                                aria-live="polite">
+                            </div>
+
+                        </form>
+                    </div>
                 </div>
+
+                
+                <div class="col-12 col-lg-5">
+
+                    <div class="contact-sidebar">
+
+                    
+                        <section
+                            id="preorder-summary"
+                            class="contact-panel preorder-panel"
+                            aria-labelledby="preorder-heading">
+
+                            <div class="sidebar-heading">
+                                <div class="sidebar-title">
+                                    <svg width="25" height="25"
+                                         viewBox="0 0 24 24"
+                                         fill="none"
+                                         stroke="currentColor"
+                                         stroke-width="1.8"
+                                         stroke-linecap="round"
+                                         stroke-linejoin="round"
+                                         aria-hidden="true">
+                                        <path d="M3 10h18l-2 10H5L3 10Z"/>
+                                        <path d="m8 10 4-7 4 7"/>
+                                        <path d="M9 14v3M15 14v3"/>
+                                    </svg>
+
+                                    <h2 id="preorder-heading">
+                                        Your Pre-order
+                                    </h2>
+                                </div>
+
+                                <a href="menu.html" class="edit-order-link">
+                                    Edit Order
+                                </a>
+                            </div>
+
+                            <p class="sidebar-description">
+                                Have your favorites ready when you arrive.
+                            </p>
+
+                            <div id="preorder-items"
+                                 class="preorder-items"
+                                 aria-live="polite">
+                            </div>
+
+                            <div class="preorder-totals">
+                                <div class="preorder-price-line">
+                                    <span>Subtotal</span>
+                                    <strong id="preorder-subtotal">0 ₸</strong>
+                                </div>
+
+                                <div class="preorder-price-line">
+                                    <span>Service (10%)</span>
+                                    <strong id="preorder-service">0 ₸</strong>
+                                </div>
+
+                                <p class="preorder-grand-total">
+                                    <span>Pre-order Total</span>
+                                    <strong id="preorder-total">0 ₸</strong>
+                                </p>
+                            </div>
+                        </section>
+
+                        <section
+                            class="contact-panel contact-details-panel"
+                            aria-labelledby="contact-details-heading">
+
+                            <div class="sidebar-heading">
+                                <div class="sidebar-title">
+                                    <svg width="26" height="26"
+                                         viewBox="0 0 24 24"
+                                         fill="none"
+                                         stroke="currentColor"
+                                         stroke-width="1.8"
+                                         stroke-linecap="round"
+                                         stroke-linejoin="round"
+                                         aria-hidden="true">
+                                        <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/>
+                                        <circle cx="12" cy="10" r="2.5"/>
+                                    </svg>
+
+                                    <h2 id="contact-details-heading">
+                                        Contact & Information
+                                    </h2>
+                                </div>
+                            </div>
+
+                            <div class="row g-3 mt-1">
+                                <div class="col-12 col-sm-6">
+
+                                    <div class="detail-item">
+                                        <span class="detail-label">Address</span>
+                                        <p>
+                                            Горная Ульбинка, 157
+                                            <br>
+                                            Ust-Kamenogorsk
+                                        </p>
+                                    </div>
+
+                                    <div class="detail-item">
+                                        <span class="detail-label">Phone</span>
+                                        <a href="tel:+77713354393">
+                                            +7 771 335 43 93
+                                        </a>
+                                    </div>
+
+                                    <div class="detail-item">
+                                        <span class="detail-label">Instagram</span>
+                                        <a href="https://www.instagram.com/theforest.kz/"
+                                           target="_blank"
+                                           rel="noopener noreferrer">
+                                            @theforest.kz
+                                        </a>
+                                    </div>
+
+                                    <div class="detail-item">
+                                        <span class="detail-label">
+                                            Opening Hours
+                                        </span>
+                                        <p>Daily 11:00 – 23:00</p>
+                                    </div>
+
+                                </div>
+
+                                <!-- MAP -->
+                                <div class="col-12 col-sm-6">
+                                    
+<div class="contact-map-card">
+    <iframe
+        title="The Forest Restaurant Location"
+        src="https://maps.google.com/maps?q=49.9522562%2C82.9884186&z=17&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        style="border: 0;"
+        allowfullscreen>
+    </iframe>
+
+    <a
+        href="https://maps.app.goo.gl/TB9Y5js4x9Gb3JQK6"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn map-link">
+        View on Map ↗
+    </a>
+</div>
+
+                                </div>
+                            </div>
+
+                        </section>
+
+                    </div>
+                </div>
+
             </div>
+
+            <!-- INFORMATION BAR -->
+            <div class="reservation-disclaimer">
+
+                <span class="confirmation-symbol"
+                      aria-hidden="true">✓</span>
+
+                <div>
+                    <strong>Reservation & Pre-order</strong>
+                    <p>
+                        Complete the form to preview your reservation.
+                        This website is a demonstration; no real booking
+                        is submitted.
+                    </p>
+                </div>
+
+            </div>
+
         </div>
     </section>
-
 </main>
 
-<!-- FOOTER -->
-<footer class="py-5">
-    <div class="container">
-        <div class="row g-4 text-center text-md-start">
+<footer class="forest-footer">
+    <div class="container footer-inner">
 
-            <div class="col-12 col-md-4">
-                <h2 class="fs-3 text-white">
-                    The Forest
-                </h2>
-
-                <p>
-                    Good food. Great company.
-                    <br>
-                    A place to belong.
-                </p>
-            </div>
-
-            <div class="col-12 col-md-4">
-                <h3 class="fs-6 text-uppercase text-white">
-                    Navigation
-                </h3>
-
-                <ul class="list-unstyled">
-                    <li class="mb-2">
-                        <a href="index.html">Home</a>
-                    </li>
-
-                    <li class="mb-2">
-                        <a href="menu.html">Menu</a>
-                    </li>
-
-                    <li class="mb-2">
-                        <a href="gallery.html">Gallery</a>
-                    </li>
-
-                    <li class="mb-2">
-                        <a href="contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="col-12 col-md-4">
-                <h3 class="fs-6 text-uppercase text-white">
-                    Contact
-                </h3>
-
-                <p>
-                    <a href="tel:+77713354393">
-                        +7 771 335 43 93
-                    </a>
-                </p>
-
-                <p>
-                    Ust-Kamenogorsk, Kazakhstan
-                </p>
-            </div>
-
+        <div class="footer-brand">
+            <svg class="forest-logo" width="25" height="25" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+                <path d="M12 3 4 17h4L2 29h8v10h5V29h8l-7-12h4L12 3Z" fill="currentColor"/>
+                <path d="m29 7-7 12h4l-6 10h6v10h5V29h7l-6-10h4L29 7Z" fill="currentColor" opacity=".85"/>
+            </svg>
+            <span>The Forest</span>
         </div>
 
-        <hr class="my-4">
-
-        <p class="text-center small mb-0">
-            © 2026 The Forest Restaurant
+        <p class="footer-caption">
+            Good food. Great company. A place to belong.
         </p>
+
+        <div class="footer-meta">
+            <span>Ust-Kamenogorsk, Kazakhstan</span>
+            <a href="tel:+77713354393">+7 771 335 43 93</a>
+        </div>
+
+        <p class="footer-copyright">
+            &copy; 2026 The Forest Restaurant
+        </p>
+
     </div>
 </footer>
 
-<!-- jQuery 3.7.1 -->
+
+
+<!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-<!-- Contact form and pre-order -->
-<script src="js/contact.js"></script>
+<!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
+<!-- Shared cart and navigation -->
+<script src="js/site.js"></script>
 
-
+<!-- Contact page functionality -->
+<script src="js/contact.js?v=2"></script>
 </body>
 </html>
